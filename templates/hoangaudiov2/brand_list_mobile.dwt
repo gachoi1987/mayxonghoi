@@ -1,0 +1,31 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/brand.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header_mobile.lbi'}
+<section>
+	{include file='library/ur_here.lbi'}
+	{$render.before_main}
+	<!-- TemplateBeginEditable name="Top" --><!-- TemplateEndEditable -->
+	<div class="brand_list box">
+		<ul class="cate normal">
+			{foreach from=$brand_list item=brand_data name=brand_list_foreach}
+			<li>
+				{if $brand_data.brand_logo}
+				<a href="{$brand_data.url}" class="logo"><img src="{$option.cdn_path}brandlogo/{$brand_data.brand_logo}" alt="{$brand_data.brand_name}({$brand_data.goods_num})"/></a>
+                <a href="{$brand_data.url}" class="logo"><h3>{$brand_data.brand_name}</h3></a>
+				{else}
+				<a href="{$brand_data.url}" class="logo"><h3>{$brand_data.brand_name}</h3></a>
+				{/if}
+			</li>
+			{/foreach}
+		</ul>
+	</div>
+	<!-- TemplateBeginEditable name="Bottom" --><!-- TemplateEndEditable -->
+	{$render.after_col_sub}
+</section>
+
+{include file='library/page_footer_mobile.lbi'}
+{insert_js name='brand.Mobile.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global_mobile.js,js/init_mobile.js'}
+ </body>
+ </html>

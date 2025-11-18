@@ -1,0 +1,131 @@
+{include file='library/html_header.lbi'}
+{insert_css files="owl-carousel/owl.carousel.css,css/style.css,css/magiczoomplus.css,css/goods.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section>
+    {include file='library/ur_here.lbi'}
+    {$render.before_main}
+    <!-- TemplateBeginEditable name="Top" -->
+<!-- TemplateEndEditable -->
+    {include file='library/goods_detail.lbi'}
+    {$render.before_goods_info}
+    <div class="col_main_lg">
+<!--
+        <div id="quick_order">
+            <div class="requestcall">
+                <form name="quickorder">
+                    <div class="input_price">
+                        <span>Giá: <strong>{$goods.final_price|formart_number}₫</strong></span>
+                        <span>Số lượng: <input style="width: 50px" type="number" value="1" min="1" max="10" name="soluong"></span>
+                    </div>
+                    <div class="group_input">
+                        <input type="text" name="linkman" placeholder="Họ tên (bắt buộc)" required>
+                        <input type="text" name="tel" placeholder="Số điện thoại (bắt buộc)" required>
+                    </div>
+                    <div class="group_input">
+                         <select name="province" required id="selProvinces" onchange="regionChanged(this, 2, 'selCities')">
+                            <option value="0">{$lang.please_select} Tỉnh/TP</option>
+                            {foreach from=$province_list item=province}
+                            <option value="{$province.region_id}">{$province.region_name}</option>
+                            {/foreach}
+                        </select>
+                        <select name="city" id="selCities" required>
+                            <option value="0">{$lang.please_select} Quận/Huyện</option>
+                        </select>
+                    </div>
+                    <div class="address">
+                        <input type="text" name="address" required placeholder="Địa chỉ giao hàng">
+                        <input type="text" name="notice" placeholder="Yêu cầu khác">
+                    </div>
+                    <input type="hidden" name="goods_id" value="{$goods.goods_id}">
+                    <input type="hidden" name="final_price" value="{$goods.final_price}">
+                    <input type="hidden" name="online_price" value="{$goods.online_price}">
+
+                </form>
+            </div>
+        </div>
+-->
+        {if $goods.youtube}
+        <div id="youtube">
+            <h2 class="title_realphoto">Video review giới thiệu {$goods.goods_name}</h2>
+           <iframe width="100%" height="400" src="https://www.youtube.com/embed/{$goods.youtube}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        {/if}
+        {include file='library/goods_gallery.lbi'}
+        {if $goods.goods_desc}
+        <article id="description">
+            <div class="article_content">{$goods.goods_desc}</div>
+<!--
+            <div class="view-more hidden">
+            <p id="btn-viewmore"><span id="view1">Đọc thêm </span><span id="view2" class="hidden">Thu gọn </span></p>
+            </div>
+-->
+        </article>
+        {/if}
+        {include file='library/goods_related.lbi'}
+    </div>
+    <div class="col_sub_lg">
+       {if $properties}
+        <div class="tableparameter">
+            <h2>Thông số kỹ thuật</h2>
+            <ul class="parameter">
+               {foreach from=$properties item=property_group key=key}
+               {foreach from=$property_group item=property}
+               <li><span>{$property.name|escape:html}:</span><div>{$property.value}</div></li>
+               {/foreach}
+               {/foreach}
+            </ul>
+        </div>
+        {/if}
+        <!-- TemplateBeginEditable name="Right" -->
+<!-- #BeginLibraryItem "/library/goods_article.lbi" -->
+{if $goods_article_list}
+<div class="newslist">
+        <h4>{$lang.article_releate}</h4>
+        <ul>
+            {foreach from=$goods_article_list item=article name=goods_article_list}
+            <li>
+                <a href="{$article.url}" title="{$article.title|escape:html}">
+                    <img src="{$base_path}{$article.article_sthumb}">
+                    <h3>{$article.title|escape:html}</h3>
+                    <span>Lượt xem: {$article.viewed}</span>
+                </a>
+            </li>
+            {/foreach}
+    </ul>
+</div>
+{/if}
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_articles.lbi" -->
+<div class="hotnews_tit">{$articles_cat.name|escape:html} <span class="view_more"><a href="{$articles_cat.url}">Tất cả</a></span></div>
+<ul class="news_sub">
+        {foreach from=$articles item=article_item name=articles}
+        {if $article_item.hide_post eq 0}
+            <li>
+                <a href="{$article_item.url}">
+                    <img width="380" height="215"  src="{$base_path}{$article_item.thumb}">
+                    <h3>{$article_item.title|escape:html}</h3>
+                    {if $smarty.foreach.articles.index eq 0}
+                    <figure>{$article_item.desc|truncate:225:"...":true}</figure>
+                    {/if}
+                </a>
+            </li>
+        {/if}
+        {/foreach}
+</ul>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+    </div>
+    {$render.after_goods_info}
+    <!-- TemplateBeginEditable name="Bottom" -->
+<!-- TemplateEndEditable -->
+    {$render.after_main}
+</section>
+{include file='library/page_footer.lbi'}
+
+{insert_js name='goods.Desktop.min.js' no_minify='' minify='' }
+
+</body>
+</html>

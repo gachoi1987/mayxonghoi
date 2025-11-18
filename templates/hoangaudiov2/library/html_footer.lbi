@@ -1,0 +1,47 @@
+{$render.before_html_footer}
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Ẩn hiện icon go-top
+        $(window).scroll(function(){
+            if( $(window).scrollTop() == 0 ) {
+                $('#back-top').stop(false,true).fadeOut(600);
+            }else{
+                $('#back-top').stop(false,true).fadeIn(600);
+            }
+        });
+        // Cuộn trang lên với scrollTop
+        $('#back-top').click(function(){
+            $('body,html').animate({scrollTop:0},300);
+            return false;
+        })
+    });
+    $.fn.delayKeyup = function(callback, ms){
+            var timer = 0;
+            var el = $(this);
+            $(this).keyup(function(){
+            clearTimeout (timer);
+            timer = setTimeout(function(){
+                callback(el)
+                }, ms);
+            });
+            return $(this);
+        };
+        $('#suggest').delayKeyup(function(el){
+            keywords = el.val();
+            $.post(
+                'ajax/search_suggest.php',
+                {keywords: keywords},
+                function(response){
+                    console.log(response);
+                    var res = $.evalJSON(response);
+                    var show = $('#search-site .search-suggest');
+                    show.css('display','block');
+                    show.html(res.content);
+                },
+                'text'
+            );
+        },1000);
+</script>
+{$render.after_html_footer}
+{$stats_code}
+

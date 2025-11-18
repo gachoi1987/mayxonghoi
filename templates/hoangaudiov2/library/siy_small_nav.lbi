@@ -1,0 +1,7 @@
+{if $nav}
+<div class="nav_top">
+	{foreach from=$nav item='nav' name='nav'}
+		<a href="{$nav.url}" {if $nav.opennew} target="_blank"{/if}><span>{$nav.name}</span></a>
+	{/foreach}
+</div>
+{/if}

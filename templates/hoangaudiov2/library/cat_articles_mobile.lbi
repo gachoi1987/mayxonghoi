@@ -1,0 +1,13 @@
+{if $articles }
+ <h3 class="hometitle">{$articles_cat.name|escape:html}</h3>
+    <ul class="news">
+        {foreach from=$articles item=article name=articles}
+        <li>
+            <a href="{$article.url}">
+                <img src="{$option.cdn1_path}{$article.lthumb}" alt="{$article.title|escape:html}" width="100" height="70">
+                <h3>{$article.title|escape:html}</h3>
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+{/if}

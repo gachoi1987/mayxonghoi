@@ -1,0 +1,8 @@
+
+<div class="comment_box clearfix" id="comment">
+    <div class="clearfix">
+    	<h2><span class="_countcm">{siy:comment_count id=$id type=$type}</span> Bình luận đánh giá</h2>
+    	<span id="btnrank" hidden>Gửi đánh giá của bạn</span>
+    </div>
+    <div id="comment_wrapper">{insert name='comments' type=$type id=$id}</div>
+</div>

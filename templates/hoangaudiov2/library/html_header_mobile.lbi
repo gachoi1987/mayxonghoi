@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    {if $pname neq 'respond' and $message.back_url}
+        <meta http-equiv="refresh" content="3;url={$message.back_url}">
+    {/if}
+    <base href="{$base_path}">
+    <meta content="INDEX,FOLLOW" name="robots" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, maximum-scale =5" />
+    <meta name="copyright" content="{$shop_name}" />
+    <meta name="author" content="{$shop_name}" />
+    <meta http-equiv="audience" content="General" />
+    <meta name="resource-type" content="Document" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="GENERATOR" content="{$shop_name}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8">
+    <title>{$page_title}</title>
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+   <meta property="og:title" content="{$page_title}" />
+    <meta property="og:description" content="{$description}" />
+    <meta property="og:site_name" content="{$shop_name}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="fb:app_id" content="{$fb_app_id}" />
+    {if $pname eq 'goods' || $pname eq 'article'}
+        {if $pname eq 'goods'}
+        <meta itemprop="image" content="{$option.cdn1_path}{$goods.goods_thumb}" />
+        <meta property="og:image" content="{$option.cdn1_path}{$goods.goods_thumb}" />
+        <meta property="og:url" itemprop="url" content="{$base_path}{$goods.url}" />
+        <link rel="canonical" href="{$base_path}{$goods.url}" />
+        {else}
+            {if $article.article_thumb}
+            <meta itemprop="image" content="{$option.cdn1_path}{$article.article_thumb}" />
+            <meta property="og:image" content="{$option.cdn1_path}{$article.article_thumb}" />
+             {/if}
+            <link rel="canonical" href="{$base_path}{$article.url}" />
+            <meta property="og:url" itemprop="url" content="{$base_path}{$article.url}" />
+        {/if}
+    {else}
+        <meta itemprop="image" content="{$option.static_path}img/logo-600x315.png" />
+        <meta property="og:image" content="{$option.static_path}img/logo-600x315.png" />
+        {if $pname eq 'category'}
+        <link rel="canonical" href="{$base_path}{$cat_url}" />
+        <meta property="og:url" itemprop="url" content="{$base_path}{$cat_url}" />
+        {else}
+        <link rel="canonical" href="{$request_uri}" />
+        <meta property="og:url" itemprop="url" content="{$request_uri}" />
+        {/if}
+    {/if}
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="{$base_cdn}">
+    <link rel="shortcut icon" href="{$option.static_path}img/favicon.png">
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "alternateName": "{$shop_name}",
+          "url": "{$base_path}",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{$base_path}tim-kiem?keywords={keywords}",
+            "query-input": "required name=keywords"
+          }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "url": "{$base_path}",
+          "logo": "{$option.static_path}img/logo-150x150.png",
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+84{$service_phone}",
+            "contactType": "Customer service"
+          }]
+        }
+   </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W5TVQV7');</script>
+<!-- End Google Tag Manager -->
+{$stats_code}

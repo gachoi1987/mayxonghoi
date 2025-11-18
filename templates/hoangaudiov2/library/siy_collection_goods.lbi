@@ -1,0 +1,23 @@
+{if $collection_goods}
+<div class="box">
+	<div class="hd"><h3>{$lang.label_collection}</h3><div class="extra"><a href="user.php?act=collection_list">{$lang.manage}</a></div></div>
+	<div class="bd product_list">
+		<ul>
+			{foreach from=$collection_goods item=goods name=goods}
+			<li>
+				<span class="photo">
+					<a href="{$goods.url}" title="{$goods.name|escape:html}" class="image"><img src="{$option.static_path}{$goods.thumb}" alt="{$goods.name|escape:html}"/></a>
+				</span>
+				<span class="info">
+					<a href="{$goods.url}" title="{$goods.name|escape:html}" class="name">{$goods.short_name}</a>
+					<span class="price">{if $goods.promote_price}<span class="promo"><em>{$goods.promote_price}</em></span>{else}{$goods.shop_price}{/if}</span>
+				</span>
+				<span class="actions">
+					<a href="javascript:buy({$goods.id})" class="button dim_button">{$lang.add_to_cart}</a>
+				</span>
+			</li>
+			{/foreach}
+		</ul>
+	</div>
+</div>
+{/if}

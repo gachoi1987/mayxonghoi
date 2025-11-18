@@ -1,0 +1,245 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/tragop.css"}
+</head>
+<body id="page_{$pname}">
+{include file='library/page_header_mobile.lbi'}
+<section>
+    {include file='library/ur_here.lbi'}
+    <h1>Mua Trả góp {$goods.goods_name|escape:html}</h1>
+    <div class="table_response">
+        <div class="divTable">
+                <div class="divTableBody">
+                <div class="divTableRow divRowHeading">
+                    <div class="divTableCell">Chương trình</div>
+                    <div class="divTableCell">Lãi suất</div>
+                    <div class="divTableCell">Trả trước</div>
+                    <div class="divTableCell">Kỳ hạn</div>
+                    <div class="divTableCell">Khoản vay</div>
+                    <div class="divTableCell">Thủ tục</div>
+                </div>
+                {foreach from=$tragop_list item=tragop name=tragop_list}
+                    <div class="divTableRow">
+                    <div class="divTableCell" style="width: 15%"><span id="tgname_{$tragop.tragop_id}">{$tragop.tragop_name}</span></div>
+                    <div class="divTableCell"><span id="laisuat_{$tragop.tragop_id}">{$tragop.laisuat}</span>%</div>
+                    <div class="divTableCell"><span id="ttmin_{$tragop.tragop_id}">{$tragop.tratruoc_min}</span> - <span id="ttmax_{$tragop.tragop_id}">{$tragop.tratruoc_max}</span>%</div>
+                    <div class="divTableCell"><span id="khmin_{$tragop.tragop_id}">{$tragop.kyhan_min}</span> - <span id="khmax_{$tragop.tragop_id}">{$tragop.kyhan_max}</span> tháng</div>
+                    <div class="divTableCell"><span id="kvmin_{$tragop.tragop_id}" data-kvmin="{$tragop.khoanvay_min}">{$tragop.khoanvay_min|formart_number}</span> - <span id="kvmax_{$tragop.tragop_id}" data-kvmax="{$tragop.khoanvay_max}">{$tragop.khoanvay_max|formart_number}</span> đ</div>
+                    <div class="divTableCell" style="width: 30%">{$tragop.thutuc}</div>
+                 </div>
+                {/foreach}
+                </div>
+            </div>
+        </div>
+         <div class="required">
+             <p>Đối tượng: Người đi làm hưởng lương, Tự kinh doanh, Nội trợ, Sinh viên</p>
+             <p>Độ tuổi: 19 - 60</p>
+             <p>Làm thủ tục tại: Shop</p>
+         </div>
+         <div class="requestcall">
+                <div class="single_input">
+                       <span> Chọn gói trả góp phù hợp:</span>
+                        <select name="tragop_id" id="get_tragop_id">
+                            {foreach from=$tragop_list key=i item=tragop name=tragop_list}
+                            <option value="{$tragop.tragop_id}" {if $i eq 0}selected{/if}>{$tragop.tragop_name}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                    <div class="single_input">
+                        <span> Số tiền trả trước:</span>
+                         <select name="tratruoc" id="get_tratruoc"></select>
+                    </div>
+                    <div class="single_input">
+                        <span> Kỳ hạn trả góp:</span>
+                         <select name="kyhan" id="get_kyhan"></select>
+                    </div>
+                     <div class="single_input" id="get_gop">
+                       Khoản vay lại : <em id="get_kv">0</em>, Góp mỗi tháng : <em id="get_gop_mt">Na</em>, Tổng góp : <em id="get_gop_total">Na</em>
+                    </div>
+                     <div class="single_input">
+                       <div id="_result_order"></div>
+                    </div>
+                <form name="quickorder">
+
+                    <div class="group_input">
+                        <input type="text" name="linkman" placeholder="Họ tên (bắt buộc)" required>
+                        <input type="text" name="tel" placeholder="Số điện thoại (bắt buộc)" required>
+                    </div>
+                     <div class="group_input">
+                        <input type="text" name="cmnd" placeholder="Số CMND (bắt buộc)" required>
+                        <input type="text" name="ngaysinh" placeholder="Ngày sinh dd/mm/yyyy (bắt buộc)" required>
+                    </div>
+                    <div class="group_input">
+                         <select name="province" required id="selProvinces" onchange="regionChanged(this, 2, 'selCities')">
+                            <option value="0">{$lang.please_select} Tỉnh/TP</option>
+                            {foreach from=$province_list item=province}
+                            <option value="{$province.region_id}">{$province.region_name}</option>
+                            {/foreach}
+                        </select>
+                        <select name="city" id="selCities" required>
+                            <option value="0">{$lang.please_select} Quận/Huyện</option>
+                        </select>
+                    </div>
+                     <div class="group_input">
+                        <input type="text" name="address" required placeholder="Địa chỉ thường trú">
+                        <input type="text" name="ftel" required placeholder="Số điện thoại người thân">
+                    </div>
+                    <div class="address">
+                        <input type="text" name="notice" placeholder="Yêu cầu khác">
+                    </div>
+                    <input type="hidden" name="is_gop" value="tragop">
+                    <input type="hidden" name="tragop_info" id="tragop_info" value="">
+                    <input type="hidden" name="goods_id" value="{$goods.goods_id}">
+                    <input type="hidden" name="final_price" id="final_price" value="{$goods.final_price}">
+                    <input type="hidden" name="online_price" value="{$goods.online_price}">
+                    <a href="javascript:void(0);" onclick="submitQuickOrder();" class="buy_now"><b>Đăng ký Trả góp</b><span>Lãi suất linh hoạt</span></a>
+                </form>
+            </div>
+</section>
+
+{include file='library/page_footer_mobile.lbi'}
+{insert_js name='tragop.Mobile.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js,js/global_mobile.js,js/init_mobile.js,js/jquery.number.min.js' minify='' }
+
+<script type="text/javascript">
+    var goodsId = {$goods_id};
+    $(document).ready(function() {
+        var get_tragop_id = $("#get_tragop_id");
+        /* Tao ngay khi load trang */
+        build_info(get_tragop_id.val());
+        /* Hoac khi thay doi goi Tra gop */
+        get_tragop_id.change(function(){
+            var id = $(this).val();
+            build_info(id);
+        });
+
+        $("#get_tratruoc, #get_kyhan").change(function(){
+            var id     = get_tragop_id.val();
+            var ls     = $("#laisuat_"+id).html();
+            var kvmin  = $("#kvmin_"+id).data("kvmin");
+            var kvmax  = $("#kvmax_"+id).data("kvmax");
+            var price  = $("#final_price").val();
+            var tgname = $("#tgname_"+id).html();
+            renderResult(price,ls, parseInt(kvmin), parseInt(kvmax), tgname);
+        });
+
+    });
+    function build_info(id){
+        var ls          = $("#laisuat_"+id).html();
+        var ttmin       = $("#ttmin_"+id).html();
+        var ttmax       = $("#ttmax_"+id).html();
+        var khmin       = $("#khmin_"+id).html();
+        var khmax       = $("#khmax_"+id).html();
+        var kvmin       = $("#kvmin_"+id).data("kvmin");
+        var kvmax       = $("#kvmax_"+id).data("kvmax");
+        var tgname      = $("#tgname_"+id).html();
+        var price      =  $("#final_price").val();
+
+        /* Build trả trước */
+        var step = (ttmax-ttmin)/10+1;
+        var select_tt = '';
+        for (var i = 1; i <= step; i++) {
+            amount_tt = price*(ttmin*i/100);
+            amount_tt_f = $.number(amount_tt, 0, ',', '.' );
+            selected = i == 1 ? 'selected' : '';
+            select_tt += '<option '+selected+' value="'+i*10+'">'+amount_tt_f+'đ ('+i*10+'%)</option>';
+        }
+        $("#get_tratruoc").html(select_tt);
+
+        /* Build kỳ hạn vay */
+        var select_kh = '';
+        var step_kh = (khmax-khmin)/3;
+        for (var j = 0; j <= step_kh; j++) {
+            amount_kh = (j*3)+parseFloat(khmin);
+            selected_kh = i == 0 ? 'selected' : '';
+            select_kh += '<option '+selected_kh+' value="'+amount_kh+'">'+amount_kh+' tháng</option>';
+        }
+        $("#get_kyhan").html(select_kh);
+
+        renderResult(price,ls, parseInt(kvmin), parseInt(kvmax), tgname);
+
+    }
+    function renderResult(price, ls , kvmin, kvmax, tgname){
+        var tt_selected = $("#get_tratruoc").val();
+        var kh_selected = $("#get_kyhan").val();
+
+        var TT    = price*(tt_selected/100);
+        var NCL   = price -TT;
+        $("#get_kv").html($.number(NCL, 0, ',', '.' ));
+        /* Kiem tra Khoan vay */
+        if(NCL > kvmin && NCL < kvmax){
+            LCKH  = (NCL*(ls/100))*kh_selected;
+            gopMT = (NCL+LCKH)/kh_selected;
+            TongGop = TT+NCL+LCKH;
+            gopMT_f = $.number(Math.round(gopMT), 0, ',', '.' );
+            TongGop_f = $.number(Math.round(TongGop), 0, ',', '.' );
+            $("#get_gop_mt").html(gopMT_f);
+            $("#get_gop_total").html(TongGop_f);
+            $("#tragop_info").val('Gói TG: '+tgname+', Lãi suất: '+ls+'%, Trả trước: '+tt_selected+'%, Kỳ hạn: '+kh_selected+', Góp MT: '+gopMT_f+', Tổng Góp:'+TongGop_f);
+            $('#_submit').removeAttr('display');
+        }else{
+            $('#_submit').attr('display', 'none');
+            $('#_result_order').addClass('error_box').html('Khoản vay không hợp lệ với qui định gói trả góp '+tgname);
+        }
+    }
+    function submitQuickOrder(){
+        var form= $("form[name='quickorder'");
+        var tel= form.find("input[name='tel']").val();
+        var linkman=form.find("input[name='linkman']").val();
+        var province=form.find("select[name='province']").val();
+        var city=form.find("select[name='city']").val();
+        var address=form.find("input[name='address']").val();
+
+        if(tel.length<10 || tel.length > 11 || tel[0]!="0")
+        {
+            alert("Số điện thoại không hợp lệ");
+        }
+        else if(linkman.length < 6 || linkman == '')
+        {
+            alert("Vui lòng nhập Họ Tên đầy đủ");
+        }
+        else if(province.length == 0 || province == '')
+        {
+            alert("Vui lòng chọn Tỉnh/TP");
+        }
+        else if(city.length == 0 || city == '')
+        {
+            alert("Vui lòng chọn Quận Huyện");
+        }
+        else if(address == '')
+        {
+            alert("Vui lòng nhập địa chỉ giao hàng");
+        }
+
+        else
+        {
+            $("#loading_box").show();
+            $.ajax({
+                    url: "ajax/goods.php?act=quick_order",
+                    data:form.serialize(),
+                    type:"POST",
+                    success:function(data){
+                        console.log(data);
+                        var res = $.evalJSON(data);
+                        $("#loading_box").hide();
+                        if(res.err_no == 1){
+                           $('#_result_order').addClass('error_box').html(res.err_msg);
+                        }else{
+                            form.find("input[name='tel']").val('');
+                            form.find("input[name='linkman']").val('');
+                            form.find("input[name='address']").val('');
+                            form.find("input[name='notice']").val('');
+                            form.find("input[name='ngaysinh']").val('');
+                            form.find("input[name='cmnd']").val('');
+                            form.find("input[name='ftel']").val('');
+                            form.find("input[name='tragop_info']").val('');
+                            $('#_result_order').addClass('success_box').html(res.err_msg);
+                        }
+                    }
+            });
+        }
+        return false;
+    }
+
+
+</script>
+</body>
+</html>

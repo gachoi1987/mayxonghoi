@@ -1,0 +1,6 @@
+{if $number_cart > 0}
+<a href="gio-hang" class="stickcart">
+    <div><i class="iconbkit-cartstick"></i></div>
+    <span>Giỏ hàng có</span> <strong>{$number_cart} sản phẩm</strong>
+</a>
+{/if}

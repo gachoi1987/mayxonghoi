@@ -1,0 +1,130 @@
+
+<div class="product_details clearfix">
+    <div class="rowtop clearfix">
+        <h1>{$parent_cat_name} {$goods.goods_name|truncate:50}</h1>
+        <div class="rating">
+            <span class="rank rank_{$goods.comment_rank}"></span> <a href="#danhgia">{siy:comment_count id=$id type=$type} đánh giá</a>
+        </div>
+        <div class="likeshare">
+            <div class="fb-like" data-href="{$base_path}{$goods.url}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+        </div>
+    </div>
+    <div class="extra_details">
+        <div class="gallery" id="gallery">
+            {if $pictures.0.img_url}<a href="{$option.cdn1_path}{$pictures.0.img_url}" title="{$goods.goods_name}" class="cover cloud_zoom" id="product_img_large" rel="zoomHeight:400,zoomWidth:400,adjustX:29,adjustY:15"><img src="{$option.cdn1_path}{$goods.goods_img}" alt="{$goods.goods_name|escape:'html'}"/></a>{else}<span class="cover"><img src="{$option.cdn1_path}{$goods.goods_img}" alt="{$goods.goods_name|escape:'html'}" title="{$goods.goods_name}"/></span>{/if}
+            {if $pictures.1.img_url}
+            <div class="thumb clearfix">
+                <div class="thumb_inner">
+                    <ul>
+                        {foreach from=$pictures item=picture name=pictures}
+                        <li><a href="{$option.cdn1_path}{$picture.img_url}" title="{$picture.img_desc}" class="cloud_zoom_gallery" rel="useZoom: 'product_img_large', smallImage: '{$option.cdn1_path}{if $picture.thumb2}{$picture.thumb2}{else}{$picture.img_url}{/if}', title: '{$picture.img_desc}'"><img src="{$option.cdn1_path}{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$picture.img_desc}"></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+            {/if}
+        </div>
+    </div>
+    <div class="details">
+        {if $goods.goods_brief}<p class="intro">{$goods.goods_brief}</p>{/if}
+        <div class="sku hidden">
+            <p>
+                {if $goods.goods_brand and $cfg.show_brand}{$lang.goods_brand} {$goods.goods_brand}{/if}
+                {if $cfg.show_goodssn}<span class="no">{$lang.goods_sn} {$goods.goods_sn}</span>{/if}
+            </p>
+        </div>
+        <div class="price_and_no">
+            {* Kiem tra khong nhap gia --> gia Lien he *}
+            {if $goods.shop_price eq 0}
+                <p class="price"><span>Tại {$shop_name}:</span> <small>Giá Liên hệ</small></p>
+            {else}
+                {if $goods.is_promote and $goods.gmt_end_time}
+                <p class="price promo_price">
+                    <span>{$lang.promote_price}</span> <strong>{$goods.promote_price}</strong>
+                    <small>({$goods.is_vat})</small>
+                </p>
+                {else}
+                <p class="price"><span>Giá dự kiến:</span>  <strong>{$goods.shop_price_formated}</strong> <small>({$goods.is_vat})</small></p>
+                {/if}
+
+            {/if}
+        </div>
+
+        {if $goods.goods_gift}
+        <div class="area_promotion" id="gdsgift">
+            <div class="protit">Khuyến mãi, Ưu đãi</div>
+            <div class="prob">
+                {$goods.goods_gift}
+            </div>
+        </div>
+        {/if}
+
+        <ul class="basic clearfix">
+            {if $goods.warranty}
+            <li>Bảo hành: <strong>{$goods.warranty}</strong></li>
+            {/if}
+        </ul>
+        <form action="javascript:buy({$goods.goods_id})" method="post" id="purchase_form">
+            {if $specification}
+                <div class="properties clearfix">
+                    {foreach from=$specification item=spec key=spec_key name=specification}
+                    <dl{if $spec.attr_type eq 2} title="{$lang.multi_choice}"{/if}>
+                        <dt>{$spec.name}{$lang.colon}</dt>
+                        {if $spec.attr_type eq 1}
+                        <dd class="radio">
+                            {foreach from=$spec.values item=value key=key}
+                            <label for="spec_value_{$value.id}" title="{if $value.price gt 0}{$lang.plus}{$value.format_price|abs}{elseif $value.price lt 0}{$lang.minus}{$value.format_price|abs}{/if}">
+                                <input type="radio" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}"{if $key eq 0} checked="checked"{/if} />
+                            {$value.label}</label>
+                            {/foreach}
+                        </dd>
+                        {else}
+                        <dd class="checkbox">
+                            {foreach from=$spec.values item=value key=key}
+                            <label for="spec_value_{$value.id}" title="{if $value.price gt 0}{$lang.plus}{$value.format_price|abs}{elseif $value.price lt 0}{$lang.minus}{$value.format_price|abs}{/if}">
+                                <input type="checkbox" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" />
+                            {$value.label}</label>
+                            {/foreach}
+                        </dd>
+                        {/if}
+                    </dl>
+                    <input type="hidden" name="spec_list" value="{$key}">
+                    {/foreach}
+                </div>
+            {/if}
+        </form>
+        {if $preorder_list}
+        <div class="clearfix"></div>
+        <div class="danhsach" style="border-top:1px solid #e5e5e5">
+            <h4>{$preorder_list.total} Người đã đăng ký nhận thông tin</h4>
+            <ul class="listorder" id="listorder">
+            <li> <div>Họ tên</div> <div>Số điện thoại</div> <div>Thời gian đăng ký</div> </li>
+               {foreach from=$preorder_list.list key=i item=booking name=preorder}
+                {if $i < 5}
+                <li><div>{$booking.sex} {$booking.link_man}</div> <div>{$booking.tel}</div> <div>{$booking.booking_time}</div></li>
+                {/if}
+            {/foreach}
+             </ul>
+             <a class="listfull" href="javascript:void(0)" onclick="LoadPreOrderCustomer()">Xem tất cả danh sách</a>
+         </div>
+        {/if}
+    </div>
+    <div class="input_action">
+        <div class="requestcall">
+            <h4>Đăng ký đặt trước</h4>
+            <div class="request-msg" id="_bookingresult"></div>
+            <form>
+                <input type="hidden" name="id" value="{$goods.goods_id}">
+                <div class="sex">
+                    <label><input type="radio" name="sex" value="1">Anh</label>
+                    <label><input type="radio" name="sex" value="0">Chị</label>
+                </div>
+                <input type="text" name="linkman" placeholder="Họ tên của bạn">
+                <input type="tel" name="tel" placeholder="Nhập số điện thoại (bắt buộc)">
+                <input type="email" name="email" placeholder="Email (không bắt buộc, dùng để gửi xác nhận)">
+                <a class="button" href="#" id="_booking">Đăng ký</a>
+            </form>
+        </div>
+
+    </div>
+</div>

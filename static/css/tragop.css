@@ -1,0 +1,29 @@
+h1 {text-align: center;font-weight: 700;font-size: 22px;padding: 20px 0}
+.required p {line-height: 24px}
+.required {margin-bottom: 20px;}
+#quick_order , #goods_info{width: 49.5%;display: inline-block;float: left;}
+.requestcall h4{font-size: 17px;margin-bottom: 15px}
+.requestcall select, .requestcall input[type=text],.requestcall input[type=tel],.requestcall input[type=email]{border:1px solid #959595;background: #fff;line-height: 29px;font-size: 14px;color: #333;box-sizing: border-box}
+.requestcall a{text-align: center;background: #ff5722;color: #fff;padding: 10px;display: block;font-size: 16px}
+.requestcall a span{font-size: 12px;display: block}
+.request-msg{display: none;margin-top: 20px;}
+.requestcall .sex{padding:5px 0 10px 0;}
+.requestcall .sex label,.requestcall .sex input{margin-right: 10px;}
+.requestcall select {padding: 10px 8px;}
+.requestcall .group_input {display: block;margin-bottom: 10px;}
+.requestcall .group_input input, .requestcall .group_input select{width: 49.5%;display: inline-block}
+.requestcall .address input {width: 100%;margin-bottom: 10px;}
+.requestcall .input_price, .requestcall  .single_input {margin-bottom: 10px;clear: both;display: block}
+.requestcall .single_input span {width: 200px;display: inline-block;float: left}
+.requestcall .single_input select{vertical-align: middle;}
+
+/* DivTable.com */
+.divTable{display: table; width: 100%;border-right: 1px solid #d1cfcf;border-bottom: 1px solid #d1cfcf;margin: 10px 0}
+.divTableRow {display: table-row}
+.divRowHeading {background: #fafafa;font-weight: 700}
+.divTableCell, .divTableHead {
+    border-top: 1px solid #d1cfcf;
+    border-left: 1px solid #d1cfcf;
+    display: table-cell;
+    padding: 5px 10px;
+}

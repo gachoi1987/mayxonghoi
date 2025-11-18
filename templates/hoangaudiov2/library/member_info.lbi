@@ -1,0 +1,10 @@
+{if $user_info}
+<aside class="user-area">
+<span>{$lang.hello}&nbsp;{$user_info.username|truncate:15}</span>
+<a href="thanh-vien" class="gotouser"><span>{$lang.user_center}</span></a>
+<a href="thanh-vien/?act=logout" class="logout"><span>{$lang.user_logout}</span></a>
+{else}
+<a href="thanh-vien/?act=register"><span>{$lang.btn_register}</span></a>
+<a href="thanh-vien/?act=login"><span>{$lang.btn_login}</span></a>
+</aside>
+{/if}

@@ -1,0 +1,40 @@
+<div class="xm-plain-box cat_goods">
+	<div class="box-hd">
+        <h2 class="title"><a href="{$goods_cat.url}">{$goods_cat.name|escape:html}</a></h2>
+        <div class="more">
+            <!--{foreach from=$goods_cat.cat_clild item=cat name=foo}-->
+              <a href="{$cat.url}" target="_blank" title="{$cat.name}">{$cat.name}</a>
+              <!--{foreach from=$cat.children item='child' name='child_cat'}-->
+               <a href="{$child.url}" target="_blank" title="{$child.name}">{$child.name}</a>
+              <!--{/foreach}-->
+              <!--{/foreach}-->
+        </div>
+    </div>
+	<div class="box-bd">
+        <ul class="homeproduct">
+                    {foreach from=$cat_goods item=goods name=cat_goods}
+                    <li>
+                        <a href="{$goods.url}" >
+            		  {if $goods.rate_sale}<label class="installment">-{$goods.rate_sale}%</label>{/if}
+                            <img width="160" height="160" src="{$option.cdn1_path}{$goods.thumb}" alt="{$goods.name|escape:html}">
+                            <h3>{$goods.name}</h3>
+                	    <strong>{$goods.shop_price} {if $goods.market_price}<del>{$goods.market_price}</del>{/if}</strong>
+<!--                            <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong> -->
+                        </a>
+                        {if $goods.desc_short}
+                        <figure class="bginfo">
+                            <span class="name">{$goods.name}</span>
+                            {if $goods.price eq 0}
+                            <span>Giá liên hệ</span>
+                            {else}
+                           <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                            {/if}
+                            <div class="promotion">{$goods.seller_note}</div>
+                            {$goods.desc_short}
+                        </figure>
+                         {/if}
+                    </li>
+                    {/foreach}
+                </ul>
+	</div>
+</div>

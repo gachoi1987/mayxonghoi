@@ -1,0 +1,514 @@
+* {margin: 0; padding: 0 } img {border: 0 } a {text-decoration: none } ul, ol {list-style: none } .clr {clear: both } .none {display: none } body, input, button, option, textarea, label, select, legend, h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {font: 14px/18px Arial, Helvetica, sans-serif; color: #333; outline: none } p {-webkit-margin-before: 0; -webkit-margin-after: 0; -webkit-margin-start: 0; -webkit-margin-end: 0; text-rendering: geometricPrecision } input[type=text], input[type=tel], textarea {-webkit-appearance: none }
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+a:hover,a:active{outline:none}
+a{color:rgba(0,0,0,0.6);text-decoration:none}
+a:hover{color:rgba(0,0,0,1)}
+[class^="iconmobile-"],
+[class*="iconmobile-"] {
+    background-image: url(../mobile/img/iconmobile@2x.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+.clearfix:before,.clearfix:after{content:"\0020";display:block;height:0;overflow:hidden}
+.clearfix:after{clear:both}
+.clearfix{min-height:1px}
+.breadcrumbs li{display: inline-block}
+.breadcrumbs li a{padding: 11px 0;display: inline-block}
+.breadcrumbs li a h1{color: rgba(0, 0, 0, 0.6)}
+.breadcrumbs li a:after{content: "›"; margin: 0 5px; }
+.breadcrumbs li:last-child a:after{ content: "";margin:0}
+.breadcrumbs:hover{opacity:1}
+.hide, .hidden{display:none }
+.show{display:block}
+.fl {float: left} .fr {float: right}
+/*table */
+table{width: 100%; max-width: 100% }
+table>thead>tr>th {border-bottom: 1px solid #bbb; text-align: left; font-weight: 600; }
+table>tbody>tr>td, table>tbody>tr>th, table>tfoot>tr>td, table>tfoot>tr>th, table>thead>tr>td, table>thead>tr>th {
+    padding: 8px 10px; line-height: 1.5384616; vertical-align: middle; border-top: 1px solid #ddd
+}
+table td, table th, table tr{transition: background-color .15s ease-in-out }
+table tbody>tr:nth-of-type(odd) {background-color: #fcfcfc; }
+table>tbody>tr:hover, table>tbody>tr.active>td, table>tbody>tr.active>th, table>tbody>tr>td.active, table>tbody>tr>th.active, table>tfoot>tr.active>td, table>tfoot>tr.active>th, table>tfoot>tr>td.active, table>tfoot>tr>th.active, table>thead>tr.active>td, table>thead>tr.active>th, table>thead>tr>td.active, table>thead>tr>th.active {
+    background-color: #f6f6f6;
+}
+section {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+header {
+    display: block;
+    height: 48px;
+    background: #222;
+    width: 100%;
+    margin: auto
+}
+.logo {
+    float: left;
+    width: 50px;
+    height: 48px;
+    border-right: 1px solid rgba(255, 255, 255, .15)
+}
+.iconmobile-logo{background-position: -229px 0;height: 32px;margin: 8px auto;display: block;}
+
+.divcate {
+    display: block;
+    overflow: hidden
+}
+
+.divcate span {
+    display: none
+}
+
+.divcate div {
+    position: absolute;
+    font-size: 8px;
+    right: 5px;
+    top: 0;
+    color: #fff
+}
+
+.divcate .actcate {
+    color: #fbd020
+}
+
+.divcate .actcate span {
+    display: block;
+    height: 4px;
+    background: #fbd020;
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    bottom: 0
+}
+.newsnew {
+    float: left;
+    font-size: 14px;
+    color: #fff;
+    padding: 16px 0 14px;
+    text-transform: uppercase;
+    width: 40%;
+    text-align: center;
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600
+}
+.newsnew:hover{color: #fff}
+
+header .community {
+    position: relative;
+    width: 59%;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    padding: 16px 0 14px;
+    text-transform: uppercase;
+    border-right: 1px solid rgba(255, 255, 255, .15);
+    border-left: 1px solid rgba(255, 255, 255, .15);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600
+}
+
+header .community label {
+    position: absolute;
+    font-size: 8px;
+    right: 5px;
+    top: 0;
+    color: #fff
+}
+
+header .community.actcate label {
+    color: #fbd020
+}
+.callmenu {
+    float: right;
+    padding: 6px 0;
+    width: 50px;
+    text-align: center
+}
+
+.iconmobile-menu{
+    background-position: -324px 0;height: 35px;
+}
+
+.menu {
+    overflow: visible;
+    background: none;
+    top: 48px;
+    height: 92.5vh
+}
+
+.menu ul {
+    background: #111
+}
+
+.menu:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-bottom: 7px solid #111;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    float: right;
+    margin: -7px 18px 0 0
+}
+
+.menu li {
+    display: block;
+    overflow: hidden;
+    margin: 0 10px;
+    font-family: Roboto Condensed, sans-serif;
+    position: relative;
+    z-index: 2
+}
+
+.menu li a {
+    float: left;
+    width: 50%;
+    padding: 16px 0 14px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, .15)
+}
+
+.menu li a.communi {
+    position: relative
+}
+
+.menu li a.communi .beta {
+    position: absolute;
+    font-size: 8px;
+    right: 25%;
+    top: 0;
+    color: #fff
+}
+
+.menu li a label {
+    display: block;
+    background-color: #353535;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    line-height: 20px;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border: 0 solid #000;
+    width: 97%;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: Roboto Condensed, sans-serif;
+    overflow: hidden
+}
+
+.menu li strong {
+    display: block;
+    overflow: hidden;
+    padding: 15px 0;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600
+}
+
+.menu li strong b {
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 6px solid #fff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    position: relative;
+    top: -1px
+}
+
+.menu li .arrsub b {
+    border-top: 0;
+    border-bottom: 6px solid #fff;
+    position: relative;
+    top: -1px
+}
+
+.menu li .subsp {
+    display: block;
+    overflow: hidden;
+    margin: -15px 0 -1px
+}
+
+.menu li .subsp a {
+    text-transform: none;
+    padding: 12px 0;
+    font-weight: normal
+}
+
+.menu li .subsp a:before {
+    content: '•';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 18px;
+    color: #737373
+}
+
+.menu li.closemenu {
+    padding: 12px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, .15)
+}
+
+.menu li.lastspec {
+    display: block;
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    top: 0;
+    z-index: 0;
+    height: 92.5vh;
+    background: rgba(0, 0, 0, .8)
+}
+/* article */
+.titledetail {
+    display: block;
+    overflow: hidden;
+    line-height: 1.3em;
+    font-size: 20px;
+    color: #333;
+    padding: 10px 10px 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600
+}
+.userdetail {
+    overflow: hidden;
+    margin: 0 10px;
+    padding: 5px 0;
+    font-size: 12px
+}
+
+.userdetail a {
+    font-weight: 600;
+    color: #288ad6;
+    overflow: hidden
+}
+
+.userdetail span {
+    display: inline-block;
+    color: #999;
+    vertical-align: middle;
+    margin: -2px 5px 0
+}
+
+.userdetail span:before {
+    content: '•';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    font-size: 18px;
+    color: #ccc
+}
+article p,
+article h2,
+article h3 {
+    display: block;
+    margin: 10px
+}
+/*article h2, article h3, article h4, article h5{font-weight: 600}*/
+article div em, article p em{font-style: italic}
+article a, article a:hover, article a:active {color: #288ad6}
+article ul {
+    margin: 10px
+}
+
+article ul li {
+    list-style-type: disc;
+    margin-left: 15px;
+    line-height: 25px;
+    font-size: 16px
+}
+article table {
+    margin: 10px auto;
+    border-collapse: collapse;
+    max-width: 100%;
+    font-weight: 300;
+    width: 100%
+}
+
+article table+table {
+    margin-top: 15px
+}
+
+article td,
+article th {
+    padding: .3em;
+    border: 1px #ccc solid;
+    width: auto;
+    word-break: break-word
+}
+
+article td p,
+article th p {
+    width: auto
+}
+.viewmore {
+    display: block;
+    overflow: hidden;
+    padding: 10px 0;
+    margin: 10px;
+    font-size: 14px;
+    color: #288ad6;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-align: center
+}
+
+.viewmore b {
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 5px solid #288ad6;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: relative;
+    top: -1px;
+    transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg)
+}
+
+/* news relate */
+.titlehome {
+    display: block;
+    overflow: hidden;
+    line-height: 1.3em;
+    font-size: 18px;
+    color: #333;
+    text-transform: uppercase;
+    padding: 10px;
+    border-top: 8px solid #eee;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600
+}
+.newslist {
+    display: block;
+    overflow: hidden
+}
+
+.newslist li {
+    display: block;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    margin: 0 10px;
+    position: relative
+}
+
+.newslist li a {
+    display: block;
+    overflow: hidden;
+    position: relative
+}
+
+.newslist li a:visited h3 {
+    color: #999
+}
+
+.newslist li div {
+    overflow: hidden
+}
+
+.newslist li a.linkimg {
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+    max-height: 70px
+}
+
+.newslist li .evil {
+    font-size: 11px;
+    color: #288ad6
+}
+
+.newslist li div a {
+    display: inline
+}
+
+.newslist li div a:visited {
+    color: #999
+}
+
+.newslist li img {
+    width: 100px;
+    height: auto
+}
+
+.newslist li h3 {
+    display: block;
+    overflow: hidden;
+    line-height: 1.3em;
+    font-size: 15px;
+    color: #333
+}
+
+
+.newslist li .timepost {
+    display: block;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999
+}
+
+
+.newslist li .morecom {
+    display: inline-block;
+    font-size: 11px;
+    color: #f89406;
+    white-space: nowrap
+}
+
+.newslist li .lesscom {
+    display: inline-block;
+    font-size: 11px;
+    color: #999;
+    white-space: nowrap
+}
+
+/* footer */
+footer {
+    display: block;
+    overflow: hidden;
+    border-top: 8px solid #eee;
+    width: 100%;
+    max-width: 1200px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 8px;
+    padding-bottom: 15px;
+}
+footer a {
+    float: left;
+    padding: 8px 2%;
+    font-size: 15px;
+    color: #288ad6;
+    width: 46%
+}

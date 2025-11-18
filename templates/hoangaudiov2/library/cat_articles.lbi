@@ -1,0 +1,18 @@
+{if $articles }
+<div class="newslist">
+     <ul class="clearfix">
+       {foreach from=$articles item=article_item name=articles}
+        <li>
+            <a href="{$article_item.url}" target="_blank" title="{$article_item.title|escape:html}">
+                <div class="photo"><img src="{$option.cdn1_path}{if $pname eq 'index'}{$article_item.lthumb}{else}{$article_item.thumb}{/if}" alt="{$article_item.title|escape:html}"></div>
+                <h3>{$article_item.title|truncate:70:"...":true}</h3>
+                {if $pname eq 'index'}
+                <p>{$article_item.desc|truncate:150:"...":true}</p>
+                {/if}
+<!--                <span>{$article_item.add_time} - Lượt xem: {$article_item.viewed}</span> -->
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+{/if}

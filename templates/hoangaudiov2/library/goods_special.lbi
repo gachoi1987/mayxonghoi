@@ -1,0 +1,28 @@
+{if $promote}
+<div id="goods_promotions">
+<ul class="homeproduct">
+        {foreach from=$promote item=goods name=promotes}
+        <li>
+
+            <a href="{$goods.url}" >
+                <img width="160" height="160" src="{$option.cdn1_path}{$goods.thumb}" alt="{$goods.name|escape:html}">
+                <h3>{$goods.name}</h3>
+                <strong>{$goods.shop_price}<del>{$goods.market_price}</del></strong>
+                {if $goods.rate_sale}<label class="install">-{$goods.rate_sale}%</label>{/if}
+                {if $goods.is_new eq 1}<img width="50" class="icon-new icon2" src="/cdn/images/new.png"/>{/if}
+                {if $goods.is_hot eq 1}<img width="50" class="icon-sale icon2" src="/cdn/images/hot.png"/>{/if}
+                {if $goods.is_best eq 1}<img width="50" class="icon-hot icon2" src="/cdn/images/sale.png"/>{/if}
+            </a>
+            {if $goods.desc_short}
+            <figure class="bginfo">
+                <span class="name">{$goods.name}</span>
+                <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                <div class="promotion">{$goods.seller_note}</div>
+                {$goods.desc_short}
+            </figure>
+             {/if}
+        </li>
+        {/foreach}
+    </ul>
+</div>
+{/if}

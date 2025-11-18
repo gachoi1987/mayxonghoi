@@ -1,0 +1,38 @@
+<ul class="filter clearfix" id="fixfilter">
+    {if $brands.1}
+   <li >
+        <span class="criteria">Chọn Hãng</span>
+        <div class="fsub clearfix _brands">
+            {foreach from=$brands key=i item=brand name=brands}
+            <a href="{$brand.url}"><span>{if $brand.selected}✓{/if}</span> {$brand.brand_name}</a>
+            {/foreach}
+        </div>
+         <div class="view-more hidden">
+            <p id="btn-viewmore"><span id="view1">Xem thêm </span><span id="view2" class="hidden">Thu gọn </span></p>
+        </div>
+    </li>
+     {/if}
+
+    {if $price_grade.1}
+    <li>
+        <span class="criteria">Mức giá</span>
+        <div class="fsub clearfix">
+            {foreach from=$price_grade key=i item=grade name=price_grade}
+           <a href="{$grade.url}"><span>{if $grade.selected}✓{/if}</span> {$grade.price_range}</a>
+            {/foreach}
+        </div>
+    </li>
+     {/if}
+     {if $filter_attr_list}
+        {foreach from=$filter_attr_list key=k item=filter_attr name=filter_attr_list}
+         <li>
+            <span class="criteria"> {$filter_attr.filter_attr_name|escape:html}</span>
+            <div class="fsub clearfix">
+                {foreach from=$filter_attr.attr_list key=i item=attr name=filter_attr}
+                <a href="{$attr.url}"><span>{if $attr.selected}✓{/if}</span> {$attr.attr_value}</a>
+                {/foreach}
+             </div>
+        </li>
+        {/foreach}
+     {/if}
+</ul>

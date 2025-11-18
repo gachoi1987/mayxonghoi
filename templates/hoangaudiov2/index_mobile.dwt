@@ -1,0 +1,125 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css  files="owl-carousel/owl.carousel.css,mobile/css/global.css,mobile/css/index.css"}
+</head>
+<body id="page_{$pname}">
+{include file='library/page_header_mobile.lbi'}
+<section>
+    <div class="navhome">
+        {foreach from=get_categories_tree() item='cat' name='categories'}
+        <a href="{$cat.url}"><h3>{$cat.name}</h3></a>
+         {/foreach}
+<!--         <a href="tin-tuc"><h3>Tin tức</h3></a> -->
+    </div>
+    <aside class="homebanner">
+<!-- TemplateBeginEditable name="BannerHome" -->
+<!-- TemplateEndEditable -->
+    </aside>
+    <!-- TemplateBeginEditable name="Cat_goods2" -->
+<!-- #BeginLibraryItem "/library/cat_goods_mobile.lbi" -->
+
+<h3 class="hometitle">{$goods_cat.name|escape:html} <a href="{$goods_cat.url}">Tất cả</a></h3>
+<ul class="homeproduct">
+    {foreach from=$cat_goods item=goods name=cat_goods}
+    <li>
+        <a href="{$goods.url}">
+            <img src="{$option.cdn1_path}{$goods.thumb}" alt="{$goods.name|escape:html}" width="80" height="80">
+            <h3>{$goods.name}</h3>
+            <strong>{$goods.shop_price}</strong> {if $goods.market_price}<del>{$goods.market_price}</del>{/if}
+        </a>
+    </li>
+    {/foreach}
+</ul>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods_mobile.lbi" -->
+
+<h3 class="hometitle">{$goods_cat.name|escape:html} <a href="{$goods_cat.url}">Tất cả</a></h3>
+<ul class="homeproduct">
+    {foreach from=$cat_goods item=goods name=cat_goods}
+    <li>
+        <a href="{$goods.url}">
+            <img src="{$option.cdn1_path}{$goods.thumb}" alt="{$goods.name|escape:html}" width="80" height="80">
+            <h3>{$goods.name}</h3>
+            <strong>{$goods.shop_price}</strong> {if $goods.market_price}<del>{$goods.market_price}</del>{/if}
+        </a>
+    </li>
+    {/foreach}
+</ul>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods_mobile.lbi" -->
+
+<h3 class="hometitle">{$goods_cat.name|escape:html} <a href="{$goods_cat.url}">Tất cả</a></h3>
+<ul class="homeproduct">
+    {foreach from=$cat_goods item=goods name=cat_goods}
+    <li>
+        <a href="{$goods.url}">
+            <img src="{$option.cdn1_path}{$goods.thumb}" alt="{$goods.name|escape:html}" width="80" height="80">
+            <h3>{$goods.name}</h3>
+            <strong>{$goods.shop_price}</strong> {if $goods.market_price}<del>{$goods.market_price}</del>{/if}
+        </a>
+    </li>
+    {/foreach}
+</ul>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods_mobile.lbi" -->
+
+<h3 class="hometitle">{$goods_cat.name|escape:html} <a href="{$goods_cat.url}">Tất cả</a></h3>
+<ul class="homeproduct">
+    {foreach from=$cat_goods item=goods name=cat_goods}
+    <li>
+        <a href="{$goods.url}">
+            <img src="{$option.cdn1_path}{$goods.thumb}" alt="{$goods.name|escape:html}" width="80" height="80">
+            <h3>{$goods.name}</h3>
+            <strong>{$goods.shop_price}</strong> {if $goods.market_price}<del>{$goods.market_price}</del>{/if}
+        </a>
+    </li>
+    {/foreach}
+</ul>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_articles_mobile.lbi" -->
+{if $articles }
+ <h3 class="hometitle">{$articles_cat.name|escape:html}</h3>
+    <ul class="news">
+        {foreach from=$articles item=article name=articles}
+        <li>
+            <a href="{$article.url}">
+                <img src="{$option.cdn1_path}{$article.lthumb}" alt="{$article.title|escape:html}" width="100" height="70">
+                <h3>{$article.title|escape:html}</h3>
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+{/if}
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+    <!-- TemplateBeginEditable name="Cat_goods" -->
+<!-- TemplateEndEditable -->
+
+    <h3 class="hometitle">Tin Khuyến Mãi <a href="tin-tuc/khuyen-mai" class="newsother">Xem thêm</a></h3>
+    <ul class="news">
+        {foreach from=get_cat_articles(9,1,3) item=article name=new_articles}
+        <li>
+            <a href="{$article.url}">
+                <img src="{$option.cdn1_path}{$article.thumb}" alt="{$article.title|escape:html}" width="100" height="70">
+                <h3>{$article.title|escape:html}</h3>
+                <div><span>{$article.add_time}</span></div>
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+    {include file='library/category_tree_acc_mobile.lbi'}
+</section>
+{include file='library/page_footer_mobile.lbi'}
+{* Nếu phát sinh file js thì sửa lại giá trị name index.Mobile.min.js *}
+{insert_js name='index.Mobile.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js,owl-carousel/owl.carousel.min.js' minify='js/global_mobile.js,js/init_mobile.js'}
+<script>
+    $(document).ready(function() {
+        $("#owl-home").owlCarousel({navigation:!1,slideSpeed:300,paginationSpeed:400,singleItem:!0,lazyLoad:!0,autoPlay:!1,autoHeight:!0});
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<div class="navaccessories">
+    <a href="sua-chua-iphone.html" class="actacc">
+        <div><i class="iconacc-all"></i></div>
+        <h3>Phụ kiện<br>nổi bật</h3>
+    </a>
+     {foreach from=get_subs_child(8) item='cats' name='categories'}
+    <a href="{$cats.url}" >
+        <div><i class="iconacc-{$cats.class}"></i></div>
+        <h3>{$cats.name}</h3>
+    </a>
+    {/foreach}
+</div>

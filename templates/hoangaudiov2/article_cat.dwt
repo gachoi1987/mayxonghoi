@@ -1,0 +1,107 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/article_cat.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section>
+    <div class="article_category clearfix">
+        {include file='library/ur_here.lbi'}
+        {include file='library/article_category_tree.lbi'}
+    </div>
+	<div class="col_main_lg">
+	{$render.before_main}
+	<!-- TemplateBeginEditable name="Top Left" -->
+<!-- TemplateEndEditable -->
+    {if $search_value neq ''}
+    <p style="margin-top: 10px">Có <strong>{$total_search}</strong> kết quả khớp với từ khóa <strong>"{$search_value}"</strong>: </p>
+    {/if}
+    {if $artciles_list}
+    <ul class="newslist">
+         {foreach from=$artciles_list item=article name=artciles_list}
+            <li>
+                <a href="{$article.url|escape:html}">
+                    <div class="tempvideo">
+                        <img width="100" height="70" alt="{$article.title|escape}" src="{$option.cdn1_path}{$article.thumb}">
+                    </div>
+                    <h3>{if $article.is_hot eq 1}<label class="hot">Hot</label>{/if} {$article.title}</h3>
+                    <figure>
+                        {$article.desc|truncate:225:"...":true}
+                    </figure>
+                    <div class="timepost">
+<!--                        <span>{$article.add_time}</span> -->
+                        <span class="namecate">{$article.author}</span>
+                        <span>• {$article.viewed} lượt xem</span>
+                    </div>
+                </a>
+            </li>
+         {/foreach}
+        </ul>
+        <!-- #BeginLibraryItem "/library/pages_article.lbi" --><!-- #EndLibraryItem -->
+        {else}
+            <p class="empty">{$lang.goods_empty} cho danh mục {$cat_name}</p>
+        {/if}
+	<!-- TemplateBeginEditable name="Bottom Left" -->
+<!-- TemplateEndEditable -->
+        <div class="clr"></div>
+        {if $long_desc}<div class="longdesc"><article>{$long_desc}</article></div>{/if}
+	{$render.after_main}
+	</div>
+    <div class="col_sub_lg">
+        {$render.before_col_sub}
+        <!-- TemplateBeginEditable name="Top Right 0" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+{insert name=ads id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+        <div class="titlehome">Bạn đọc xem nhiều</div>
+        <div class="summarycomment">
+            {foreach from=$top_view item=article name=view_list}
+            {if $article.hide_post eq 0}
+            <a href="{$article.url|escape:html}">
+                <div>{$smarty.foreach.view_list.iteration}</div>
+                <h3>{$article.title}<span class="morecom">• {$article.viewed} lượt xem</span></h3>
+            </a>
+            {/if}
+          {/foreach}
+        </div>
+        <!-- TemplateBeginEditable name="Top Right 1" -->
+<!-- TemplateEndEditable -->
+     {if $best_goods}
+    <div class="titlehome">Sản phẩm nổi bật</div>
+    <ul class="cate normal">
+        {foreach from=$best_goods item=goods name=best_goods}
+            <li>
+                <a href="{$goods.url}" >
+                    <img src="{$option.cdn1_path}{$goods.thumb}" width="150" height="150" alt="{$goods.name|escape:html}">
+                    <h3>{$goods.name}</h3>
+                    {if $goods.price eq 0}
+                    <span>Giá liên hệ</span>
+                    {else}
+                    <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                    {/if}
+                    <div class="promotion">
+                        {$goods.seller_note}
+                    </div>
+                    {if $goods.desc_short}
+                    <figure class="bginfo">
+                        <span class="name">{$goods.name}</span>
+                        <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                        {$goods.desc_short}
+                    </figure>
+                    {/if}
+                </a>
+            </li>
+        {/foreach}
+    </ul>
+    {/if}
+  <!-- TemplateBeginEditable name="Bottom Right" -->
+<!-- TemplateEndEditable -->
+        {$render.after_col_sub}
+    </div>
+
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='article_cat.Desktop.min.js' no_minify='' minify='js/global.js,js/init.js' }
+
+</body>
+</html>

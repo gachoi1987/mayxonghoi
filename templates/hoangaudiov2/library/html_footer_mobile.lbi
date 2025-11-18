@@ -1,0 +1,20 @@
+<!--<script type="text/javascript" src="{$option.static_path}static/js/jquery.min.1.8.3.js"></script>
+<script type="text/javascript" src="{$option.static_path}static/js/plugins.js"></script>
+<script type="text/javascript" src="{$option.static_path}static/js/lang.{$option.lang}.js"></script> -->
+<script type="text/javascript" src="{$option.static_path}static/js/global_mobile.js"></script>
+<script type="text/javascript" src="{$option.static_path}static/js/init.js"></script>
+<script type="text/javascript">
+
+
+    $('.gototop').click(function(){
+            $('body,html').animate({scrollTop:0},300);
+            return false;
+    });
+    $('header div.menu').click(function(){
+        $('header .subnav, div.over').toggleClass('show');
+        $('header .menu').toggleClass('actmenu');
+    });
+    $('footer div.infoother').click(function(){
+        $('div.subother').toggleClass('show');
+    })
+</script>

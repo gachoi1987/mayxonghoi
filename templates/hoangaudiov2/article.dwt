@@ -1,0 +1,181 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/article.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section>
+    <div class="article_category clearfix">
+        {include file='library/ur_here.lbi'}
+        {include file='library/article_category_tree.lbi'}
+    </div>
+    {$render.before_main}
+    <!-- TemplateBeginEditable name="Top" -->
+<!-- TemplateEndEditable -->
+    <div class="col_main_lg">
+   <article>
+        <h1 class="titledetail">{$article.title_display|escape:html}</h1>
+        <div class="userdetail">
+            <a>{$article.author}</a>
+          <!--  <span>{$article.add_time}</span> -->
+            <span>{$article.viewed} lượt xem</span>
+        </div>
+        {if $article.content}
+        {$article.content}
+        {else}
+        <p class="empty">{$lang.content_empty}</p>
+        {/if}
+                    {if $next_article || $prev_article}<p>Tin khác: </p>{/if}
+                    {if $next_article}
+                    <p>- <a href="{$next_article.url}">{$next_article.title}</a></p>
+                    {/if}
+                    {if $prev_article}
+                    <p>- <a href="{$prev_article.url}">{$prev_article.title}</a></p>
+                    {/if}
+                    <div class="likewied">
+                        <div class="fb-like" data-href="{$article.url}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                        <span class="total_view">{$article.viewed} lượt xem</span><span class="text-like">, Like và chia sẻ nếu thấy thích nhé !!</span>
+                    </div>
+    </article>
+    </div> <!--end main -->
+    <div class="col_sub_lg">
+        <div class="news_sub_title">Tin mới</div>
+        <ul class="news_sub">
+            {foreach from=$new_articles item=article name=new_articles}
+                <li>
+                    <a href="{$article.url}">
+                        {if $smarty.foreach.new_articles.index eq 0}
+                        <img width="340" height="178"  src="{$option.cdn1_path}{$article.thumb}" alt="{$article.title|escape:html}">
+                        {else}
+                        <img width="163" height="86"  src="{$option.cdn1_path}{$article.sthumb}" alt="{$article.title|escape:html}">
+                        {/if}
+                        <h3>{$article.title|escape:html}</h3>
+                        {if $smarty.foreach.new_articles.index eq 0}
+                        <figure>{$article.desc|truncate:225:"...":true}</figure>
+                        {/if}
+                    </a>
+                </li>
+            {/foreach}
+        </ul>
+        <!-- TemplateBeginEditable name="Bottom 1" -->
+        <!-- TemplateEndEditable -->
+            {if $article_rela}
+             <div class="right">
+                <h5 class="titlerelate">Bài viết liên quan</h5>
+                <ul class="newsrelate">
+                    {foreach from=$article_rela key=i item=article name=article_list}
+                    <li class="item_{$i}">
+                        <a href="{$article.url}" class="linkimg" title="{$article.title|escape:html}">
+                            <div class="tempvideo">
+                                <img alt="{$article.title|escape:html}" src="{$option.cdn1_path}{$article.article_thumb}" width="100">
+                            </div>
+                            <h3>{$article.title}</h3>
+                         <!--   <span class="timepost">{$article.add_time}</span> -->
+                        </a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            {/if}
+            <!-- TemplateBeginEditable name="Bottom 2" -->
+            <!-- TemplateEndEditable -->
+            <!-- TemplateBeginEditable name="SP Liên quan" -->
+            <!-- #BeginLibraryItem "/library/goods_related.lbi" -->
+            {if $related_goods and $pname eq 'goods'}
+            <div class="goods_related" id="related">
+                <div><h4>Bạn cũng sẽ thích <em class="number">{siy:count array=$related_goods}</em>{$lang.amount_suf}</h4></div>
+                <ul>
+                    {foreach from=$related_goods item=releated_goods_data name=related_goods}
+                    <li>
+                        <a href="{$releated_goods_data.url}">
+                            <img src="{$option.cdn1_path}{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name|escape:html}">
+                            <h3>{$releated_goods_data.short_name}</h3>
+                            {if $releated_goods_data.price eq 0}
+                                <span>Giá liên hệ</span>
+                            {else}
+                                {if $releated_goods_data.promote_price}
+                                <strong class="gs">{$releated_goods_data.formated_promote_price}</strong>
+                                <strong class="gg">{$releated_goods_data.shop_price}</strong>
+                                {else}
+                                <strong class="gs">{$releated_goods_data.shop_price}</strong>
+                                {/if}
+                            {/if}
+                        </a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            {elseif $related_goods and $pname eq 'article'}
+                {foreach from=$related_goods item=releated_goods_data name=related_goods}
+                <div class="infoprod">
+                    <div class="image">
+                    </div>
+                    <div class="infor">
+                        <a href="{$releated_goods_data.url}"><h3>{$releated_goods_data.short_name}</h3></a>
+                        {if $releated_goods_data.price eq 0}
+                        <span>Giá liên hệ</span>
+                        {else}
+                        <strong>{$releated_goods_data.formated_promote_price|defailt:$releated_goods_data.shop_price}</strong>
+                        {/if}
+                        {$goods.desc_short}
+                        <a href="{$releated_goods_data.url}" class="viewdetail">Xem chi tiết</a>
+                    </div>
+                </div>
+                {/foreach}
+            {/if}
+             <!-- #EndLibraryItem -->
+            <!-- TemplateEndEditable -->
+
+    </div>
+    {$render.after_main}
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='article.Desktop.min.js' no_minify='' minify='js/global.js,js/init.js' }
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{$option.static_path}{$article.url}"
+  },
+  "headline": "Article headline",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{$option.cdn1_path}{$article.article_thumb}",
+    "height": 315,
+    "width": 600
+  },
+  "datePublished": "{$article.utc_time_public}",
+  "dateModified": "{$article.utc_time_modify}",
+  "author": {
+    "@type": "Person",
+    "name": "{$article.author}"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "{$shop_name}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{$option.static_path}static/img/logo-600x60.png",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "{$description}"
+}
+</script>
+<div id="fb-root"></div>
+<script>
+ setTimeout(function () {
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId={$fb_app_id}";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+}, 10000);
+</script>
+
+</body>
+</html>

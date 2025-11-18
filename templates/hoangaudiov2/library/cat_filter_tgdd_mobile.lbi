@@ -1,0 +1,53 @@
+<ul class="filter">
+    {if $brands.1}
+   <li>
+        <span class="criteria">Hãng</span>
+        <div class="fsub manufacture " >
+            {foreach from=$brands key=i item=brand name=brands}
+            <label class="{if $i eq 0}all {/if} {if $brand.selected}check{/if}">{if $brand.selected}✓{/if} <a href="{$brand.url}">{$brand.brand_name}</a></label>
+            {/foreach}
+        </div>
+    </li>
+     {/if}
+
+    {if $price_grade.1}
+    <li>
+        <span class="criteria">Giá</span>
+        <div class="fsub listprice " >
+            {foreach from=$price_grade key=i item=grade name=price_grade}
+            <label class="{if $i eq 0}all {/if} {if $grade.selected}check{/if}" >{if $grade.selected}✓{/if} <a href="{$grade.url}">{$grade.price_range}</a></label>
+            {/foreach}
+        </div>
+    </li>
+     {/if}
+     {if $filter_attr_list}
+     <li>
+        <span class="criteria">Tìm theo</span>
+        <div class="fsub feature " >
+        {foreach from=$filter_attr_list key=k item=filter_attr name=filter_attr_list}
+            <aside class="property">
+                <strong>{$filter_attr.filter_attr_name|escape:html}</strong>
+                {foreach from=$filter_attr.attr_list key=i item=attr name=filter_attr}
+                <label class="{if $i eq 0}all {/if} {if $attr.selected}check{/if}">{if $attr.selected}✓{/if} <a href="{$attr.url}">{$attr.attr_value}</a></label>
+                {/foreach}
+            </aside>
+            {if $smarty.foreach.filter_attr_list.iteration % 2 eq 0}
+            <p class="breakline clr"></p>
+            {/if}
+        {/foreach}
+        </div>
+    </li>
+     {/if}
+    <li>
+        <span class="criteria">Sắp xếp</span>
+        <div class="fsub sortprice ">
+                <label>{if $pager.order eq 'ASC'}✓ {/if}
+                    <a href="{siy:build_uri app='category' cid=$category bid=$brand_id price_min=$price_min price_max=$price_max filter_attr=$filter_attr page=$pager.page sort='shop_price' order='ASC'}">Giá từ thấp đến cao</a>
+                </label>
+                <label>{if $pager.order eq 'DESC'}✓ {/if}
+                    <a href="{siy:build_uri app='category' cid=$category bid=$brand_id price_min=$price_min price_max=$price_max filter_attr=$filter_attr page=$pager.page sort='shop_price' order='DESC'}">Giá từ cao đến thấp</a>
+                </label>
+        </div>
+    </li>
+</ul>
+<div class="clr"></div>

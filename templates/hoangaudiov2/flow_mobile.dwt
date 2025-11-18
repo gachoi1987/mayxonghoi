@@ -1,0 +1,45 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/flow.css"}
+</head>
+<body id="page_{$pname}" class="{if $step neq 'login'}flow_wrapper{/if}">
+{include file='library/page_header_mobile.lbi'}
+<section>
+    {$render.before_main}
+    {if $step eq 'cart'}{include file='library/flow_cart.lbi'}{/if}
+    {if $step eq 'login'}{include file='library/flow_login.lbi'}{/if}
+    {if $step eq 'consignee'}{include file='library/flow_consignee.lbi'}{/if}
+    {if $step eq 'checkout'}{include file='library/flow_checkout.lbi'}{/if}
+    {if $step eq 'done'}{include file='library/flow_done.lbi'}{/if}
+    {$render.after_main}
+</section>
+
+{include file='library/page_footer_mobile.lbi'}
+{* Nếu phát sinh file js thì sửa lại giá trị name category.Mobile.min.js *}
+{insert_js name='article.Mobile.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global_mobile.js,js/init_mobile.js'}
+<script type="text/javascript" src="{$option.static_path}static/js/flow.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('input[name^="goods_number"]').tipsy({trigger:'manual',gravity:'sw',fade: true});
+        $('input[name^="goods_number"]').keypress(function(){
+            $(this).tipsy('show');
+        });
+        $('input[name^="goods_number"]').focusout(function(){
+            $(this).tipsy('hide');}
+        );
+        $('#cart').mouseenter(function(){
+            $('#cart .list_wrapper').show();
+        });
+        $('#cart').mouseleave(function(){
+            $('#cart .list_wrapper').hide();
+        });
+        $('.cart_list li').hover(function(){
+            $(this).addClass('hover');
+        }, function(){
+            $(this).removeClass('hover');
+        });
+        $('.fittings_list li[title!=""]').tipsy({gravity: 's',fade: true});
+    });
+    {if $step eq 'checkout'}var action = 'checkout';{/if}
+    </script>
+</body>
+</html>

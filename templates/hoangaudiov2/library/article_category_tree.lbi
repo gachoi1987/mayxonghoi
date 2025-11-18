@@ -1,0 +1,18 @@
+{if $article_categories}
+	<ul>
+            {foreach from=$article_categories item=cat name=categories}
+            <li {if $cat.children}class="hasub"{/if}>
+                <a {if $cat_id eq $cat.id}class="active"{/if} href="{$cat.url}"><span>{$cat.name}</span></a>
+                {if $cat.children}
+                <div class="sub_cat" style="{if $cat.id eq 4}width: 300px{/if}">
+                    <ul>
+                        {foreach from=$cat.children item=child}
+                        <li><a href="{$child.url}"><span>{$child.name}</span></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+                {/if}
+            </li>
+            {/foreach}
+    </ul>
+{/if}

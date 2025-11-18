@@ -1,0 +1,29 @@
+<div class="wrap_cart" style="margin-top: 60px">
+    <div class="flow_done">
+        <h3>{$lang.remember_order_number}</strong></h3>
+        <p>Mã số đơn hàng: <strong>{$order.order_sn}</strong></p>
+        <p>{if $order.shipping_name}{$lang.select_shipping}{$lang.colon} <strong> {$order.shipping_name}</strong>{/if}</p>
+        <p>{$lang.select_payment}{$lang.colon} <strong> {$order.pay_name}</strong></p>
+        <p>{$lang.order_amount}{$lang.colon} <strong class="price"> {$total.amount_formated}</strong></p>
+        {if $pay_online}
+        <p class="pay_online">{$pay_online}</p>
+        {/if}
+        {if $virtual_card}
+        <div>
+            <ul class="virtual_card clearfix">
+                {foreach from=$virtual_card item=vgoods name=virtual_card}
+                {foreach from=$vgoods.info item=card name=vgoods_info}
+                <li>
+                    <span class="type">{$vgoods.goods_name}</span>
+                    {if $card.card_sn}<span class="id"><strong>{$lang.card_sn}{$lang.colon}</strong>{$card.card_sn}</em></span>{/if}
+                    {if $card.card_password}<span class="serial_code"><strong>{$lang.card_password}{$lang.colon}</strong><em>{$card.card_password}</em></span>{/if}
+                    {if $card.end_date}<span class="expire_date"><strong>{$lang.end_date}{$lang.colon}</strong><em>{$card.end_date}</em></span>{/if}
+                </li>
+                {/foreach}
+                {/foreach}
+            </ul>
+        </div>
+        {/if}
+        <p class="btn-link">{$order_submit_back}</p>
+    </div>
+</div>

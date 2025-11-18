@@ -1,0 +1,7 @@
+{if $pager}
+<p class="pagination clearfix">
+    {if $pager.page_prev}<a href="{$pager.page_prev}" class="prev fl">Mới hơn</a>{/if}
+    <span>{$pager.page}/{$pager.page_count}</span>
+    {if $pager.page_next}<a href="{$pager.page_next}" class="next fr">Cũ hơn</a>{/if}
+</p>
+{/if}

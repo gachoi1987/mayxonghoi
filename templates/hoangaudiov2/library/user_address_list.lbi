@@ -1,0 +1,89 @@
+<div class="has_tab_box">
+<div class="tab_wrapper">
+	<p class="tabs">
+		<a href="{$base_path}thanh-vien?act=profile" id="tab_profile"><span>{$lang.label_profile}</span></a>
+		<a href="{$base_path}thanh-vien?act=address_list" id="tab_address_list" class="current"><span>{$lang.label_address}</span></a>
+	</p>
+	<div class="extra"></div>
+</div>
+<div class="consignee_list box">
+	<div class="hd"><h3>{$lang.label_address}</h3><div class="extra"></div></div>
+	<div class="bd">
+		{foreach from=$consignee_list item=consignee key=sn name=consignee_list}
+		{if !$consignee.consignee}<h2>{$lang.add_address}{$lang.colon}</h2>{/if}
+		<form action="{$base_path}thanh-vien" method="post" name="theForm" onsubmit="return checkConsignee(this)" class="form address_form">
+			<p class="label required region_select"><b>{$lang.country_province}{$lang.colon}</b>
+				<select name="country" id="selCountries_{$sn}" onchange="regionChanged(this, 1, 'selProvinces_{$sn}')">
+					<option value="0">{$lang.please_select}{$name_of_region[0]}</option>
+					{foreach from=$country_list item=country}
+					<option value="{$country.region_id}"{if $consignee.country eq $country.region_id} selected="selected"{/if}>{$country.region_name}</option>
+					{/foreach}
+					</select>
+					<select name="province" id="selProvinces_{$sn}" onchange="regionChanged(this, 2, 'selCities_{$sn}')">
+					<option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+					{foreach from=$province_list.$sn item=province}
+					<option value="{$province.region_id}"{if $consignee.province eq $province.region_id} selected="selected"{/if}>{$province.region_name}</option>
+					{/foreach}
+				</select>
+				<select name="city" id="selCities_{$sn}" onchange="regionChanged(this, 3, 'selDistricts_{$sn}')">
+					<option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+					{foreach from=$city_list.$sn item=city}
+					<option value="{$city.region_id}"{if $consignee.city eq $city.region_id} selected="selected"{/if}>{$city.region_name}</option>
+					{/foreach}
+					</select>
+					<select name="district" id="selDistricts_{$sn}" {if !$district_list.$sn}style="display:none"{/if}>
+					<option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+					{foreach from=$district_list.$sn item=district}
+					<option value="{$district.region_id}"{if $consignee.district eq $district.region_id} selected="selected"{/if}>{$district.region_name}</option>
+					{/foreach}
+				</select>
+			</p>
+			<label class="required"><b>{$lang.consignee_name}{$lang.colon}</b>
+				<input type="text" name="consignee" value="{$consignee.consignee|escape}" required id="consignee_{$sn}">
+			</label>
+			<label class="required"><b>{$lang.email_address}{$lang.colon}</b>
+				<input type="email" name="email" value="{$consignee.email|escape}" required id="email_{$sn}">
+			</label>
+			<label class="required"><b>{$lang.detailed_address}{$lang.colon}</b>
+				<input type="text" name="address" value="{$consignee.address|escape}" required id="address_{$sn}">
+			</label>
+			<label><b>{$lang.postalcode}{$lang.colon}</b>
+				<input type="number" name="zipcode" value="{$consignee.zipcode|escape}" id="zipcode_{$sn}">
+			</label>
+			<label class="required"><b>{$lang.phone}{$lang.colon}</b>
+				<input type="tel" name="tel" value="{$consignee.tel|escape}" required id="tel_{$sn}">
+			</label>
+			<label><b>{$lang.backup_phone}{$lang.colon}</b>
+				<input type="tel" name="mobile" value="{$consignee.mobile|escape}" id="mobile_{$sn}">
+			</label>
+			<label><b>{$lang.sign_building}{$lang.colon}</b>
+				<input type="text" name="sign_building" value="{$consignee.sign_building|escape}" id="sign_building_{$sn}">
+			</label>
+			<label><b>{$lang.deliver_goods_time}{$lang.colon}</b>
+				<input type="text" name="best_time" value="{$consignee.best_time|escape}" id="best_time_{$sn}">
+			</label>
+			<div class="submit_wrap">
+				{if $consignee.consignee && $consignee.email}
+				<input type="submit" value="{$lang.confirm_edit}" class="button">
+				<a href="javascript:void(0);" onclick="if (confirm('{$lang.confirm_drop_address}'))location.href='/thanh-vien?act=drop_consignee&id={$consignee.address_id}'" class="tool_link"/>{$lang.drop}</a>
+				{else}
+				<input type="submit" value="{$lang.add_address}" class="button">
+				{/if}
+				<input type="hidden" name="act" value="act_edit_address">
+				<input type="hidden" name="address_id" value="{$consignee.address_id}">
+			</div>
+		</form>
+		{/foreach}
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+{foreach from=$lang.flow_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+{literal}
+onload = function() {
+	if(!document.all){document.forms['theForm'].reset();}
+}
+{/literal}
+</script>

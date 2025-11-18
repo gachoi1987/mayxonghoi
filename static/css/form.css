@@ -1,0 +1,26 @@
+
+.form{float:left;padding:.5em 0;position:relative}
+.form fieldset{width:auto;margin:0 1em}
+.form h4{margin:0 0 .6em;color:#000;font-size:18px}
+.form label,.form .label{float:left;display:block;padding:5px 0;width:100%}
+.form label input,.form label textarea,.form label select,.form .label select{float:left;margin-left:10px}
+.form label .directions{float:left;display:inline-block;width:40em;clear:both;margin-left:10em;padding-left:10px;padding-top:5px}
+.form label .to{float:left;display:block;padding:5px 0 0 10px}
+.form label .status{display:inline-block;width:16px;height:16px;padding-left:5px;vertical-align:middle}
+.form label .valid{background:url('../img/checkmark.png') no-repeat right top}
+.form label .invalid{background:url('../img/cross.png') no-repeat right top}
+.form label b,.form .label b{float:left;width:10em;padding:5px 0 4px;font-weight:normal;display:block}
+.form .label em,.form label em{float:left;margin-left:10px;padding:5px 0}
+.form .required b:before{content:'*';margin-right:3px;color:#f53;font-size:1.5em;line-height:0.5em;font-weight:normal}
+.form .required b .before{margin-right:3px;color:#f53;font-size:1.5em;line-height:0.5em;font-weight:normal}
+.form .required_tip{color:#999;font-size:96%;font-weight:normal;position:absolute;top:.4em;right:2em;left:auto;width:13em;text-align:right}
+.form .required_tip b{color:#f53;font-size:140%}
+.form label textarea{width:450px}
+.form div.submit_wrap{float:left;clear:both;padding:5px 0 5px 10em}
+.form input[type=submit], .form div.submit_wrap input[type=button]{margin:0 5px 0 10px}
+.form fieldset.checkbox_wrap,.form fieldset.radio_wrap{margin:0}
+.form fieldset.checkbox_wrap fieldset,.form fieldset.radio_wrap fieldset{float:left;width:auto;margin-left:10px}
+.form fieldset.checkbox_wrap label,.form fieldset.radio_wrap label{clear:none;float:left;width:auto;border:none;margin:0;padding:4px 0;margin-right:15px}
+.form label [type=checkbox], .form label [type=radio]{width:auto;float:none;margin:0;margin-right:3px}
+
+.user_form label b, .user_form .label b{text-align:right}

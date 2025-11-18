@@ -1,0 +1,182 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/user.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+<section style="margin-top: 60px">
+<div class="wrap_height">
+    {if $action eq 'login'}
+    <div class="users-form">
+        <h3>{$lang.login_title}</h3>
+        <form action="{$option.static_path}thanh-vien" method="post" class="form user_form">
+            <label class="required"><b>{$lang.label_username}{$lang.colon}</b>
+                <input type="text" name="username"  autofocus required>
+            </label>
+            <label class="required"><b>{$lang.label_password}{$lang.colon}</b>
+                <input type="password" name="password" required>
+            </label>
+            {if $enabled_captcha}
+            <label class="required"><b>{$lang.comment_captcha}{$lang.colon}</b>
+                <input type="text" name="captcha" maxlength="4" required style="width: 80px;margin-right: 20px"><span><img src="{$option.static_path}ajax/captcha.php?is_login=1&{$rand}" alt="{$lang.comment_captcha}" class="captcha tip" title="{$lang.captcha_tip}" onClick="this.src='{$option.static_path}ajax/captcha.php?is_login=1&'+Math.random()"></span>
+            </label>
+            {/if}
+            <fieldset class="checkbox_wrap label"><b>&nbsp;</b>
+                <fieldset>
+                <label><input type="checkbox" name="remember" value="1"> {$lang.remember}</label>
+                </fieldset>
+            </fieldset>
+            <div class="submit_wrap">
+                <input type="submit" value="{$lang.btn_login}" class="button">
+                {if $smarty.get.ajax eq 1}<a href="{$option.static_path}thanh-vien?act=register">{$lang.register_now}</a>{/if}
+                <input type="hidden" name="act" value="act_login">
+                <input type="hidden" name="back_act" value="{$back_act}">
+                <p><a href="{$option.static_path}thanh-vien?act=get_password">{$lang.forgot_password}</a> | <a href="{$option.static_path}thanh-vien/dang-ky"><span>{$lang.register_now} tài khoản mới</span></a> </p>
+            </div>
+        </form>
+    </div>
+    {/if}
+    {if $action eq 'register'}
+        {if $shop_reg_closed eq 1}
+        <span class="empty">{$lang.shop_register_closed}</span>
+        {else}
+        <div class="users-form">
+            <h3>{$lang.register_title}</h3>
+                <form action="{$option.static_path}thanh-vien" method="post" class="form user_form" id="user_form_reg">
+                    <label class="required"><b>{$lang.label_username}{$lang.colon}</b>
+                        <input type="text" name="username" autofocus required>
+                    </label>
+                    <label class="required"><b>{$lang.email}{$lang.colon}</b>
+                        <input type="email" name="email" required>
+                    </label>
+                    <label class="required"><b>{$lang.label_password}{$lang.colon}</b>
+                        <input type="password" name="password" required>
+                    </label>
+                    <label class="required"><b>{$lang.label_confirm_password}{$lang.colon}</b>
+                        <input type="password" name="confirm_password" required>
+                    </label>
+                    {foreach from=$extend_info_list item=field}
+                    {if $field.id eq 6}
+                    <label{if $field.is_need} class="required"{/if}><b>{$lang.passwd_question}{$lang.colon}</b>
+                        <select name="sel_question"{if $field.is_need} required{/if}>
+                            {html_options options=$passwd_questions selected=$profile.passwd_question}
+                        </select>
+                    </label>
+                    <label{if $field.is_need} class="required"{/if}{if $field.is_need} required{/if}><b>{$lang.passwd_answer}{$lang.colon}</b>
+                        <input type="text" name="passwd_answer" value="{$profile.passwd_answer}" maxlength="20"{if $field.is_need} required{/if}>
+                    </label>
+                    {else}
+                    <label{if $field.is_need} class="required"{/if}><b>{$field.reg_field_name}{$lang.colon}</b>
+                        <input type="text" name="extend_field{$field.id}" value="{$field.content}"{if $field.is_need} required{/if} id="extend_field_{$field.id}">
+                    </label>
+                    {/if}
+                    {/foreach}
+                    {if $enabled_captcha}
+                    <label class="required"><b>{$lang.comment_captcha}{$lang.colon}</b>
+                        <input type="text" name="captcha" maxlength="4" required style="width: 80px;margin-right: 20px"><span><img src="{$option.static_path}ajax/captcha.php?is_login=1&{$rand}" alt="{$lang.comment_captcha}" class="captcha tip" title="{$lang.captcha_tip}" onClick="this.src='{$option.static_path}ajax/captcha.php?is_login=1&'+Math.random()"></span>
+                    </label>
+                    {/if}
+                    <label><b>&nbsp;</b>
+                        <em><input type="checkbox" name="agreement" value="1" checked="checked" required>{$lang.agreement}</em>
+                    </label>
+                    <div class="submit_wrap">
+                        <input type="submit" value="{$lang.btn_register}" class="button">
+                        <input type="hidden" name="act" value="act_register">
+                        <input type="hidden" name="back_act" value="{$back_act}">
+                        <p>Nếu đã có tài khoản, vui lòng <a href="{$option.static_path}thanh-vien?act=login"><span>{$lang.login_now}</span></a> tại đây.</p>
+                    </div>
+                </form>
+        </div>
+        {/if}
+    {/if}
+    {if $action eq 'get_password'}
+        <div class="users-form">
+            <h3>{$lang.get_password}</h3>
+                <form action="{$option.static_path}thanh-vien" method="post" class="form user_form">
+                    <label class="required"><b>{$lang.label_username}{$lang.colon}</b>
+                        <input type="text" name="user_name" autofocus required>
+                    </label>
+                    <label class="required"><b>{$lang.email}{$lang.colon}</b>
+                        <input type="email" name="email" required>
+                    </label>
+                    <div class="submit_wrap">
+                        <input type="submit" value="{$lang.submit}" class="button">
+                        <input type="hidden" name="act" value="send_pwd_email">
+                        <p>Khôi phục mật khẩu bằng <a href="{$option.static_path}thanh-vien?act=qpassword_name"><span>{$lang.get_password_by_question}</span></a></p>
+                    </div>
+                </form>
+        </div>
+    {/if}
+    {if $action eq 'qpassword_name'}
+    <div class="users-form">
+            <h3>{$lang.get_question_username}</h3>
+                <form action="{$option.static_path}thanh-vien" method="post" class="form user_form">
+                    <label class="required"><b>{$lang.label_username}{$lang.colon}</b>
+                        <input type="text" name="user_name" autofocus required>
+                    </label>
+                    <div class="submit_wrap">
+                        <input type="submit" value="{$lang.submit}" class="button">
+                        <input type="hidden" name="act" value="get_passwd_question">
+                    </div>
+                </form>
+
+        </div>
+     {/if}
+     {if $action eq 'get_passwd_question'}
+        <div class="users-form">
+            <h3>{$lang.input_answer}</h3>
+                <form action="{$option.static_path}thanh-vien" method="post" class="user_form">
+                    <p class="label"><b>{$lang.passwd_question}{$lang.colon}</b>
+                        <em>{$passwd_question}</em>
+                    </p>
+                    <label class="required"><b>{$lang.passwd_answer}{$lang.colon}</b>
+                        <input type="text" name="passwd_answer" autofocus required>
+                    </label>
+                    {if $enabled_captcha}
+                    <label class="required"><b>{$lang.comment_captcha}{$lang.colon}</b>
+                        <input type="text" name="captcha" maxlength="4" required><span><img src="captcha.php?is_login=1&{$rand}" alt="{$lang.comment_captcha}" class="captcha tip" title="{$lang.captcha_tip}" onClick="this.src='captcha.php?is_login=1&'+Math.random()"></span>
+                    </label>
+                    {/if}
+                    <div class="submit_wrap">
+                        <input type="submit" value="{$lang.submit}" class="bright_button">
+                        <input type="hidden" name="act" value="check_answer">
+                    </div>
+                </form>
+
+        </div>
+      {/if}
+    {if $action eq 'reset_password'}
+    <div class="users-form">
+            <h3>{$lang.reset_password}</h3>
+                <form action="{$option.static_path}thanh-vien" method="post" class="form user_form">
+                    <label class="required"><b>{$lang.new_password}{$lang.colon}</b>
+                        <input type="password" name="new_password" autofocus required>
+                    </label>
+                    <label class="required"><b>{$lang.confirm_password}{$lang.colon}</b>
+                        <input type="password" name="confirm_password" required>
+                    </label>
+                    <div class="enter-area img-code-area">
+                        <!-- {if $enabled_captcha} -->
+                          <img src="{$option.static_path}ajax/captcha.php?is_login=1&{$rand}" alt="captcha" class="code-img" onClick="this.src='{$option.static_path}ajax/captcha.php?is_login=1&'+Math.random()" />
+                          <input type="text" class="enter-item code-enter-item" name="captcha" maxlength="6" placeholder="{$lang.comment_captcha}">
+                          <i class="placeholder">{$lang.comment_captcha}</i>
+                        <!--{/if}-->
+                    </div>
+                    <div class="submit_wrap">
+                        <input type="submit" value="{$lang.confirm_submit}" class="bright_button">
+                        <input type="hidden" name="act" value="act_edit_password">
+                        <input type="hidden" name="uid" value="{$uid}">
+                        <input type="hidden" name="code" value="{$code}">
+                    </div>
+                </form>
+        </div>
+    {/if}
+</div>
+</section>
+{include file='library/page_header_mobile_user.lbi'}
+{insert_js name='user.Mobile.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global_mobile.js,js/init_mobile.js' }
+<script type="text/javascript" src="{$option.static_path}static/js/user.js"></script>
+<script type="text/javascript" src="{$option.static_path}static/js/flow.js"></script>
+<script type="text/javascript">
+{if $action eq 'register'}validRegister();{/if}
+</script>
+</body>
+</html>

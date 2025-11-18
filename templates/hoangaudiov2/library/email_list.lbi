@@ -1,0 +1,9 @@
+<div id="subscription">
+	<form action="javascript:void(0);">
+        <span>{$lang.subscription}</span>
+		<input type="text" name="email" placeholder="Email của bạn" title="{$lang.email_invalid}"/>
+		<input type="button" class="button" value="{$lang.email_list_ok}" onclick="addEmailList();">
+        <span class="loader"></span>
+        <span class="result"></span>
+	</form>
+</div>

@@ -1,0 +1,26 @@
+<div class="gallery" id="gallery">
+    <div id="showimb">
+        {if $pictures.1.img_url}
+            <a data-options="hint: off;selectorTrigger: hover;" class="cover MagicZoomPlus" id="Zoomer" href="{$option.cdn1_path}{$pictures.0.img_url}" title="{$goods.goods_name}">
+                <img src="{$option.cdn1_path}{$goods.goods_img}" alt="{$goods.goods_name|escape:'html'}"/>
+            </a>
+        {else}
+            <span class="cover"><img src="{$option.cdn1_path}{$goods.goods_img}" alt="{$goods.goods_name|escape:'html'}" title="{$goods.goods_name}"/></span>
+        {/if}
+    </div>
+    {if $pictures.1.img_url}
+    <div class="thumb clearfix">
+        <div class="thumb_inner">
+            <ul id="attr_thumb">
+                {foreach from=$pictures item=picture name=pictures}
+                <li>
+                    <a href="{$option.cdn1_path}{$picture.img_url}" data-zoom-id="Zoomer" data-image="{$option.cdn1_path}{$picture.img_url}" title="{$picture.img_desc}">
+                        <img src="{$option.cdn1_path}{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$picture.img_desc}">
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+    {/if}
+</div>

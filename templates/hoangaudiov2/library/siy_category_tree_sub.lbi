@@ -1,0 +1,10 @@
+{if $categories}
+<div class="cat_child">
+{foreach from=$categories item=cat name=categories}
+    <a href="{$cat.url}">
+        <span>{$cat.name}</span>
+    </a>
+
+{/foreach}
+</div>
+{/if}

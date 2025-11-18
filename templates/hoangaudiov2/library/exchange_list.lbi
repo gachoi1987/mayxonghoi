@@ -1,0 +1,50 @@
+<div class="has_tab_box">
+<div class="tab_wrapper">
+	<p class="tabs">
+		<em class="label">{$lang.order_by}{$lang.colon}</em>
+		{if $pager.sort eq 'goods_id'}
+		<a href="{if $pager.order eq 'DESC'}{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='goods_id' order='ASC'}{else}{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='goods_id' order='DESC'}{/if}#list" class="current"><span>{$lang.order_by_time}{if $pager.order eq 'DESC'}<em class="arrow_up">&uarr;</em>{else}<em class="arrow_down">&darr;</em>{/if}</span></a>
+		{else}
+		<a href="{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='goods_id' order='DESC'}#list"><span>{$lang.order_by_time}</span></a>
+		{/if}
+		{if $pager.sort eq 'last_update'}
+		<a href="{if $pager.order eq 'DESC'}{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='last_update' order='ASC'}{else}{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='last_update' order='DESC'}{/if}#list" class="current"><span>{$lang.order_by_update}{if $pager.order eq 'DESC'}<em class="arrow_up">&uarr;</em>{else}<em class="arrow_down">&darr;</em>{/if}</span></a>
+		{else}
+		<a href="{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='last_update' order='DESC'}#list"><span>{$lang.order_by_update}</span></a>
+		{/if}
+		{if $pager.sort eq 'exchange_integral'}
+		<a href="{if $pager.order eq 'DESC'}{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='exchange_integral' order='ASC'}{else}{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='exchange_integral' order='DESC'}{/if}#list" class="current"><span>{$lang.order_by_point}{if $pager.order eq 'ASC'}<em class="arrow_up">&uarr;</em>{else}<em class="arrow_down">&darr;</em>{/if}</span></a>
+		{else}
+		<a href="{siy:build_uri app='exchange' cid=$category integral_min=$integral_min integral_max=$integral_max page=$pager.page sort='exchange_integral' order='DESC'}#list"><span>{$lang.order_by_point}</span></a>
+		{/if}
+	</p>
+	<div class="extra">
+		{include file='library/pages.lbi'}
+	</div>
+</div>
+<div class="box" id="list">
+	<div class="hd"><h3>{$lang.goods_list}</h3><div class="extra"></div></div>
+	<div class="bd product_list">
+		{if $goods_list}
+		<ul>
+			{foreach from=$goods_list item=goods name=goods_list}
+			{if $goods.goods_id}
+			<li>
+				<span class="photo">
+					<a href="{$goods.url}" title="{$goods.goods_name|escape:html}" class="image"><img src="{$option.static_path}{if $pager.display eq 'list'}{$goods.goods_img}{else}{$goods.goods_thumb}{/if}" alt="{$goods.goods_name|escape:html}"/></a>
+				</span>
+				<span class="info">
+					<a href="{$goods.url}" title="{$goods.name|escape:html}" class="name">{$goods.goods_style_name}</a>
+					<em class="price price_point"><span>{$goods.exchange_integral}</span>{$lang.points_price_suf}</em>
+				</span>
+			</li>
+			{/if}
+			{/foreach}
+		</ul>
+		{include file='library/pages.lbi'}
+		{else}
+		<p class="empty">{$lang.goods_empty}</p>
+		{/if}
+	</div>
+</div>
+</div>

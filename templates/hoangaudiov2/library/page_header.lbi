@@ -1,0 +1,54 @@
+<header>
+    <div class="top_header">
+        <div class="wrap-main">
+            <a class="logo" title="Về trang chủ" href="./">
+               <img src="{$option.static_path}img/logo.jpg" alt="{$shop_name}" style ="width:290px;height:75px;">
+            </a>
+            {siy:nav type='top' form='library/siy_small_nav.lbi'}
+            <div class="wrap_search">
+                <span><strong>{$service_phone}</strong> Tư vấn bán hàng</span>
+                <span><strong><a target="_blank" href="he-thong-cua-hang">An Phát-Pool&Sauna</a></strong> Mở cửa 8:00 - 17:00</span>
+                <span><strong><a target="_blank" href="tin-khuyen-mai">Khuyến mãi</a></strong>Tháng {$this_month}</span>
+                {if $pname eq 'article' || $pname eq 'article_cat'}
+                <form id="search-site" action="{$base_path}tin-tuc" method="post" autocomplete="off">
+                    <input class="topinput" id="search-keyword" name="keywords" type="text" tabindex="0" value="{$search_keywords|escape}" placeholder="Tìm kiếm tin tức..." autocomplete="off"  maxlength="50">
+                     <input name="id" type="hidden" value="{$cat_id}" >
+                     <input name="cur_url" id="cur_url" type="hidden" value="">
+                    <button class="btntop" type="submit">Tìm kiếm</button>
+                </form>
+                {else}
+                <form id="search-site" action="{$base_path}tim-kiem" method="get" autocomplete="off">
+                    <input class="topinput" id="search-keyword" name="keywords" type="text" tabindex="0" value="{$search_keywords|escape}" placeholder="Bạn tìm gì..." autocomplete="off"  maxlength="50">
+                    <button class="btntop" type="submit">Tìm kiếm</button>
+                    <div class="search-suggest"></div>
+                </form>
+                {/if}
+            </div>
+        </div>
+    </div>
+
+    <div class="middle_header">
+        <div class="wrap-main">
+           <!-- <span class="all_cate"><i class="iconmy-allcate"></i>Danh mục sản phẩm</span> -->
+            {include file='library/category_tree_3lv.lbi'}
+{siy:nav type='middle' active=$active_url}
+        </div>
+    </div>
+    <div class="clr"></div>
+<style>
+.categories-3lv .sub_cat7 li{    display: inline-block;
+    width: 208px;
+    margin-right: 15px;
+    float: left;}
+.categories-3lv .sub_cat82 li {
+    width: 18%;
+}
+.categories-3lv .sub_cat li a {
+    border-bottom: 1px solid #eaeaea;
+    font-size: 12px;
+    padding: 5px 0;
+    display: block;
+    color: #444;
+}.categories-3lv .sub_cat177 li{width: 220px;}
+</style>
+</header>

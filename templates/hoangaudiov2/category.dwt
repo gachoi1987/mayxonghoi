@@ -1,0 +1,104 @@
+{include file='library/html_header.lbi'}
+{insert_css files="owl-carousel/owl.carousel.css,css/style.css,css/category.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn {$slug} {if $cat.cat_id}Check{/if}">
+{include file='library/page_header.lbi'}
+<section>
+	{include file='library/category_tree_break.lbi'}
+    <div class="article_category clearfix">
+        {include file='library/ur_here.lbi'}
+    </div>
+    {insert name=ads id=$ads_id num=8}
+    <div class="clr"></div>
+    <div class="category_name">
+        <h2>{$cat_name}</h2>
+        <div class="sortby">
+            Sắp xếp theo:
+            <a href="{siy:build_uri app='category' cid=$category bid=$brand_id price_min=$price_min price_max=$price_max filter_attr=$filter_attr page=$pager.page rc=moi}"><span>{if $recommend eq 'moi'}✓{/if}</span> Mới</a>
+            <a href="{siy:build_uri app='category' cid=$category bid=$brand_id price_min=$price_min price_max=$price_max filter_attr=$filter_attr page=$pager.page rc=ban-chay}"><span>{if $recommend eq 'ban-chay'}✓{/if}</span> Bán chạy</a>
+            <a href="{siy:build_uri app='category' cid=$category bid=$brand_id price_min=$price_min price_max=$price_max filter_attr=$filter_attr page=$pager.page sort='shop_price' order='ASC'}"> <span>{if $pager.order eq 'ASC'}✓{/if}</span> Giá từ thấp đến cao</a>
+            <a href="{siy:build_uri app='category' cid=$category bid=$brand_id price_min=$price_min price_max=$price_max filter_attr=$filter_attr page=$pager.page sort='shop_price' order='DESC'}"><span>{if $pager.order eq 'DESC'}✓{/if}</span> Giá từ cao đến thấp</a>
+        </div>
+		<ul class="filter2">
+			{if $filter_attr_list}
+				{foreach from=$filter_attr_list key=k item=filter_attr name=filter_attr_list}
+					<li class="frange">
+						<span class="criteria"> {$filter_attr.filter_attr_name|escape:html}</span>
+						<div class="fsub clearfix">
+							{foreach from=$filter_attr.attr_list key=i item=attr name=filter_attr}
+								<label><a href="{$attr.url}"><span>{if $attr.selected}✓{/if}</span> {$attr.attr_value}</a></label>
+							{/foreach}
+						 </div>
+					</li>
+				{/foreach}
+			 {/if}
+			<li class="frange">
+				<span class="criteria">LỌC GIÁ</span>
+				<div class="fsub listprice" >
+					{foreach from=$price_grade key=i item=grade name=price_grade}
+					<label><a href="{$grade.url}"><span>{if $grade.selected}✓{/if}</span>  {$grade.price_range}</a></label>
+					{/foreach}
+				</div>
+			</li>
+		</ul>
+    </div>
+    <div class="col_sub_lg">
+        {include file='library/cat_filter_tgdd.lbi'}
+    </div>
+    <div class="col_main_lg">
+        {include file='library/goods_list.lbi'}
+        <div class="clr"></div>
+        {if $long_desc}<div class="longdesc"><article>{$long_desc}</article></div>{/if}
+    </div>
+    <div class="clr"></div>
+    <!-- TemplateBeginEditable name="QCFooter" -->
+	<!-- TemplateEndEditable -->
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='category.Desktop.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js,owl-carousel/owl.carousel.min.js' minify='js/global.js,js/init.js' }
+<script>
+    var base_path = '{$option.base_path}';
+    var wcr = $(window).scrollTop();
+    var wh = $(window).height();
+    $(document).ready(function() {
+        $("#owl-cate").owlCarousel({items:2,lazyLoad:!0,navigation:!1,pagination:!0,itemsDesktop:2,itemsDesktopSmall:2,itemsTablet:2,autoPlay:5e3,stopOnHover:!0});
+
+        /** view more */
+        var el = $('#fixfilter ._brands');
+        var h = el.height();
+
+        if(h>200){
+            el.addClass('maxh');
+            $('#fixfilter .view-more').removeClass('hidden');
+        }
+        $('#btn-viewmore').click(function(e){
+            el.toggleClass('maxh');
+            $('#view1').toggleClass('hidden');
+            e.preventDefault();
+        });
+    });
+
+    var header = $("#fixfilter");
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+		var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+			if (scroll >= 147 && scrollBottom > 518) {
+              header.css({'position': 'fixed', 'width':'230px', 'z-index': '2', 'top': '20px'});
+            }
+			else{
+              header.css({'position': 'relative','width':'100%','top':'0'});
+            }
+    });
+</script>
+
+</body>
+<!--
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId={$fb_app_id}&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+-->
+</html>

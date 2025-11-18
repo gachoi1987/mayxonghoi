@@ -1,0 +1,10 @@
+<span class="label">Giỏ hàng <em>{$cart_number}</em></span>
+{if $cart_number eq 0}
+<div class="list">
+    <p class="cart_empty">Giỏ hàng trống</p>
+</div>
+{else}
+<div class="list">
+    <p class="cart_loading">Loading...</p>
+</div>
+{/if}

@@ -1,0 +1,16 @@
+<ul class="cat_child clearfix">
+    {foreach from=get_cat_child($category, $parent_id) item=sub name=catsub}
+     <li {if $sub.id eq $parent_id || $sub.id eq $category}class="active"{/if}>
+        <a {if $sub.cat_id}class="caret"{/if} href="{$sub.url}">
+            <span>{$sub.name} </span>
+        </a>
+        {if $sub.cat_id}
+            <div class="child-sub">
+            {foreach from=$sub.cat_id item=lv3 name=catchild}
+                <a {if $lv3.id eq $category}class="active"{/if} href="{$lv3.url}"><span>{$lv3.name}</span></a>
+            {/foreach}
+            </div>
+        {/if}
+    </li>
+     {/foreach}
+</ul>

@@ -1,0 +1,40 @@
+{if $goods_list}
+<ul class="cate normal">
+        {foreach from=$goods_list item=goods name=goods_list}
+        {if $goods.goods_id}
+        <li class="{if $goods.thumb_url and $goods.show_special eq 1}feature{/if}">
+            {if $goods.rate_sale}<label class="installment">-{$goods.rate_sale}%</label>{/if}
+            <a href="{$goods.url}" title="{$goods.goods_name|escape:html}">
+                {if $goods.thumb_url and $goods.show_special eq 1}
+                    <img src="{$option.cdn1_path}{$goods.thumb_url}" width="320" height="150" alt="{$goods.goods_name|escape:html}">
+                {else}
+                    <img src="{$option.cdn1_path}{$goods.goods_thumb}" width="150" height="150" alt="{$goods.goods_name|escape:html}">
+                {/if}
+                <h3>{$goods.goods_style_name}</h3>
+                {if $goods.price eq 0}
+                <span>Giá liên hệ</span>
+                {else}
+                <strong>{$goods.shop_price} {if $goods.market_price}<del>{$goods.market_price}</del>{/if}</strong>
+                {/if}
+                {if $goods.is_new eq 1}<img width="30" class="icon-new icon2" src="/cdn/images/new.png"/>{/if}
+                {if $goods.is_hot eq 1}<img width="30" class="icon-sale icon2" src="/cdn/images/hot.png"/>{/if}
+                {if $goods.is_best eq 1}<img width="30" class="icon-hot icon2" src="/cdn/images/sale.png"/>{/if}
+                <div class="promotion">
+                    {$goods.seller_note}
+                </div>
+                {if $goods.desc_short}
+                <figure class="bginfo">
+                    <span class="name">{$goods.goods_style_name}</span>
+                    <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                    {$goods.desc_short}
+                </figure>
+                {/if}
+            </a>
+        </li>
+        {/if}
+        {/foreach}
+    </ul>
+{include file='library/pages.lbi'}
+{else}
+<p class="empty">{$lang.goods_empty} cho danh mục {$cat_name}</p>
+{/if}

@@ -1,0 +1,444 @@
+article img {
+    display: block;
+    height: auto;
+    margin: 15px auto 5px;
+    max-width: 640px;
+    width: 100% !important;
+}
+.barpage {
+    border-bottom: 1px solid #eee;
+    display: block;
+}
+.barpage h2 {
+    color: #00adef;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 34px;
+    margin-left: 10px;
+    overflow: hidden;
+    padding-top: 2px;
+    text-transform: uppercase;
+}
+.filter_cat {display: block;}
+.filter_cat span {
+    color: #00adef;
+    float: right;
+    font-size: 14px;
+    line-height: 36px;
+    margin: 0 10px;text-transform: uppercase;
+    font-weight: bold;
+}
+.sub-filter .navigation {margin: 0;}
+.sub-filter .showmore{height: 60px;overflow: hidden;}
+.filter {
+    display: block;
+    height: 40px;
+    background: #f5f5f5;
+    border-right: 1px solid #f5f5f5;
+    width: 100%;
+    position: relative;
+}
+
+.filter li {
+    display: inline-block;
+    height: 40px;
+    width:24%;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 12px;
+    white-space: nowrap
+}
+.filter li>a {
+    color: #288ad6;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 10px;
+    line-height: 40px
+}
+.filter li a:hover{color: #333 }
+.filter li div.fsub a{color: #333;text-align: right;}
+.filter li label.all a{color: #288ad6}
+.filter li label.check a{padding-left: 2px;}
+
+.filter li .criteria,
+.filter li .selected {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 14px;
+    color: #288ad6;
+    padding-left: 10px;
+    cursor: pointer;
+    line-height: 40px
+}
+
+.filter li .criteria:hover {color: #333 }
+.filter li .criteria:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 4px solid #288ad6;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px
+}
+
+.filter li div.fsub {
+    display: none;
+    overflow: visible;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .1);
+    padding: 5px 10px;
+    position: absolute;
+    box-sizing: border-box;
+    width: 97%;
+    left: 1%;
+    right: 1%;
+    top: 40px;
+    z-index: 11
+}
+/* .filter li:hover div.fsub {display: block} */
+.filter li.frc .best{margin-left: 20px;}
+.filter li.frc .check.new{margin-left: 20px;}
+.filter li div:before,
+.filter li div:after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    left: 45%;
+    border-bottom: 10px solid #d9d9d9;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent
+}
+.filter li .manufacture:before, .filter li .manufacture:after {left: 5%;}
+.filter li .listprice:before, .filter li .listprice:after {left: 30%;}
+.filter li .feature:before, .filter li .feature:after {left: 55%;}
+.filter li .sortprice:before, .filter li .sortprice:after {left: 80%;}
+.filter li div:after {border-width: 9px; border-bottom-color: #fff; margin-left: 1px }
+.filter li div .all {display: block; overflow: hidden; border-bottom: 1px solid #d9d9d9; font-size: 14px; color: #333; padding: 10px 0 }
+.filter li strong {font-size: 14px }
+.filter li aside {float: left; overflow: hidden; width: 50%; padding: 10px 0 }
+.filter li .rowfeature {float: none; width: 100%; border-bottom: 1px solid #d9d9d9; display: block; padding: 0 }
+.filter li .rowfeature aside {width: 50% }
+.filter li label {display: block; padding: 5px 0 6px; cursor: pointer; text-indent: 20px }
+.filter li label:hover {color: #288ad6 } .filter li .feature .all{border-bottom: none}
+.filter li .feature .breakline{border-bottom: 1px solid #d9d9d9}
+.filter li.sort-last{margin-right: 10px}
+
+
+
+/* goods list*/
+.cate {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #eee;
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.cate li {
+    background: #fff none repeat scroll 0 0;
+    border-left: 1px solid #eee;
+    border-top: 1px solid #eee;
+    float: left;
+    height: 240px;
+    margin: 0 0 0 -1px;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+}
+.cate li aside {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+.cate li .right {
+    padding-top: 22px;
+}
+.cate li a {
+    display: block;
+    overflow: hidden;
+    padding: 0 10px 8px;
+}
+.cate li h3 {
+    clear: both;
+    color: #333;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    height: 35px;
+    line-height: 1.3em;
+    overflow: hidden;    margin-bottom: 10px;
+}
+.cate li strong {
+    color: #f60;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 15px;
+    overflow: hidden;
+    padding: 1px 0;width: 50%;float: left;
+}
+.cate li a del{
+    color: #888;
+    display: inline;
+    font-size: 11px;
+    font-weight: normal;
+    float: right;
+}
+.cate li strong.shockprice {
+    padding: 6px 0 0;
+}
+.cate li strong.shockprice:last-child {
+    padding-bottom: 6px;
+}
+.cate li strong span {
+    color: #333;
+    display: inline;
+    font-size: 14px;
+}
+.cate li strong span.normal {
+    font-weight: normal;
+}
+.cate li img {
+    display: block;
+    height: 140px;
+    margin: 10px auto;
+    width: 140px;
+}
+.cate li .promotion {
+    height: 36px;
+    overflow: hidden;
+}
+.cate li span, .cate li .promotion p  {
+    color: #666;
+    display: block;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cate li .promotion p::before {
+    color: #999;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.cate li p {
+    color: #c1000c;
+    display: block;
+    font-size: 12px;
+    height: 18px;
+    overflow: hidden;
+    width: 100%;
+}
+.cate li label {
+    font-size: 10px;
+    color: #f00;
+    font-weight: 600;
+    position: absolute;
+    padding: 10px;
+    padding-left: 12px;
+    padding-right: 15px;
+    right: 0;
+    z-index: 2;
+    top: 6px;
+    background-image: url(https://hoangaudio.vn/cdn/images/sale.png);
+    background-position: -56px -2px;
+    background-repeat: no-repeat;
+}
+.cate li label.installment {
+    background: #ff6a00 none repeat scroll 0 0;
+}
+.cate li label.installment::before {
+    border-bottom: 9px solid transparent;
+    border-right: 7px solid #ff6a00;
+    border-top: 9px solid transparent;
+    content: "";
+    height: 0;
+    left: -7px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.cate li label.installment::after {
+    color: #fff;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    position: absolute;
+    right: 85%;
+    top: 1px;
+    vertical-align: middle;
+}
+.cate li label.new {
+    background: #288ad6 none repeat scroll 0 0;
+}
+.cate li label.new::before {
+    border-bottom: 9px solid transparent;
+    border-right: 7px solid #288ad6;
+    border-top: 9px solid transparent;
+    content: "";
+    height: 0;
+    left: -7px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.cate li label.new::after {
+    color: #fff;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    position: absolute;
+    right: 85%;
+    top: 1px;
+    vertical-align: middle;
+}
+.cate li label.shockprice {
+    background: #3fb846 none repeat scroll 0 0;
+}
+.cate li label.shockprice::before {
+    border-bottom: 9px solid transparent;
+    border-right: 7px solid #3fb846;
+    border-top: 9px solid transparent;
+    content: "";
+    height: 0;
+    left: -7px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.cate li label.shockprice::after {
+    color: #fff;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    position: absolute;
+    right: 85%;
+    top: 1px;
+    vertical-align: middle;
+}
+.cate li.feature {
+    display: block;
+    float: none;
+    height: auto;
+    width: 100%;
+}
+.cate li.feature a {
+    padding: 0;
+}
+.cate li.feature img {
+    display: block;
+    float: none;
+    height: auto;
+    margin: 0 auto 5px;
+    width: 100%;
+}
+.cate li.feature img.lazy {
+    height: 150px;
+}
+.cate li.feature label {
+    bottom: 5px;
+    left: auto;
+    right: 10px;
+    top: auto;
+}
+.cate li.feature h3 {
+    height: auto;
+    padding: 0 10px;
+}
+.cate li.feature strong {
+    padding: 5px 10px 10px;
+}
+.cate li.feature strong.shockprice {
+    padding-bottom: 0;
+}
+.cate li.feature strong.shockprice.last {
+    padding-bottom: 5px;
+}
+.cate li.feature .right {
+    padding-top: 0;
+}
+.pagination{margin:15px auto;font-size:16px;text-align:center;clear:both}
+.pagination a{display:inline-block;margin-left:2px;padding:8px 16px;background-color:#f4f4f4;border-radius:3px}
+.pagination a:hover{background-color:#f60;color:#fff}
+.pagination a.current{color:#fff;background-color:#f60;}
+.pagination span{display:inline-block;padding:3px 6px}
+
+.longdesc {margin: 10px 0}
+article{display: block; overflow: hidden; padding: 0 10px}
+article p, article div, article h2, article h3 {
+    margin: 10px auto;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+}
+article h2{font-size: 16px;margin: 20px 0}
+article div {margin-top: 0}
+article div em, article p em{font-style: italic}
+/*article h2, article h3, article h4, article h5{font-weight: 700}*/
+article a, article a:hover, article a:active {color: #288ad6;font-size: 14px}
+article ul{list-style: disc}
+article ul,article ol{margin-left: 10px;width: 95% !important;box-sizing: border-box;white-space: normal !important}
+
+
+@media screen and (max-width:480px) {
+     .sub-filter .showmore {height: 50px}
+}
+@media screen and (max-width:320px) {
+     .sub-filter .showmore {height: 46px}
+}
+img.icon-hot {
+    top: 0;
+    right: 0;
+}
+img.icon-new {
+top: 130px;
+    left: 45%;
+}
+img.icon-sale {
+    top: 0;
+    left: -25px;
+}
+.icon2{
+	width: 50px !important;
+    height: auto !important;
+    position: absolute;
+	margin:5px !important;
+}
+.cate li label.installment {
+    position: absolute;
+    padding: 10px;padding-left: 12px;
+    padding-right: 15px;
+    right: 0px;
+    z-index: 2;top:6px;
+    background-image: url(https://hoangaudio.vn/cdn/images/sale.png);
+    background-position: -52px -2px;
+    background-repeat: no-repeat;
+}.filter_cat span:after{    
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 6px solid #00adef;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;}
+@media (max-width: 480px){
+iframe{width: 100%; margin-right:10px;
+    height: 250px;}}
+@media (min-width: 480px) and (max-width:680px){
+iframe{width: 100%; margin-right:10px;
+    height: 360px;}}

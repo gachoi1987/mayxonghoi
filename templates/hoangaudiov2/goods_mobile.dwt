@@ -1,0 +1,161 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,owl-carousel/owl.carousel.css,mobile/css/goods.css"}
+</head>
+<body id="page_{$pname}">
+{include file='library/page_header_mobile.lbi'}
+<section>
+    {include file='library/ur_here.lbi'}
+    <h1>{$goods.goods_name|escape:html}</h1>
+
+    <!-- Slider banner -->
+    {if $pictures}
+      <div id="productslider" class="normalphoto">
+      {foreach from=$pictures item=picture name=pictures}
+         <div class="item"><img class="lazyOwl" data-src="{$option.cdn1_path}{$picture.img_url}" alt="{$picture.img_desc}">
+         {if $picture.img_desc} <p>{$picture.img_desc}</p> {/if}
+         </div>
+        {/foreach}
+    </div>
+    {else}
+     <div id="productslider" class ="normalphoto">
+        <img src="{$option.cdn1_path}{$goods.goods_img}" alt="{$goods.goods_name|escaple:html}">
+    </div>
+    {/if}
+    <div class="area_price" id="normalproduct">
+        	<h3>{if $goods.goods_packaged}
+   <strong> Bộ sản phẩm gồm : {$goods.goods_packaged}</strong>
+    {/if}</h3>
+	<div class="sku">Mã SP :  {$goods.goods_sn} | {if $goods.goods_brand and $cfg.show_brand}{$lang.goods_brand} <a rel="nofflow" href="{$goods.goods_brand_url}">{$goods.goods_brand}</a>{/if}
+	</div>
+    </div>
+
+<ul class="policy">
+	{if $goods.online_price neq 0}
+		<li><p class="price"><span>Giá đặc biệt : </span></p></li><li> <strong style="color:red;font-size:18px;">{$goods.online_price|formart_number}₫</strong> {if $goods.is_service}<p style="margin-top: 10px;color: red;">({$goods.is_service})</p>{/if}</li>
+		<li><p class="price"><span>Giá bán : </span> <del>{$goods.shop_price|formart_number}₫</del></p></li>
+		<li><p class="price"><span>Giá Hãng : </span> <del>{$goods.market_price}</del></p></li>
+	{/if}
+	{if $goods.shop_price neq 0 && $goods.online_price eq 0}
+		<li><p class="price"><span>Giá bán : </span> <strong  style="color:red;">{$goods.shop_price|formart_number}₫</strong></p></li>
+		<li><p class="price"><span>Giá Hãng : </span> <del>{$goods.market_price}</del></p></li>
+	{/if}
+	{if $goods.market_price neq 0 && $goods.shop_price eq 0 && $goods.online_price eq 0}
+		<li><p class="price"><span>Giá bán : </span> <del>{$goods.market_price}</del></p></li>
+	{/if}
+	{if $goods.market_price eq 0 && $goods.shop_price eq 0 && $goods.online_price eq 0}
+		<li><p class="price"><strong>Liên hệ {$service_phone}</strong></p></li>
+	{/if}
+    {if $goods.warranty}
+    <li><span style="width: 45%;float: left;">Bảo hành : </span><b>{$goods.warranty}</b></li>
+    {/if}
+    {if $goods.xuatxu}
+    <li><span style="width: 45%;float: left;">Xuất xứ : </span><strong>{$goods.xuatxu}</strong></li>
+    {/if}
+    {if $goods.noisanxuat}
+    <li><span style="width: 45%;float: left;">sản xuất : </span><strong>{$goods.noisanxuat}</strong></li>
+    {/if}
+    {if $goods.tinhtrang}
+    <li><span style="width: 45%;float: left;">Tình trạng : </span><strong>{$goods.tinhtrang}</strong></li>
+    {/if}
+</ul>
+
+<div class="area_order clr">
+
+    <a href="tel:0943030189" style="margin-bottom: 10px" class="buy_now"><b>Gọi : {$service_phone}</b><span>Trò chuyện với chúng tôi</span></a>
+     <div style="margin-top: 10px;"></div>
+    <a rel="nofollow" style="background:#288ad6" href="https://m.me/tuan.nguyenvan.5473894" class="buy_now"><b>Liên hệ Facebook </b><span>Chúng tôi tư vấn cho bạn</span></a>
+     <div style="margin-top: 10px;"></div>
+    <a rel="nofollow" style="background:#288ad6" href="https://zalo.me/0943030189" class="buy_now"><b>Liên hệ Zalo </b><span>Chúng tôi luôn sẵn sàng phục vụ</span></a>
+</div>
+
+		<div class="input_action">
+			<div class="content_why_buy_header">
+				<span>KHUYẾN MẠI KÈM THEO</span>
+			</div>
+			<ul class="service-free">
+				<li><i class="iconmy-express"></i> <strong>GIAO HÀNG TOÀN QUỐC</strong></li>
+				<li>» Giao hàng từ 8h đến 20h hàng ngày</li>
+				<li>» Nhận hàng trong 12h tại Hà Nội</li>
+				<li>» Bảo hành chính hãng</li>
+                                <li>» Đổi trả hàng miễn phí trong 7 ngày</li>
+                                <li>» Giá cả cạnh tranh nhất trên thị trường</li>
+                                <li>» Miễn phí lắp đặt với tất cả các sản phẩm</li>
+                                <li>» Cam kết đền tiền nếu không phải chính hãng</li>
+			</ul>
+
+		</div>
+{if $properties}
+<div class="tableparameter">
+    <h2>Thông số kỹ thuật</h2>
+    <ul class="parameter">
+       {foreach from=$properties item=property_group key=key}
+       {foreach from=$property_group item=property}
+       <li><span>{$property.name|escape:html}:</span><div>{$property.value}</div></li>
+       {/foreach}
+       {/foreach}
+    </ul>
+</div>
+{/if}
+{if $goods.youtube}
+<div class="tableparameter" id="youtube">
+    <h2>Video sản phẩm {$goods.goods_name}</h2>
+    <div class="video-responsive">
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/{$goods.youtube}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
+{/if}
+{if $goods.goods_desc}
+<article id="description">
+    <h3>Mô tả sản phẩm {$goods.goods_name}</h3>
+    <div class="article_content">{$goods.goods_desc}</div>
+</article>
+{/if}
+{if $related_goods}
+<div class="title_relate tltAcc">
+    <h3>{$lang.related_goods}</h3>
+</div>
+<div class="box_relate box_acc">
+    <ul class="relate">
+        {foreach from=$related_goods item=releated_goods_data name=related_goods}
+            <li>
+                <a href="{$releated_goods_data.url}">
+                <img src="{$option.cdn1_path}{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name|escape:html}">
+                    <div><h3>{$releated_goods_data.short_name}</h3></div>
+                    {if $releated_goods_data.price eq 0}
+                    <span>Giá liên hệ</span>
+                    {else}
+                        {if $releated_goods_data.promote_price}
+                        <strong class="gs">{$releated_goods_data.formated_promote_price}</strong>
+                        <strong class="gg">{$releated_goods_data.shop_price}</strong>
+                        {else}
+                        <strong class="gs">{$releated_goods_data.shop_price}</strong>
+                        {/if}
+                    {/if}
+                </a>
+            </li>
+        {/foreach}
+    </ul>
+</div>
+{/if}
+<div class="MobiRelated">
+<!-- #BeginLibraryItem "/library/goods_article.lbi" -->
+<!-- #EndLibraryItem -->
+</div>
+<div class="pluggin-comment-facebook">
+    <h2>Bình luận về <strong>{$goods.goods_name}</strong></h2>
+    <div class="fb-comments" data-href="{$goods.url}{$goods.url}" data-width="640" data-mobile="true" data-numposts="5"></div>
+</div>
+ <div class="clr"></div>
+    <div class="navigation">
+        {foreach from=get_categories_tree() item='catt' name='categorie'}
+        <a href="{$catt.url}"><h3>{$catt.name}</h3></a>
+        {/foreach}
+        <a href="{$goods.url}tin-tuc"><h3>Tin tức</h3></a>
+    </div>
+</section>
+
+{include file='library/page_footer_mobile.lbi'}
+
+{insert_js name='goods.Mobile.min.js' no_minify='' minify='js/global_mobile.js,js/init_mobile.js' }
+</body>
+</html>

@@ -1,0 +1,115 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/article.css"}
+</head>
+<body id="page_{$pname}">
+{include file='library/page_header_mobile.lbi'}
+<section>
+    <div class="wrap_more">
+        {include file='library/ur_here.lbi'}
+         <div id="show_article_cat">Danh mục Tin tức</div>
+    </div>
+    <div class="clr"></div>
+     <nav class="navigation hide">
+        {foreach from=$article_categories item=cat name=categories}
+        <a href="{$cat.url}"><h3>{$cat.name}</h3></a>
+        {/foreach}
+     </nav>
+     <div class="clr"></div>
+      {if $article.content}
+         <article>
+            <h1 class="titledetail">{$article.title_display|escape:html}</h1>
+            <div class="userdetail">
+                <a>{$article.author}</a>
+                <span>{$article.add_time}</span>
+                <span>{$article.viewed} lượt xem</span>
+            </div>
+            <div class="article_content">{$article.content}</div>
+        </article>
+         {if $article_rela}
+        <div class="clr"></div>
+        <h4 class="titlehome">Bài viết liên quan</h4>
+        <ul class="news">
+           {foreach from=$article_rela key=i item=article name=article_list}
+            <li>
+                <a href="{$article.url}">
+                    <img src="{$option.cdn1_path}{$article.article_thumb}" alt="{$article.title|escape:html}" width="100" height="70">
+                    <h3>{$article.title|escape:html}</h3>
+<!--                    <div><span>{$article.add_time}</span></div> -->
+                </a>
+            </li>
+            {/foreach}
+        </ul>
+        <div class="clr"></div>
+        {/if}
+        
+        <!-- TemplateBeginEditable name="SP Liên quan" -->
+        <!-- #BeginLibraryItem "/library/goods_related.lbi" -->
+        <!-- #EndLibraryItem -->
+        <!-- TemplateEndEditable -->
+        
+        <div class="likewied" style="padding: 0 10px">
+            <div class="fb-like" data-href="{$goods.url}{$article.url}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+        </div>
+    {else}
+        <p class="empty">{$lang.content_empty}</p>
+    {/if}
+    <div class="clr"></div>
+   <div class="navigation">
+        {foreach from=get_categories_tree() item='catt' name='categorie'}
+        <a href="{$goods.url}{$catt.url}"><h3>{$catt.name}</h3></a>
+        {/foreach}
+        <a href="{$goods.url}tin-tuc"><h3>Tin tức</h3></a>
+    </div>
+</section>
+
+{include file='library/page_footer_mobile.lbi'}
+{insert_js name='article.Mobile.min.js' no_minify='' minify='js/global_mobile.js,js/init_mobile.js'}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{$goods.url}{$article.url}"
+  },
+  "headline": "Article headline",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{$goods.url}{$article.article_thumb}",
+    "height": 600,
+    "width": 315
+  },
+  "datePublished": "{$article.utc_time_public}",
+  "dateModified": "{$article.utc_time_modify}",
+  "author": {
+    "@type": "Person",
+    "name": "{$article.author}"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "{$shop_name}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{$option.static_path}img/logo-600x60.png",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "{$description}"
+}
+</script>
+<div id="fb-root"></div>
+<script>
+ setTimeout(function () {
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId={$fb_app_id}";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+}, 10000);
+</script>
+</body>
+</html>

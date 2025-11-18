@@ -1,0 +1,52 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/category.css"}
+</head>
+<body id="page_{$pname}">
+{include file='library/page_header_mobile.lbi'}
+<section>
+    {include file='library/ur_here.lbi'}
+    <div class="barpage clearfix">
+        <div class="filter_cat clearfix">
+            <h2>{$cat_name}</h2>
+        </div>
+        <div class="sub-filter clearfix ">
+            {if $catsubs}
+            <div class="navigation showmore">
+                {foreach from=$catsubs item=sub name=catsub}
+                <a href="{$sub.url}" title="{$sub.name|escape:html}"><h3>{$sub.name}</h3></a>
+                {/foreach}
+            </div>
+            {/if}
+        </div>
+    </div>
+     {include file='library/cat_filter_tgdd_mobile.lbi'}
+    {include file='library/goods_list_mobile.lbi'}
+     <div class="clr"></div>
+    {if $long_desc}<div class="longdesc"><article>{$long_desc}</article></div>{/if}
+    <div class="clr"></div>
+    <div class="navigation">
+        {foreach from=get_categories_tree() item='catt' name='categorie'}
+        <a href="{$base_path}{$catt.url}"><h3>{$catt.name}</h3></a>
+        {/foreach}
+        <a href="{$base_path}tin-tuc"><h3>Tin tức</h3></a>
+    </div>
+</section>
+
+{include file='library/page_footer_mobile.lbi'}
+
+{insert_js name='category.Mobile.min.js' minify='js/global_mobile.js,js/init_mobile.js'}
+<script type="text/javascript">
+    $('div.barpage div.filter_cat').click(function(f){
+        $('div.sub-filter .navigation').toggleClass('showmore');
+        f.preventDefault();
+    });
+     $(".criteria").click(function() {
+        $(".criteria").not(this).next().hide();
+        $(this).next().slideToggle(200);
+        $("body,html").animate({
+            scrollTop: $(".barpage").position().top
+        }, 600)
+    });
+</script>
+</body>
+</html>

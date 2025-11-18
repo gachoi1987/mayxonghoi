@@ -1,0 +1,7 @@
+{if $ad.ad_link}
+<a target="_blank" href="{$ad.ad_link}">
+<img src="{$option.cdn_path}{$src}" width="{$ad.ad_width}" height="{$ad.ad_height}"/>
+ </a>
+ {else}
+ <img src="{$option.cdn_path}{$src}" width="{$ad.ad_width}" height="{$ad.ad_height}"/>
+ {/if}

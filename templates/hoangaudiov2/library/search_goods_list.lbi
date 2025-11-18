@@ -1,0 +1,32 @@
+<p class="search-results">Tìm thấy <strong>{$total_results}</strong> kết quả khớp với từ khóa "<strong>{$search_keywords|escape}</strong>"</p>
+{if $goods_list}
+<ul class="cate normal">
+        {foreach from=$goods_list item=goods name=goods_list}
+        {if $goods.goods_id}
+        <li>
+             {if $goods.rate_sale}<label class="installment">-{$goods.rate_sale}%</label>{/if}
+            <a href="{$goods.url}" >
+                    <img src="{$option.cdn1_path}{$goods.goods_thumb}" width="150" height="150" alt="{$goods.goods_name|escape:html}">
+                <h3>{$goods.goods_name}</h3>
+                {if $goods.price eq 0}
+                <span>Giá liên hệ</span>
+                {else}
+                <strong>{if $goods.promote_price}{$goods.promote_price}<del>{$goods.shop_price}</del>{else}{$goods.shop_price}{/if}</strong>
+                {/if}
+                <div class="promotion">{$goods.seller_note}</div>
+                {if $goods.desc_short}
+                <figure class="bginfo">
+                    <span class="name">{$goods.goods_name}</span>
+                    <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                    {$goods.desc_short}
+                </figure>
+                {/if}
+            </a>
+        </li>
+        {/if}
+        {/foreach}
+    </ul>
+{include file='library/pages.lbi'}
+{else}
+<p class="empty">{$lang.goods_empty}</p>
+{/if}

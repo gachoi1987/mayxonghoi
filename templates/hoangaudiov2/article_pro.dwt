@@ -1,0 +1,57 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/article.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section>
+	{include file='library/ur_here.lbi'}
+	{$render.before_main}
+	<!-- TemplateBeginEditable name="Top" --><!-- TemplateEndEditable -->
+
+    <div class="col_sub_lg" style="float: left;width:247px;">
+            <aside id="help-navigation">
+                <ul class="nolist clearfix">
+                    {foreach from=$helps item=help_cat name=helps}
+                    <li><a href="{$help_cat.url}">{$help_cat.title|escape:html}</a></li>
+                    {/foreach}
+                </ul>
+            </aside>
+    </div>
+    <div class="col_main_lg" style="float: right;width:899px;">
+        <article>
+            <h1 class="titledetail">{$article.title|escape:html}</h1>
+            <div class="userdetail">
+                <a>{$article.author}</a>
+                <span>{$article.add_time}</span>
+                <span>{$article.viewed} lượt xem</span>
+            </div>
+            {if $article.content}
+            <div class="article_content">{$article.content}</div>
+            {else}
+            <p class="empty">{$lang.content_empty}</p>
+            {/if}
+            {if $article.open_type eq 2 or $article.open_type eq 1}
+            <p class="download_wrapper"><a href="{$article.file_url}" class="button bright_button"><span class="download">{$lang.relative_file}</span></a></p>
+            {/if}
+        </article>
+        <div class="pluggin-comment-facebook">
+            <div class="fb-comments" data-href="{$option.static_path}{$article.url}" data-width="800" data-numposts="5"></div>
+        </div>
+
+    </div>
+
+	<!-- TemplateBeginEditable name="Bottom" --><!-- TemplateEndEditable -->
+	{$render.after_main}
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='article.Desktop.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global.js,js/init.js' }
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId={$fb_app_id}";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>

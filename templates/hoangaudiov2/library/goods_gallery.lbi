@@ -1,0 +1,8 @@
+ {if $pictures}
+ <h2 class="title_realphoto">Điểm nổi bật / Hình ảnh thực tế {$goods.goods_name}</h2>
+<div id="realphoto">
+{foreach from=$pictures item=picture name=pictures}
+  <div class="item"><img src="{$option.cdn1_path}{$picture.img_url}" alt="{$goods.goods_name}"></div>
+{/foreach}
+</div>
+{/if}

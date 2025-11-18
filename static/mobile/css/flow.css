@@ -1,0 +1,309 @@
+
+.provision {
+    display: block;
+    overflow: hidden;
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+    line-height: 50px;
+}
+.bar-top {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-width: 640px;
+    margin: auto;
+}
+.buymore {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    line-height: 40px;
+    font-size: 14px;
+    color: #288ad6;
+    padding: 15px 0 0 15px;
+}
+.buymore:before, .buymore:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 7px solid #288ad6;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 28px;
+}
+.yourcart {
+    display: block;
+    overflow: hidden;
+    text-align: right;
+    color: #333;
+    font-weight: 700;
+    line-height: 40px;
+    padding-top: 15px;
+}
+.wrap_cart {
+    display: block;
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+}
+.listorder {
+    background: #fff none repeat scroll 0 0;
+    clear: both;
+    display: block;
+    overflow: visible;
+    padding-top: 10px;
+}
+.listorder li {
+    border-bottom: 1px solid #f5f5f5;
+    display: block;
+    margin: 10px 30px;
+    min-height: 55px;
+    overflow: visible;
+    padding-bottom: 10px;
+}
+.listorder li:last-child {
+    margin-bottom: 0;
+}
+.listorder li a {
+    display: block;
+    overflow: hidden;
+}
+.listorder li img {
+    display: inline-block;
+    margin: 5px 0 10px;
+    width: 55px;
+}
+.listorder li .colimg {
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    width: 55px;
+    position: relative;
+}
+.listorder li .colimg .drop{
+    position: absolute;
+    top: 0;left: 0;
+}
+.listorder li .colimg .drop span{background: #f4f4f4;
+width:15px;height: 15px;border-radius: 10px;text-align: center;display: block;box-sizing: border-box;
+vertical-align:middle;display: block;line-height: 15px
+}
+.listorder li .colinfo {
+    display: inline-block;
+    overflow: visible;
+    padding-left: 15px;
+    width: 87%;
+}
+.listorder li .colinfo a {
+    -moz-box-orient: vertical;
+    color: #333;
+    display: -webkit-box;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    width: 62%;
+}
+.listorder li .colinfo a:hover {
+    color: #288ad6;
+}
+.listorder li .colinfo strong {
+    color: #c10017;
+    float: right;
+    font-size: 14px;
+    font-weight: normal;
+}
+.listorder li .colinfo strong span {
+    color: #666;
+    display: block;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+.choosenumber {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+    color: #333;
+    float: right;
+    font-size: 14px;
+    line-height: 32px;
+    margin: 5px 0;
+    overflow: hidden;
+    position: relative;
+    width: 15%;
+}
+.choosenumber input{width: 50px;border: none;}
+.area_total {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #d8d8d8;
+    display: block;
+    overflow: hidden;
+    padding: 10px 30px;
+    clear: both
+}
+
+.area_total div {
+    color: #333;
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.area_total div span {
+    float: left;
+}
+.area_total div span:nth-child(2) {
+    float: right;
+}
+.area_total div.total {
+    display: block;
+}
+.area_total div.total b {
+    float: left;
+}
+.area_total div.total strong {
+    color: #c10017;
+    float: right;
+    font-size: 16px;
+}
+.customer-info {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    padding: 10px;
+}
+.input_form input[type="text"]{width: 49%;box-sizing: border-box;padding:10px;border-radius: 3px;}
+.input_form textarea{width: 100%;box-sizing: border-box;padding:10px;}
+.input_form input {margin: 8px 0}
+
+/* form login */
+.wrap_cart h3{font-size: 22px;text-align: center;padding: 10px 0}
+.user_form {padding: 15px}
+.form label .directions{float:left;display:inline-block;width:40em;clear:both;margin-left:10em;padding-left:10px;padding-top:5px}
+.form label .to{float:left;display:block;padding:5px 0 0 10px}
+.form label .status{display:inline-block;width:16px;height:16px;padding-left:5px;vertical-align:middle}
+.form label .valid{background:url('../img/checkmark.png') no-repeat right top}
+.form label .invalid{background:url('../img/cross.png') no-repeat right top}
+.form label,.form .label{float:left;display:block;padding:5px 0;width:100%}
+.form label b,.form .label b{float:left;width:30%;padding:5px 0 4px;font-weight:normal;display:block}
+.form .label em,.form label em{float:left;margin-left:10px;padding:5px 0}
+.form .required b:before{content:'*';margin-right:3px;color:#f53;font-size:1.5em;line-height:0.5em;font-weight:normal}
+.form .required b .before{margin-right:3px;color:#f53;font-size:1.5em;line-height:0.5em;font-weight:normal}
+.form .required_tip{color:#999;font-size:96%;font-weight:normal;position:absolute;top:.4em;right:2em;left:auto;width:13em;text-align:right}
+.form .required_tip b{color:#f53;font-size:140%}
+.form div.submit_wrap{clear:both;padding:10px 0 10px;border-top:1px solid #d8d8d8;text-align: center;}
+.form div.submit_wrap p{margin-top: 20px}
+.form div.submit_wrap p a{color: #288ad6}
+.form input[type="text"], .form input[type="password"],
+.form input[type="tel"], .form input[type="email"]
+{width: 70%;box-sizing: border-box;padding:10px;}
+.form select{width: 34.68%;box-sizing: border-box;padding:10px;}
+.form .remember {margin-left: 10em}
+.form .remember label{width: auto}
+/* end form login */
+
+.flow_wrapper .box h4{padding:8px 10px;font-size:1.2em}
+.flow_wrapper .box .form h4{padding:0;margin:0 0 .6em;color:#ff6600;font-size:18px}
+.flow_wrapper .box .content{padding:0;border-width:0}
+.flow_wrapper .form label b, .flow_wrapper .form .label b{width:12em}
+.flow_wrapper .form div.submit_wrap{float:none;text-align: center;margin: 20px 0}
+.flow_wrapper .form label .directions{margin-left:12em}
+.flow_wrapper .form label select{width:auto}
+.cart_produst_list .photo{float:left;width:60px;padding-right:10px}
+.cart_produst_list .photo img{width:60px}
+.cart_produst_list .name{display:block;margin-bottom:10px;font-size:1.2em}
+.cart_produst_list .package_name{padding:5px;font-size:14px;line-height:18px}
+.cart_produst_list .extra_info em{margin-right:5px;padding:2px 8px;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,0.3);background-color:#333;border-radius:3px}
+.cart_produst_list .number{width:30px}
+.cart_produst_list .price{font-size:1.2em;line-height:2em}
+.cart_produst_list .subtotal{font-weight:bold}
+.cart_produst_list .quantity input{width:3em}
+.cart_produst_list .drop{display:inline-block;margin-top:5px;padding:2px 8px;white-space:nowrap;color:rgba(255,255,255,1);text-shadow:0 1px 1px rgba(0,0,0,0.3);background-color:#333;border-radius:3px;opacity:0.8}
+.no-rgba .cart_produst_list .drop{color:#fff}
+.cart_produst_list .drop:hover{opacity:1}
+.cart_produst_list .actions p{float:left;font-size:14px;text-align:left}
+.cart_produst_list .actions p.info{float:right;font-weight: 700;}
+.cart_produst_list .package_product_list em{margin-right:5px;padding:2px 5px;background-color:#eee;border-radius:3px}
+.checkout_produst_list .package_product_list{display:none}
+.flow_wrapper .consignee_list{margin-top:0}
+.flow_wrapper .favourable_list table{margin-bottom:10px}
+.consignee_list form{margin-bottom:10px}
+.flow_wrapper .zoom{padding-right:10px}
+.order_total .complete{padding:10px 0;color:#999;font-size:12px;line-height:14px}
+.order_total .total_list{padding-bottom:10px;font-size:14px;line-height:16px;text-align:right;border-bottom:1px dashed #ccc}
+.order_total .total_list .price{width: 100px;display: inline-block;}
+.order_total .total_fee{padding-top:10px;font-size:1.3em;line-height:1.4em;text-align:right;}
+.order_total .total_fee .price{font-size:1.4em}
+.flow_action{display:inline-block;width:100%;padding:30px 0 50px;text-align: right;}
+.flow_action .next{}
+.flow_action .back{margin-right:20px;line-height:40px;font-size:16px}
+.checkout_wrapper .options{width:100%;background: #fff;box-sizing: border-box;padding:10px;}
+.checkout_wrapper .option_title h2{font-size:16px;line-height:18px}
+.checkout_wrapper .option_inner{padding:12px 0}
+.checkout_wrapper .option_item{float:left;width:180px;padding:10px 6px}
+.checkout_wrapper .option_item label{position:relative;display:block;height:50px;width:150px;margin:0 auto 5px;font-size:14px;line-height:50px;text-align:center;background:#fafafa url('../img/option_item_bg.gif') no-repeat left top;border:1px solid #eee}
+.checkout_wrapper .option_item label .name{display:block;height:50px;width:150px;overflow:hidden}
+.checkout_wrapper .option_item label:hover, .checkout_wrapper .option_item label.hover{border-color:#ccc}
+.checkout_wrapper .option_item label.checked{border-color:#f53}
+.checkout_wrapper .option_item label.disabled{opacity:0.5;cursor:default}
+.checkout_wrapper .option_item label .status{position:absolute;left:-2px;top:-2px;display:none;height:50px;width:150px;background:transparent url('../img/option_item_bg.gif') no-repeat left bottom;border:2px solid #f53}
+.checkout_wrapper .option_item label.checked .status{display:block}
+.checkout_wrapper .option_item img{position:absolute;left:0;top:0;height:50px;width:150px}
+.checkout_wrapper .option_item input{position:absolute;right:5px;bottom:5px}
+.checkout_wrapper .option_item .info{display:block;width:148px;margin:0 auto 5px;line-height:16px;text-align:center}
+.checkout_wrapper .option_item .info .price{display:block}
+.checkout_wrapper .option_item .info .free{display:block;color:#999}
+.checkout_wrapper .option_item .info .not_supported{display:block;color:#999}
+.checkout_wrapper .option_extra{clear:both}
+.checkout_wrapper .option_inner .current_intro{display:block;clear:both;margin-bottom:10px;padding:9px;line-height:16px;background-color:#f8f8f8;border:1px solid #eee}
+.checkout_wrapper .option_inner .current_intro a{padding:0 2px;text-decoration:underline}
+.checkout_wrapper .option_inner .insure_wrapper{text-align:right}
+.checkout_wrapper .option_inner .insure_disabled{display:none}
+.checkout_wrapper .card_message{clear:both;padding:9px;background-color:#f8f8f8;border:1px solid #eee}
+.checkout_wrapper .card_message h4{float:left;padding:2px 5px}
+.checkout_wrapper .card_message textarea{width:450px}
+.checkout_wrapper .postscript textarea{width:100%;box-sizing: border-box;}
+.checkout_wrapper .current_option h2 span{color:#b00}
+.checkout_wrapper .later_option .option_inner{display:none}
+.checkout_wrapper .extra_options{clear:both;padding:9px 19px;background-color:#f8f8f8;border:1px solid #eee}
+.checkout_wrapper .extra_options .item{float:left;width:100%;padding:5px 0;border-bottom:1px dotted #eee}
+.checkout_wrapper .extra_options .last{border-bottom-width:0}
+.checkout_wrapper .extra_options h3{width:120px;float:left;line-height:28px}
+.checkout_wrapper .extra_options .inner{float:left}
+.checkout_wrapper .extra_options .price_input{width:50px;margin-right:5px}
+.checkout_wrapper .extra_options .text_input{width:100px;margin-right:5px}
+.checkout_wrapper .details{width:100%;padding:9px;background-color:#fef9e6;border:1px solid #ffedad;box-sizing: border-box;}
+.checkout_wrapper .detail_inner{padding:0 5px}
+.checkout_wrapper .details .title{padding:5px 9px;border:1px solid #FFF2BC;background:#fff url('../img/order_title_bg.gif') repeat left top}
+.checkout_wrapper .details .title a{float:right}
+.cart_list {display: block;}
+.cart_list li{position:relative;float:left;width:100%;padding:5px;border-bottom:1px dotted rgba(0,0,0,0.5);box-sizing: border-box;}
+.cart_list li:last-child{border-bottom:none;}
+.cart_list .photo{display:block;float:left;width:40px;height:40px;margin-right:5px;padding:2px;background-color:#fff;border:1px solid #eee}
+.cart_list .photo img{width:40px;height:40px}
+.cart_list .name em{margin-left:3px}
+.cart_list .price{float: right;}
+.cart_list .drop{visibility:hidden;position:absolute;top:0;left:0}
+.cart_list  .drop span{background: #f4f4f4;text-align: center;padding: 2px 5px;display: block;box-sizing: border-box
+}
+.cart_list li:hover .drop, .wrap_cart .cart_list li.hover .drop{visibility:visible}
+.cart_list .total{clear:both;padding:5px 10px;text-align:right}
+.cart_list .next{padding:5px 10px;text-align:right}
+.checkout_wrapper .consignee_info{padding:10px;font-size:14px;line-height:18px}
+.checkout_wrapper .consignee_info strong{color:#999;font-size:12px;font-weight:normal}
+.checkout_wrapper .next{float:right;margin-right:0}
+.checkout_wrapper .back{float:right;margin-right:10px}
+.checkout_wrapper .goods_card textarea, .checkout_wrapper .other_info textarea{width:450px}
+.checkout_wrapper .other_info{line-height:25px}
+.checkout_wrapper .other_info span{line-height:25px;vertical-align:middle}
+.checkout_wrapper .other_info .price_input{width:50px}
+.checkout_wrapper .other_info p{padding:3px 0}
+
+.flow_done {padding: 10px 15px;}
+.flow_done h3{font-size: 18px;line-height: 24px;color: #fe7600}
+.flow_done p {padding: 10px 0}
+.flow_done p strong{font-weight: 700px;}
+.flow_done .btn-link{text-align: center;margin-top: 10px}
+.flow_done .btn-link a{color: #288ad6;font-weight: 600px}

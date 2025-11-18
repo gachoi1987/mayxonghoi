@@ -1,0 +1,34 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/user.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section class="user_cp">
+    {include file='library/ur_here.lbi'}
+    <div class="col_sub">
+    {$render.before_col_sub}
+        {include file='library/user_nav.lbi'}
+    {$render.after_col_sub}
+    </div>
+    <div class="col_main">
+    {$render.before_main}
+        {if $action eq 'profile'}{include file='library/user_profile.lbi'}{/if}
+        {if $action eq 'bonus'}{include file='library/user_bonus.lbi'}{/if}
+        {if $action eq 'order_list'}{include file='library/user_order_list.lbi'}{/if}
+        {if $action eq 'track_packages'}{include file='library/user_track_packages.lbi'}{/if}
+        {if $action eq 'order_detail'}{include file='library/user_order_detail.lbi'}{/if}
+        {if $action eq "account_raply" || $action eq "account_log" || $action eq "act_account" || $action eq "account_deposit" || $action eq "account_detail"}{include file='library/user_account.lbi'}{/if}
+        {if $action eq 'address_list'}{include file='library/user_address_list.lbi'}{/if}
+        {if $action eq 'transform_points'}{include file='library/user_transform_points.lbi'}{/if}
+    {$render.after_main}
+    </div>
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='user.Desktop.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global.js,js/init.js' }
+<script type="text/javascript" src="{$option.static_path}static/js/user.js"></script>
+<script type="text/javascript" src="{$option.static_path}static/js/flow.js"></script>
+<script type="text/javascript">
+{if $action eq 'register'}validRegister();{/if}
+</script>
+</body>
+</html>

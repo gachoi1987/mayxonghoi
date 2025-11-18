@@ -1,0 +1,9 @@
+{if $banner}
+<div class="slider_wrapper box">
+	<div class="slider" id="slider_hp">
+			{foreach from=$banner item=banner name=banner}
+			<a href="{$banner.url}"><img src="{$banner.src}" alt="{$banner.text|escape:html}" /></a>
+			{/foreach}
+	</div>
+</div>
+{/if}

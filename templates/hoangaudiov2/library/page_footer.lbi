@@ -1,0 +1,87 @@
+<footer>
+    <div class="best_slogan">
+        <ul class="rowfoot1">
+            <li class="slogan_a" style="width: 25%"><i class="iconmy-slogan_a"></i><span>Sản phẩm, hàng hóa</span> <span>Chính hãng đa dạng phong phú.</span></li>
+            <li class="slogan_b" style="width: 25%"><i class="iconmy-slogan_b"></i><span>Luôn luôn giá rẻ &amp;</span> <span>khuyến mại không ngừng.</span></li>
+            <li class="slogan_c" style="width: 25%"><i class="iconmy-slogan_c"></i><span>Dịch vụ</span> <span>Chăm sóc khách hàng uy tín.</span></li>
+            <li class="slogan_d" style="width: 19%"><i class="iconmy-slogan_d"></i><span>Tư vấn bán hàng</span> <b>{$service_phone}</b></li>
+        </ul>
+    </div>
+    <div class="rowfoot1">
+
+
+		<p style=" text-align: center; margin-bottom: 26px;  background: #f0f0f0; width: 100%; line-height: 38px;">An Phát chuyên cung cấp lắp đặt thi công bể bơi, bồn tắm, máy xông hơi, thiết bị xông hơi- Số 29 Văn Phú, Phú La, Hà Đông-TP. Hà Nội.Chi nhánh Hải Phòng: Cửa hàng Biển Lan - Quốc lộ 10 Giang Biên, Vĩnh Bảo, Hải Phòng - Hotline đặt hàng toàn quốc: 0943.030.189 - Email: mayxonghoispahanoi@gmail.com</p>
+
+        <ul class="colfoot">
+            <li class="tit_f">Thông Tin</li>
+            <li><a href="gioi-thieu" title="Giới thiệu công ty">Giới thiệu công ty</a></li>
+            <li><a href="tuyen-dung" title="Tuyển dụng">Tuyển dụng</a></li>
+            <li><a href="lien-he" title="Gửi góp ý, khiếu nại">Liên hệ</a></li>
+            <li><a href="quan-diem-kinh-doanh" title="Quan điểm kinh doanh">Quan điểm kinh doanh</a></li>
+        </ul>
+        <ul class="colfoot">
+            <li class="tit_f">Danh mục sản phẩm</li>
+            <li><a href="https://mayxonghoispa.vn/may-xong-hoi" title="Máy xông hơi">Máy xông hơi</a></li>
+            <li><a href="https://mayxonghoispa.vn/may-xong-hoi-uot" title="Máy xông hơi uớt">Máy xông hơi uớt</a></li>
+            <li><a href="https://mayxonghoispa.vn/may-xong-hoi-kho" >Máy xông hơi khô</a></li>
+            <li><a href="https://mayxonghoispa.vn/bon-tam-massage">Bồn tắm massage</a></li>
+        </ul>
+        <ul class="colfoot">
+            <li class="tit_f">Tổng Đài Hỗ Trợ</li>
+            <li>
+                <a href="tel:0943030189">Gọi mua hàng: 0943.030.189</a>
+                <a href="tel:0984695059">Gọi khiếu nại: 0984.695.059</a>
+                <a href="tel:0943030189">Gọi bảo hành: 0943.030.189</a>
+            </li>
+        </ul>
+        <ul class="colfoot">
+            <li class="tit_f">Danh mục sản phẩm</li>
+            <li>
+               <a href="https://mayxonghoispa.vn/may-xong-hoi-uot-amazondm">Máy xông hơi Amazon</a>
+                <a href="https://mayxonghoispa.vn/may-xong-hoi-kho-coasts">Máy xông hơi Coast</a>
+                <a href="https://mayxonghoispa.vn/may-xong-hoi-uot-harvia">Máy xông hơi Harvia</a>
+                <a class="viewmb" rel="nofollow" href="javascript:window.location.href='?client=mobile'" title="Xem bản mobile">Xem bản Mobile</a>
+            </li>
+
+        </ul>
+    </div>
+	<div class="rowfoot2">
+		<div class="ctn">
+			<div class="block-content">
+			<p>Công ty  cổ phần kinh doanh thiết bị và xây dựng An Phát. Người đại diện: Nguyễn Văn Tuấn / Mã số thuế: 0108118769 / Ngày cấp: 5/1/2018. Nơi cấp :Sở kế hoach đầu tư Tp Hà Nội</p>
+			</div>
+<div class="pagepay"><span style="display: block;
+    font-size: 13px;
+    color: #999;
+    line-height: 22px;">Bạn có thể thanh toán với</span>
+			<a href="/thanh-toan" target="_blank" title="Tiền mặt, Chuyển khoản, Thẻ ATM nội địa, Thẻ VISA, Thẻ Master"><i class="icontgdd-tienmat"></i><i class="icontgdd-atm"></i><i class="icontgdd-visa"></i><i class="icontgdd-master"></i></a>
+			</div>
+			<div class="fs-ftr3" style="float: right;">
+				<ul>
+					<li><span class="fs-ftr-cthuong"></span></li>
+					<li><span class="fs-ftr-dmca" ></span></li>
+					<li><span class="fs-ftr-sp"></span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+{if $shop_notice}
+<p style="position: fixed;bottom: 0;width: 100%;background: #fff6bf;color: #514721;border-color: #ffd324;padding: 10px 5%;box-sizing: border-box;text-align: center">
+{$shop_notice}
+</p>
+{/if}
+<div class="support-online">
+<div class="support-content">
+<a class="mes" href="https://www.facebook.com/messages/t/tuan.nguyenvan.5473894">
+FaceBook
+<i class="fa fa-facebook"></i>
+<span>Nhắn tin facebook</span>
+</a>
+<a class="zalo" href="https://zalo.me/0943030189">
+Zalo
+<i class="fa fa-comments"></i>
+<span>Chát nhanh Zalo</span>
+</a>
+</div>
+</div>

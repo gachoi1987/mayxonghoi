@@ -1,0 +1,24 @@
+<div class="wrap_cart" style="margin-top: 80px">
+<h3>{$lang.login_title}</h3>
+<form action="{$base_path}gio-hang?step=login" method="post" class="form user_form">
+    <label class="required"><b>{$lang.label_username}{$lang.colon}</b>
+        <input type="text" name="username"  autofocus required>
+    </label>
+    <label class="required"><b>{$lang.label_password}{$lang.colon}</b>
+        <input type="password" name="password" required>
+    </label>
+    {if $enabled_register_captcha}
+    <label class="required"><b>{$lang.comment_captcha}{$lang.colon}</b>
+        <input type="text" name="captcha" maxlength="4" required ><span><img src="{$base_path}ajax/captcha.php?is_login=1&{$rand}" alt="{$lang.comment_captcha}" class="captcha tip" title="{$lang.captcha_tip}" onClick="this.src='{$option.static_path}ajax/captcha.php?is_login=1&'+Math.random()"></span>
+    </label>
+    {/if}
+    <div class="remember"><label><input type="checkbox" name="remember" value="1"> Lưu thông tin đăng nhập</label></div>
+    <div class="submit_wrap">
+        <input type="submit" value="{$lang.btn_login}" class="button btn-grey"/>
+        {if $anonymous_buy eq 1}<a href="{$base_path}gio-hang?step=consignee&amp;direct_shopping=1" class="quick_buy button"><span>{$lang.direct_shopping}</span></a>{/if}
+        <input type="hidden" name="act" value="signin">
+        <p><a href="user.php?act=get_password">{$lang.forgot_password}</a> | <a href="{$base_path}thanh-vien?act=register" class="text-link"><span>Đăng ký thành viên</span></a></p>
+    </div>
+</form>
+</div>
+<p class="provision">Bằng cách đăng nhập, bạn đồng ý với Điều khoản sử dụng của {$shop_name}</p>

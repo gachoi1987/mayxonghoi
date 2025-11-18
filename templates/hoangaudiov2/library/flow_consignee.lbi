@@ -1,0 +1,55 @@
+<div class="bar-top">
+    <a href="./" class="buymore">Mua thêm sản phẩm khác</a>
+    <div class="yourcart">Giỏ hàng của bạn</div>
+</div>
+<div class="wrap_cart clearfix">
+    <div id="cartlist">
+        {if $goods_list}
+        <ul class="listorder">
+            {foreach from=$goods_list item=goods name=goods_list}
+            <li>
+                <div class="colimg">
+                    <a href="{siy:goods_info id=$goods.goods_id type='url'}">
+                    <img width="55" src="{$option.cdn1_path}{siy:goods_info id=$goods.goods_id type='goods_thumb'}"></a>
+                    <a href="javascript:cartDrop({$goods.rec_id});" class="drop"><span>x</span></a>
+                </div>
+                <div class="colinfo">
+                    <strong>{$goods.goods_number} &times; {$goods.formated_goods_price}</strong>
+                    {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'}
+                    <a href="{siy:goods_info id=$goods.goods_id type='url'}" class="name" target="_blank">{$goods.goods_name}</a>
+                    <span class="extra_info">
+                        {if $goods.goods_attr}{$goods.goods_attr}{/if}
+                        {if $goods.is_shipping}<em class="carriage_free">{$lang.carriage_free}</em>{/if}
+                        {if $goods.parent_id gt 0}<em class="accessories">{$lang.accessories}</em>{/if}
+                        {if $goods.is_gift gt 0}<em class="largess">{$lang.largess}</em>{/if}
+                    </span>
+                    {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'}
+                        <span class="name package_name">{$goods.goods_name}</span>
+                        <span class="package_product_list">{foreach from=$goods.package_goods_list item=package_goods_list name=package_goods_list}<em>{$package_goods_list.goods_name}</em>{/foreach}</span>
+                    {else}
+                        {$goods.goods_name}
+                    {/if}
+
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+        {else}
+        <p class="empty_small">Giỏ hàng trống.</p>
+        {/if}
+    </div>
+    <div class="customer-info">
+        {foreach from=$consignee_list item=consignee key=sn name=consignee_list}
+        <form action="{$base_path}gio-hang" method="post" name="theForm" onsubmit="return checkConsignee(this)" class="form address_form">
+            {include file='library/consignee.lbi'}
+        </form>
+        {/foreach}
+    </div>
+</div>
+<p class="provision">Bằng cách đặt hàng, bạn đồng ý với Điều khoản sử dụng của {$shop_name}</p>
+
+<script type="text/javascript">
+{foreach from=$lang.flow_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+</script>

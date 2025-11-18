@@ -1,0 +1,33 @@
+<div class="wlogo">
+    <div class="hotline">CSKH: {$service_phone}</div>
+   <a href="{$hu}"> <img src="{$option.static_path}img/logo.jpg" style ="width:290px; height:75px;" alt="{$shop_name}"></a>
+</div>
+<header>
+    <div class="menu" id="_menu"><i class="iconmobile-menu"></i></div>
+    <div class="menu_news" id="_menunews"><i class="iconmobile-news"></i></div>
+
+     <form id="search-site" action="{$base_path}tim-kiem" method="get" class="search ">
+        <input id="search-keyword" name="keywords" type="search" placeholder="Bạn tìm gì hôm nay ? " value="{$search_keywords|escape}" autocomplete="off"  />
+ <!--       <div class="iconsearch"><i class="iconmobile-search"></i></div> -->
+        <button type="submit" class="btn-submit">Tìm</button>
+        <div class="search-suggest"></div>
+    </form>
+    <!-- sugguest -->
+    <nav class="subnav" id="_subnav">
+        <div class="navigation">
+            {foreach from=get_categories_tree() item='catt' name='categorie'}
+            <a href="{$base_path}{$catt.url}"><h3>{$catt.name}</h3></a>
+             {/foreach}
+              <a href="{$base_path}tin-tuc"><h3>Tin tức</h3></a>
+            <div class="buycall">Hotline Tư vấn:<a href="tel:{$service_phone}">{$service_phone}</a> <span>(8:00 - 17:30)</span></div>
+        </div>
+    </nav>
+     <nav class="subnav" id="_subnews">
+        <div class="navigation">
+            {foreach from=article_categories_tree(0) item=cat name=categories}
+            <a href="{$base_path}{$cat.url}"><h3>{$cat.name}</h3></a>
+            {/foreach}
+        </div>
+    </nav>
+</header>
+<div class="over"></div>

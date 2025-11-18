@@ -1,0 +1,17 @@
+{$render.before_header}
+<header class="clearfix">
+    <div class="site-header" style="clear:both;">
+        <div class="wrap-main">
+            <div class="header-logo">
+                <a href="./" title="{$shop_name}"><img src="{$option.static_path}static/img/logo.gif" /></a>
+            </div>
+            <div class="header-nav">
+                {siy:nav type='middle'}
+            </div>
+            <div class="header-search" id="ECS_MEMBERZONE">
+                {insert name='member_info'}
+            </div>
+        </div>
+    </div>
+</header>
+{$render.after_header}

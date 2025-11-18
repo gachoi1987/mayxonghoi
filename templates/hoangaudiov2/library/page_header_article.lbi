@@ -1,0 +1,16 @@
+<header>
+    <div class="wrap-main">
+        <a class="logo" title="Về trang chủ" href="./">
+            <i class="icontgdd-logo"></i>
+        </a>
+        <form id="search-site" action="{$option.static_path}tin-tuc" method="post" autocomplete="off">
+            <input class="topinput" id="search-keyword" name="keywords" type="text" tabindex="1" value="{$search_keywords|escape}" placeholder="Tìm kiếm tin tức..." autocomplete="off"  maxlength="50">
+             <input name="id" type="hidden" value="{$cat_id}" >
+             <input name="cur_url" id="cur_url" type="hidden" value="">
+            <button class="btntop" type="submit"><i class="icontgdd-topsearch"></i></button>
+            <div class="search-suggest"></div>
+        </form>
+        {siy:nav type='middle' active=$active_url}
+    </div>
+    <div class="clr"></div>
+</header>

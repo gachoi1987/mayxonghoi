@@ -1,0 +1,18 @@
+{if $promote}
+<h3 class="hometitle">Sản phẩm khuyến mãi</h3>
+<ul class="homeproduct">
+    {foreach from=$promote item=goods name=promotes}
+    <li>
+        <a href="{$goods.url}">
+            <img src="{$option.cdn1_path}{$goods.thumb}" alt="{$goods.name|escape:html}" width="80" height="80">
+            <h3>{$goods.name}</h3>
+                <strong>{$goods.shop_price}</strong> {if $goods.market_price}<del>{$goods.market_price}</del>{/if}
+                {if $goods.rate_sale}<label class="install">-{$goods.rate_sale}%</label>{/if}
+                {if $goods.is_new eq 1}<img width="50" class="icon-new icon2" src="/cdn/images/new.png"/>{/if}
+                {if $goods.is_hot eq 1}<img width="50" class="icon-sale icon2" src="/cdn/images/hot.png"/>{/if}
+                {if $goods.is_best eq 1}<img width="50" class="icon-hot icon2" src="/cdn/images/sale.png"/>{/if}
+        </a>
+    </li>
+    {/foreach}
+</ul>
+{/if}

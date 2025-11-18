@@ -1,0 +1,29 @@
+footer{border-top: 2px solid #ececec;margin-top: 30px}
+/*table */
+table{width: 100%; max-width: 100%;border-collapse:collapse; }
+table>thead>tr>th {border-bottom: 1px solid #bbb; text-align: left; font-weight: 600; }
+table>tbody>tr>td, table>tbody>tr>th, table>tfoot>tr>td, table>tfoot>tr>th, table>thead>tr>td, table>thead>tr>th {
+    padding: 8px 10px; line-height: 1.5384616; vertical-align: middle; border: 1px solid #ddd;margin:0;
+}
+table td, table th, table tr{transition: background-color .15s ease-in-out }
+table tbody>tr:nth-of-type(odd) {background-color: #fcfcfc; }
+
+.compare-title {
+    font-size: 20px;
+    font-weight: 100;
+    padding: 0 0 15px;
+    margin-top: 70px;
+    line-height: 25px;
+}
+.goods {position: relative;background: #fff}
+.goods .remove{position: absolute;top: 5px;right: 5px;z-index: 3}
+.goods .remove span{display: block;background: #f8f8f8;width: 20px;height: 20px;line-height: 20px;border-radius: 10px}
+.goods h3{font-weight: 600}
+.goods strong {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 0 10px 0;
+    color: #c70101;
+    margin-top: 5px;
+    display: block;
+}

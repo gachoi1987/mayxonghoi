@@ -1,0 +1,57 @@
+<footer id="footer">
+    <div class="fr-address">
+            <div class="title_address current" title="#address0">Văn phòng giao dịch :</div>
+            <div class="content_address" style="display: block;" id="address0">
+                <p> <b>VP giao dịch :</b>Số 29 Văn Phú, Phú La, Hà Đông-TP. Hà Nội</p>
+                <p><b>Điện thoại:</b> - 0943.030.189</p>
+            </div>
+        
+    </div>
+
+    <div class="gototop"><i></i>Về đầu trang</div>
+    <div class="buycall">Công ty cổ phần kinh doanh thiết bị và xây dựng An Phát</div>
+    <div class="buycall">Điện thoại :<a href="tel:0943030189">{$service_phone}</a></div>
+    <div class="buycall">Văn Phòng: {$shop_address}</div>
+    <div class="buycall">Chi nhánh: Cửa hàng Biển Lan - Quốc lộ 10 Giang Biên, Vĩnh Bảo, Hải Phòng</div>
+    <div class="buycall">Tư vấn hỗ trợ : {$service_phone}</div>
+    <div class="buycall">Email: mayxonghoispahanoi@gmail.com</div>
+    <div class="subother" id="_subother">
+        <a href="https://mayxonghoispa.vn/may-xong-hoi">Máy xông hơi</a>
+        <a href="https://mayxonghoispa.vn/may-xong-hoi-uot">Máy xông hơi uớt</a>
+        <a href="https://mayxonghoispa.vn/may-xong-hoi-kho">Máy xông hơi khô</a>
+        <a href="https://mayxonghoispa.vn/may-xong-hoi-uot-amazondm">Máy xông hơi Amazon</a>
+        <a href="https://mayxonghoispa.vn/may-xong-hoi-uot-harvia">Máy xông hơi Harvia</a>
+        <a href="https://mayxonghoispa.vn/may-xong-hoi-kho-coasts">Máy xông hơi Coast</a>
+        <a href="">Bồn tắm massage</a>
+        <a href="gioi-thieu">Giới thiệu</a>
+        <a href="lien-he"> Liên hệ</a>
+        <a href="javascript:window.location.href='/{$swich_mobile}client=full'"> Xem bản desktop </a>
+    </div>
+    <div class="clr"></div>
+    <p class="copyright">{$copyright}</p>
+</footer>
+<div class="quick-alo-phone quick-alo-green quick-alo-show" id="quick-alo-phoneIcon">
+  <a href="tel:{$service_phone}">
+     <div class="quick-alo-ph-circle"></div>
+     <div class="quick-alo-ph-circle-fill"></div>
+     <div class="quick-alo-ph-img-circle"></div>
+  </a>
+</div>
+<div class="support-online">
+<div class="support-content">
+<a class="mes" href="#" onclick ="openFb()">Facebook
+<i class="fa fa-facebook"></i>
+<span>Nhắn tin facebook</span>
+</a>
+<a class="zalo" href="https://zalo.me/0943030189">Zalo
+<i class="fa fa-comments"></i>
+<span>Chát nhanh Zalo</span>
+</a>
+</div>
+</div>
+<script type="text/javascript">
+function openFb()
+{
+ window.open('https://m.me/tuan.nguyenvan.5473894', '_system');
+}
+</script>

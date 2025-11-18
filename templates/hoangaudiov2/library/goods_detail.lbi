@@ -1,0 +1,119 @@
+<!--
+<div id="boxmenustick" class="menustick">
+    {if $goods.goods_desc}
+    <a id="mnnews" href="{$base_path}{$goods.url}#description"><i class="iconmy-desc"></i>Thông tin</a>
+     {/if}
+    {if $goods.youtube}
+    <a id="mvideo" href="{$base_path}{$goods.url}#youtube"><i class="iconmy-myoutube"></i>Video</a>
+     {/if}
+     {if $related_goods}
+    <a id="mrelated" href="{$base_path}{$goods.url}#related"><i class="iconmy-related"></i>Sản phẩm</a>
+     {/if}
+     {if $pictures}
+    <a id="mnphoto" href="{$base_path}{$goods.url}#realphoto"><i class="iconmy-photo"></i>Ảnh SP</a>
+     {/if}
+    <a id="mncomment" href="{$base_path}{$goods.url}#comment"><i class="iconmy-comment"></i> <em>{siy:comment_count id=$id type=$type}</em>Đánh giá</a>
+</div>
+-->
+    <div class="rowtop clearfix">
+        <h1>{$goods.goods_name}</h1>
+<!--
+        <div class="likeshare">
+            <span class="rank rank_{$goods.comment_rank}"></span> <a href="{$goods.url}#comment">{siy:comment_count id=$id type=$type} đánh giá</a>
+        </div>
+-->
+    </div>
+<div class="product_details clearfix">
+    <div class="extra_details">
+        <div class="gallery" id="gallery">
+            <div id="showimb">
+                <span class="cover"><img src="{$option.cdn1_path}{$goods.goods_img}" alt="{$goods.goods_name|escape:'html'}" title="{$goods.goods_name}"/></span>
+            </div>
+            <div class="thumb clearfix">
+                <div class="thumb_inner">
+                    <ul id="attr_thumb">
+                        <li class="current"><img src="{$option.cdn1_path}{$goods.goods_thumb}" alt="{$goods.goods_name|escape:'html'}" title="{$goods.goods_name}"/></li>
+                        {if $goods.youtube}<li id="playvideo" data-video="{$goods.real_photo}"><i class="iconmy-playvideo"></i></li>{/if}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="right_details">
+		<div class="details">
+			<div class="sku">
+			Mã SP: {$goods.goods_sn} | {if $goods.goods_brand and $cfg.show_brand}{$lang.goods_brand} <a rel="nofflow" href="{$goods.goods_brand_url}">{$goods.goods_brand}</a>{/if}
+			</div>
+			<div class="price_and_no">
+			{if $goods.online_price neq 0}
+				<p class="price"><span>Giá đặc biệt</span> <strong>{$goods.online_price|formart_number}₫</strong> </br>{if $goods.is_service}({$goods.is_service}){/if}</p>
+				<p class="price"><span>Giá bán thường : </span> {$goods.shop_price|formart_number}₫</p>
+				<p class="price"><span>Giá Niêm Yết : </span> <del>{$goods.market_price}</del></p>
+			{/if}
+			{if $goods.shop_price neq 0 && $goods.online_price eq 0}
+				<p class="price"><span>Giá bán : </span> <strong>{$goods.shop_price|formart_number}₫</strong></p>
+				<p class="price"><span>Giá Niêm Yết : </span> <del>{$goods.market_price}</del></p>
+			{/if}
+			{if $goods.market_price neq 0 && $goods.shop_price eq 0 && $goods.online_price eq 0}
+				<p class="price"><span>Giá bán : </span> <del>{$goods.market_price}</del></p>
+			{/if}
+			{if $goods.market_price eq 0 && $goods.shop_price eq 0 && $goods.online_price eq 0}
+				<p class="price"><strong>Liên hệ {$service_phone}</strong></p>
+			{/if}
+				 {if $goods.warranty}
+				<p class="price"><span>Bảo hành : </span> {$goods.warranty}</p>
+				{/if}
+				{if ($goods.goods_number eq '0') and ($option.use_storage eq '1')}
+				<p class="price" style="color: #d0021b"><span>Giao hàng:</span> từ 2 - 4 ngày</p>
+				{/if}
+				{if $goods.xuatxu}
+			<p class="price"><span>Xuất xứ : </span> {$goods.xuatxu}</p>
+			{/if}
+				{if $goods.noisanxuat}
+			<p class="price"><span>Nơi sản xuất : </span> {$goods.noisanxuat}</p>
+			{/if}
+				{if $goods.tinhtrang}
+			<p class="price"><span>Tình trạng : </span> <span class="tinhtrang">{$goods.tinhtrang}</span></p>
+			{/if}
+			</div>
+			<form method="post" id="purchase_form">
+				<div class="actions clearfix">
+					<div class="submit">
+						<a href="tel:0943030189"class="button btn-primary"><span>Gọi :{$service_phone}</span><p style="text-align:center">Để đuợc tư vấn tốt nhất</p></a>
+						<a  rel="nofollow" href="https://www.facebook.com/messages/t/tuan.nguyenvan.5473894" class="button btn-primary buttontragop"><span>Chat Facebook </span><p style="text-align:center;">Chúng tôi tư vấn cho bạn</p></a>
+						<a  rel="nofollow" href="https://zalo.me/0943030189" class="button btn-primary buttontragop"><span>Chat Zalo </span><p style="text-align:center;">Mong muốn của bạn là yêu cầu với chúng tôi </p></a>
+ <!--                      {if $goods.final_price > 3000000}
+                        <a rel="nofollow" class="button btn-primary" style="background: #34AA40;margin-top: 10px;"  href="
+ {$base_path}thanh-toan?gname={$goods.goods_name|escape:url}&price={$goods.final_price}">
+                           <span>Mua Trả góp 0% Online</span>  Thẻ tín dụng VISA, MASTER, JCB</a> 
+                      {/if} 
+-->
+					</div>
+				</div>
+			</form>
+		</div>
+<!--
+					<div class="khuyenmai">
+				{insert name=ads id=16 num=1}
+			</div>
+-->
+		<div class="input_action">
+
+			<div class="content_why_buy_header">
+				<span style="text-align:center;">KHUYẾN MẠI KÈM THEO</span>
+			</div>
+
+			<ul class="service-free">
+				<li><i class="iconmy-express"></i> <strong>GIAO HÀNG TOÀN QUỐC</strong></li>
+				<li>» Giao hàng từ 8h đến 20h hàng ngày</li>
+				<li>» Nhận hàng trong 12h tại Hà Nội</li>
+				<li>» Bảo hành chính hãng</li>
+                                <li>» Đổi trả miễn phí trong 7 ngày</li>
+                                <li>» Giá cả cạnh tranh nhất trên thị trường</li>
+                                <li>» Miễn phí lắp đặt với tất cả các sản phẩm</li>
+                                <li>» Cam kết đền tiền nếu không phải chính hãng</li>
+			</ul>
+
+		</div>
+	</div>
+</div>

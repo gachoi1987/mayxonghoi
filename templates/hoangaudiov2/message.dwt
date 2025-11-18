@@ -1,0 +1,23 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/message.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section style="min-height: 350px;width: 640px;padding-top: 30px">
+    <div class="clearfix"></div>
+    {$render.before_main}
+        <div class="{$message.type}_box">
+            {$message.content}
+        </div>
+        {if $message.url_info}
+        <div style="text-align: center;">
+            {foreach from=$message.url_info key=info item=url}
+            <a href="{$url}" class="button"><span>{$info}</span></a>
+            {/foreach}
+        </div>
+        {/if}
+    {$render.after_main}
+</section>
+
+</body>
+</html>

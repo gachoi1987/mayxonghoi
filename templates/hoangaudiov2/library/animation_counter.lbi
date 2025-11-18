@@ -1,0 +1,28 @@
+<div class="layers">
+    <h1 style="font-size:22px;">An Phát - Chuyên kinh doanh lắp đặt thiết bị xông hơi, phòng xông hơi massage, bể bơi </h1>
+    <div class="wrapper-counter">
+        <div class="counter col_fourth">
+          <i class="fa fa-code fa-5x"></i>
+          <h2 style="font-size:32px;" class="timer count-title count-number" data-to="79712" data-speed="3000"></h2>
+           <p class="count-text ">Khách hàng</p>
+        </div>
+
+        <div class="counter col_fourth">
+          <i class="fa fa-coffee fa-5x"></i>
+          <h2 style="font-size:32px;" class="timer count-title count-number" data-to="77586" data-speed="3000"></h2>
+          <p class="count-text ">Hài lòng</p>
+        </div>
+
+        <div class="counter col_fourth">
+          <i class="fa fa-lightbulb-o fa-5x"></i>
+          <h2 style="font-size:32px;" class="timer count-title count-number" data-to="1900" data-speed="3000"></h2>
+          <p class="count-text ">Sản phẩm</p>
+        </div>
+
+        <div class="counter col_fourth end">
+          <i class="fa fa-bug fa-5x"></i>
+          <h2 style="font-size:32px;" class="timer count-title count-number" data-to="25" data-speed="3000"></h2>
+          <p class="count-text ">Năm kinh nghiệm</p>
+        </div>
+    </div>
+</div>

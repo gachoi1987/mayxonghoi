@@ -1,0 +1,41 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/brand.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header_mobile.lbi'}
+<section>
+	{include file='library/ur_here.lbi'}
+	{$render.before_main}
+	<!-- TemplateBeginEditable name="Top" --><!-- TemplateEndEditable -->
+
+    <div class="col_sub">
+        <div class="brand_details">
+            <h1>Thương hiệu {$brand.brand_name}</h1>
+            {if $brand.brand_logo}
+            <p class="logo">
+                {if $brand.site_url}<a href="{$brand.site_url}" target="_blank"><img src="{$option.cdn_path}brandlogo/{$brand.brand_logo}"></a>{else}
+                <img src="{$option.cdn_path}brandlogo/{$brand.brand_logo}">{/if}
+            </p>
+            {/if}
+            <p class="description">{$brand.brand_desc|nl2br}</p>
+        </div>
+        <div class="cat_list">
+        {foreach from=$brand_cat_list item=cat}
+        <a href="{$cat.url}"{if $cat.cat_id eq $category} class="current"{/if}>{$cat.cat_name|escape:html} {if $cat.goods_count}<span>({$cat.goods_count})</span>{/if}</a>
+        {/foreach}
+        </div>
+        <!-- TemplateBeginEditable name="Left" --> <!-- TemplateEndEditable -->
+    </div>
+    <div class="col_main">
+    <!-- TemplateBeginEditable name="Main" -->
+
+    <!-- TemplateEndEditable -->
+    <!-- #BeginLibraryItem "/library/brand_goods_list.lbi" --><!-- #EndLibraryItem -->
+    <!-- TemplateBeginEditable name="Bottom" --><!-- TemplateEndEditable -->
+    </div>
+    <div class="clearfix"></div>
+</section>
+{include file='library/page_footer_mobile.lbi'}
+{insert_js name='brand.Mobile.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global_mobile.js,js/init_mobile.js'}
+ </body>
+ </html>

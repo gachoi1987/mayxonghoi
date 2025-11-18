@@ -1,0 +1,24 @@
+<div class="over"></div>
+<header>
+    <a href="{$hu}" class="logo"><i class="iconmobile-logo"></i></a>
+    <div class="menu" id="_menu"><i class="iconmobile-menu"></i></div>
+    <nav class="subnav" id="_subnav">
+        <div class="navigation">
+            <a href="{$base_path}thanh-vien"><h4>{$lang.dashboard}</h4></a>
+            <a href="{$base_path}thanh-vien?act=profile"><h4>{$lang.profile}</h4></a>
+            <a href="{$base_path}thanh-vien?act=order_list"><h4>{$lang.label_order}</h4></a>
+            <a href="{$base_path}thanh-vien?act=booking_list"><h4>{$lang.collections_and_booking}</h4></a>
+            <a href="{$base_path}thanh-vien?act=collection_list"><h4>{$lang.label_collection}</h4></a>
+            <a href="{$base_path}thanh-vien?act=message_list"><h4>{$lang.messages_and_comments}</h4></a>
+            <a href="{$base_path}thanh-vien?act=logout"><h4>{$lang.btn_logout}</h4></a>
+            <div class="buycall">Tư vấn dịch vụ:<a href="tel:{$service_phone}">{$service_phone}</a> <span>(8:00 - 17:30)</span></div>
+        </div>
+    </nav>
+    <form action="{$base_path}tim-kiem" method="get" class="search ">
+        <input name="keywords" type="search" placeholder="Tìm dịch vụ sửa chữa bạn cần " value="{$search_keywords|escape}" autocomplete="off"  />
+        <div class="iconsearch"><i class="iconmobile-search"></i></div>
+        <button type="submit" class="btn-submit">Tìm</button>
+    </form>
+    <!-- sugguest -->
+    <div id="suggestion"></div>
+</header>

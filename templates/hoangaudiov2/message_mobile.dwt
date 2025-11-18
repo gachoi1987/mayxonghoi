@@ -1,0 +1,24 @@
+{include file='library/html_header_mobile.lbi'}
+{insert_css files="mobile/css/global.css,mobile/css/message.css"}
+</head>
+<body id="page_{$pname}" >
+{include file='library/page_header_mobile.lbi'}
+<section>
+    {include file='library/ur_here.lbi'}
+    {$render.before_main}
+        <div class="{$message.type}_box">
+            {$message.content}
+        </div>
+        {if $message.url_info}
+        <div style="text-align: center;">
+            {foreach from=$message.url_info key=info item=url}
+            <a href="{$url}" class="button"><span>{$info}</span></a>
+            {/foreach}
+        </div>
+        {/if}
+    {$render.after_main}
+</section>
+
+{include file='library/page_footer_mobile.lbi'}
+</body>
+</html>

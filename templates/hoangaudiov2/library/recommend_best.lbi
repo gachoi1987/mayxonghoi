@@ -1,0 +1,34 @@
+{if $best_goods}
+{if $pname eq 'index'}
+<ul class="homeproduct">
+        {foreach from=$best_goods item=goods name=best_goods}
+        <li>
+            <a href="{$goods.url}" >
+                {if $goods.thumb_url}
+                    <img src="{$goods.thumb_url}" width="388" height="180" alt="{$goods.name|escape:html}">
+                {else}
+                    <img src="{$option.cdn1_path}{$goods.thumb}" width="388" height="180" alt="{$goods.name|escape:html}">
+                {/if}
+                <h3>{$goods.name}</h3>
+                <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                <label class="installment">Trả góp 0%</label>
+            </a>
+            {if $goods.desc_short}
+            <figure class="bginfo">
+                <span class="name">{$goods.name}</span>
+                {if $goods.price eq 0}
+                <span>Giá liên hệ</span>
+                {else}
+                <strong>{if $goods.promote_price}{$goods.promote_price}{else}{$goods.shop_price}{/if}</strong>
+                {/if}
+                <div class="promotion">{$goods.seller_note}</div>
+                {$goods.desc_short}
+            </figure>
+             {/if}
+        </li>
+        {/foreach}
+</ul>
+{else}
+    best good o vi tr khac index
+{/if}
+{/if}

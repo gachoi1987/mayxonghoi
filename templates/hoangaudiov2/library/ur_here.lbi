@@ -1,0 +1,3 @@
+{if $option.breadcrumb_enabled}
+<ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">{$ur_here}</ol>
+{/if}

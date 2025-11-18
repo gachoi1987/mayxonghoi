@@ -1,0 +1,33 @@
+{if $pager}
+{if $pager.styleid eq 0}
+    {if $pager.record_count > 3}
+        <form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+        <p class="pagination">
+            <a href="{$pager.page_first}" class="first">«</a>
+            <a href="{$pager.page_prev}" class="prev">‹</a>
+            {if $comments or $notes}{else}
+            <select name="page" id="page" onchange="selectPage(this)">
+            {html_options options=$pager.array selected=$pager.page}
+            </select>{/if}
+            <a href="{$pager.page_next}" class="next">›</a>
+            <a href="{$pager.page_last}" class="last">»</a>
+            {foreach from=$pager.search key=key item=item}
+            {if $key eq 'keywords'}
+            <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+            {else}
+            <input type="hidden" name="{$key}" value="{$item}" />
+            {/if}
+            {/foreach}
+        </p>
+        </form>
+        <script type="text/javascript">
+        function selectPage(sel){sel.form.submit();}
+        </script>
+    {/if}
+{else}
+<p class="pagination">
+	{if $pager.page_prev}<a href="{$pager.page_prev}" class="prev">Lùi lại</a>{/if}
+	{if $pager.page_next}<a href="{$pager.page_next}" class="next">Xem thêm</a>{/if}
+</p>
+{/if}
+{/if}

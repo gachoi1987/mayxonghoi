@@ -1,0 +1,43 @@
+{if $related_goods and $pname eq 'goods'}
+<div class="goods_related" id="related">
+	<div><h4>Bạn cũng sẽ thích <em class="number">{siy:count array=$related_goods}</em>{$lang.amount_suf}</h4></div>
+	<ul>
+		{foreach from=$related_goods item=releated_goods_data name=related_goods}
+		<li>
+            <a href="{$releated_goods_data.url}">
+                <img src="{$option.cdn1_path}{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name|escape:html}">
+                <h3>{$releated_goods_data.short_name}</h3>
+                {if $releated_goods_data.price eq 0}
+                    <span>Giá liên hệ</span>
+                {else}
+                    {if $releated_goods_data.promote_price}
+                    <strong class="gs">{$releated_goods_data.formated_promote_price}</strong>
+                    <strong class="gg">{$releated_goods_data.shop_price}</strong>
+                    {else}
+                    <strong class="gs">{$releated_goods_data.shop_price}</strong>
+                    {/if}
+                {/if}
+            </a>
+		</li>
+		{/foreach}
+	</ul>
+</div>
+{elseif $related_goods and $pname eq 'article'}
+    {foreach from=$related_goods item=goods name=related_goods}
+    <div class="infoprod">
+        <div class="image">
+            <a href="{$goods.url}"><img src="{$option.cdn1_path}{$goods.goods_thumb}" alt="{$goods.goods_name|escape:html}"></a>
+        </div>
+        <div class="infor">
+            <a href="{$goods.url}"><h3>{$goods.goods_name}</h3></a>
+            {if $goods.price eq 0}
+            <span>Giá liên hệ</span>
+            {else}
+            <strong>{$goods.formated_promote_price|default:$goods.shop_price}</strong>
+            {/if}
+            {$goods.desc_short}
+<!--            <a href="{$goods.url}" class="viewdetail">Xem chi tiết</a> -->
+        </div>
+    </div>
+    {/foreach}
+{/if}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="{$option.static_path}/js/html5shiv.min.js"></script>
+  <script src="{$option.static_path}/js/respond.min.js"></script>
+<![endif]-->
+<head itemscope itemtype="http://schema.org/WebSite">
+	<meta charset="utf-8">
+    <base href="{$base_path}">
+	{if $pname neq 'respond' and $message.back_url}
+        <meta http-equiv="refresh" content="3;url={$message.back_url}">
+    {/if}
+	<meta name="viewport" content="width=device-width">
+	<title itemprop='name'>{$page_title}</title>
+    <meta name="description" content="{$description}"/>
+	<meta name="keywords" content="{$keywords}"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="RATING" content="GENERAL" />
+	{if $pname eq 'alepay'}
+        <meta content="NOINDEX,FOLLOW" name="robots" />
+		{else}
+		<meta content="INDEX,FOLLOW" name="robots" />
+	{/if}
+    <meta name="copyright" content="{$shop_name}" />
+    <meta name="author" content="{$shop_name}" />
+    <meta http-equiv="audience" content="General" />
+    <meta name="resource-type" content="Document" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="GENERATOR" content="{$shop_name}" />
+    <meta property="og:title" content="{$page_title}" />
+    <meta property="og:description" content="{$description}" />
+    <meta property="og:site_name" content="{$shop_name}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="fb:app_id" content="{$fb_app_id}" />
+    {if $pname eq 'goods' || $pname eq 'article'}
+        {if $pname eq 'goods'}
+        <meta itemprop="image" content="{$option.cdn1_path}{$goods.goods_thumb}" />
+        <meta property="og:image" content="{$option.cdn1_path}{$goods.goods_thumb}" />
+        <meta property="og:url" itemprop="url" content="{$base_path}{$goods.url}" />
+        <link rel="canonical" href="{$base_path}{$goods.url}" />
+        {else}
+            {if $article.article_thumb}
+            <meta itemprop="image" content="{$option.cdn1_path}{$article.article_thumb}" />
+            <meta property="og:image" content="{$option.cdn1_path}{$article.article_thumb}" />
+             {/if}
+            <link rel="canonical" href="{$base_path}{$article.url}" />
+            <meta property="og:url" itemprop="url" content="{$base_path}{$article.url}" />
+            <link rel="amphtml" href="{$base_path}{$article.url_amp}">
+        {/if}
+    {else}
+        <meta itemprop="image" content="{$option.static_path}img/anphat-01.jpg" />
+        <meta property="og:image" content="{$option.static_path}img/anphat-01.jpg" />
+        {if $pname eq 'category'}
+        <link rel="canonical" href="{$base_path}{$cat_url}" />
+        <meta property="og:url" itemprop="url" content="{$base_path}{$cat_url}" />
+        {else}
+        <link rel="canonical" href="{$base_path}{$request_uri}" />
+        <meta property="og:url" itemprop="url" content="{$base_path}{$request_uri}" />
+        {/if}
+    {/if}
+
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="{$base_cdn}">
+	<link rel="shortcut icon" type="image/x-icon" href="{$option.static_path}img/favicon.png">
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "alternateName": "{$shop_name}",
+          "url": "{$base_path}",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{$base_path}tim-kiem?keywords={keywords}",
+            "query-input": "required name=keywords"
+          }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "url": "{$base_path}",
+          "logo": "{$option.static_path}img/logo-150x150.png",
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+84 {$service_phone}",
+            "contactType": "Customer service"
+          }]
+        }
+    </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W5TVQV7');</script>
+<!-- End Google Tag Manager -->
+    {$stats_code}
+    {$render.after_html_header}

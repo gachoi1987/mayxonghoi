@@ -1,0 +1,34 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/user.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section class="user_cp">
+    {include file='library/ur_here.lbi'}
+    <div class="col_sub">
+    {$render.before_col_sub}
+        {include file='library/user_nav.lbi'}
+    {$render.after_col_sub}
+    </div>
+    <div class="col_main">
+    {$render.before_main}
+        {if $action eq 'default'}{include file='library/user_default.lbi'}{/if}
+        {if $action eq 'message_list'}{include file='library/user_message_list.lbi'}{/if}
+        {if $action eq 'comment_list'}{include file='library/user_comment_list.lbi'}{/if}
+        {if $action eq 'tag_list'}{include file='library/user_tag_list.lbi'}{/if}
+        {if $action eq 'collection_list'}{include file='library/user_collection_list.lbi'}{/if}
+        {if $action eq 'booking_list'}{include file='library/user_booking_list.lbi'}{/if}
+        {if $action eq 'add_booking'}{include file='library/user_add_booking.lbi'}{/if}
+        {if $affiliate.on eq 1}{if $action eq 'affiliate'}{include file='library/user_affiliate.lbi'}{/if}{/if}
+    {$render.after_main}
+    </div>
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='user.Desktop.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global.js,js/init.js' }
+<script type="text/javascript" src="{$option.static_path}static/js/user.js"></script>
+<script type="text/javascript" src="{$option.static_path}static/js/flow.js"></script>
+<script type="text/javascript">
+{if $action eq 'register'}validRegister();{/if}
+</script>
+</body>
+</html>

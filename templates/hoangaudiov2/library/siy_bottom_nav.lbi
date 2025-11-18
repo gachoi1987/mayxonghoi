@@ -1,0 +1,7 @@
+{if $nav}
+ <ul class="cates clearfix">
+    {foreach from=$nav item='nav' name='nav'}
+    <li><a href="{$nav.url}" {if $nav.opennew} target="_blank"{/if}><i class="{$nav.class}"></i><h3>{$nav.name}</h3></a></li>
+   {/foreach}
+</ul>
+{/if}

@@ -1,0 +1,15 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/search.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section>
+	{include file='library/ur_here.lbi'}
+	{$render.before_main}
+	{include file='library/search_goods_list.lbi'}
+	{$render.after_main}
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='search.Desktop.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js' minify='js/global.js,js/init.js' }
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html amp lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <title>{$page_title}</title>
+    <link rel="canonical" href="{$option.static_path}{$article.url}">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="keywords" content="{$keywords}" />
+    <meta name="description" content="{$description}" />
+    <meta property="og:title" content="{$page_title}" />
+    <meta property="og:description" content="{$description}" />
+    <meta property="og:image" itemprop="thumbnailUrl" content="{$option.static_path}{$article.article_thumb}" />
+    <meta property="fb:app_id" content="{$fb_app_id}" />
+    <link rel="shortcut icon" href="{$option.static_path}static/img/favicon.png">
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "NewsArticle",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{$option.static_path}{$article.url}"
+          },
+          "headline": "{$article.title}",
+          "image": {
+            "@type": "ImageObject",
+            "url": "{$option.static_path}{$article.article_thumb}",
+            "height": 600,
+            "width": 315
+          },
+          "datePublished": "{$article.utc_time_public}",
+          "dateModified": "{$article.utc_time_modify}",
+          "author": {
+            "@type": "Person",
+            "name": "{$article.author}"
+          },
+           "publisher": {
+            "@type": "Organization",
+            "name": "{$shop_name}",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "{$option.static_path}static/img/logo-600x60.png",
+              "width": 600,
+              "height": 60
+            }
+          },
+          "description": "{$description}"
+        }
+        </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    {insert_css files="amp/article_amp.css" amp=true}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <!-- <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script> -->
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+   <!--  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script> -->
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  </head>
+  <body>
+
+<header>
+    <a href="{$hu}" class="logo"><i class="iconmobile-logo"></i></a>
+    <a class="callmenu" on='tap:menu.toggle'><i class="iconmobile-menu"></i></a>
+    <div class="divcate">
+        <a href="{$option.static_path}tin-tuc" class="newsnew ">Tin mới<span></span></a>
+        <a href="{$option.static_path}tin-tuc/tin-cong-nghe" class="community ">Tin công nghệ<span></span></a>
+    </div>
+    <div class="over"></div>
+</header>
+<amp-sidebar class="menu" id='menu' layout='nodisplay' side="right">
+    <ul>
+        <li>
+            {foreach from=$article_categories item=cat name=categories}
+            <a href="{$option.static_path}{$cat.url}">{$cat.name}</a>
+            {/foreach}
+        </li>
+        <li>
+            <strong class="menusp">Tìm mua sản phẩm</strong>
+            <div class="subsp">
+                {foreach from=get_categories_tree() item='catt' name='categorie'}
+                <a href="{$option.static_path}{$catt.url}">{$catt.name}</a>
+                 {/foreach}
+            </div>
+        </li>
+            <li class="closemenu" on='tap:menu.close' role="button" tabindex="0">Đóng lại</li>
+            <li class="lastspec"></li>
+        </ul>
+    </amp-sidebar>
+    <section>
+        <article>
+            <h1 class="titledetail">{$article.title_display|escape:html}</h1>
+            <div class="userdetail">
+                <a>{$article.author}</a>
+                <span>{$article.add_time}</span>
+                <span>{$article.viewed} lượt xem</span>
+            </div>
+            {$article.content}
+            {if $next_article || $prev_article}<p>Tin khác: </p>{/if}
+            {if $next_article}
+            <p>- <a href="{$option.static_path}{$next_article.url}">{$next_article.title}</a></p>
+            {/if}
+            {if $prev_article}
+            <p>- <a href="{$option.static_path}{$prev_article.url}">{$prev_article.title}</a></p>
+            {/if}
+        </article>
+         <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+          "vars": {
+            "account": "{$gg_id}"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+        </script>
+    </amp-analytics>
+        <a href="{$option.static_path}{$article.url}#fbcomment" class="viewmore">Xem bình luận <b></b></a>
+         {if $article_rela}
+         <h3 class="titlehome">Bài viết liên quan</h3>
+         <ul class="newslist relate">
+            {foreach from=$article_rela key=i item=arl name=article_relas}
+            <li>
+                <a href="{$option.static_path}{$arl.url}" class="linkimg">
+                    <amp-img src="{$option.cdn1_path}{$arl.article_sthumb}" width="100" height="70" alt="{$arl.title|escape:html}"></amp-img>
+                </a>
+                <div>
+                    <h3>
+                        <a href="{$option.static_path}{$arl.url}">{$arl.title|escape:html}
+                            <span class="lesscom"><i class="iconnews-comcya"></i>{$arl.viewed}</span>
+                        </a>
+                    </h3>
+                    <span class="timepost">{$arl.add_time}</span>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+        {/if}
+    </section>
+    <footer>
+        <a href="{$option.static_path}tin-tuc">Tin mới</a>
+        {foreach from=$article_categories item=cat name=categories}
+        <a href="{$option.static_path}{$cat.url}">{$cat.name}</a>
+        {/foreach}
+        <div>
+            <a target="_blank" href=""><i class="iconnews-fb"></i>Facebook</a>
+            <a target="_blank" href=""><i class="iconnews-yt"></i>YouTube</a>
+        </div>
+    </footer>
+
+  </body>
+</html>

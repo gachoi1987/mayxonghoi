@@ -1,0 +1,79 @@
+table{width: 100%; max-width: 100% }
+table>thead>tr>th {border-bottom: 1px solid #bbb; text-align: left; font-weight: 600; }
+table>tbody>tr>td, table>tbody>tr>th, table>tfoot>tr>td, table>tfoot>tr>th, table>thead>tr>td, table>thead>tr>th {
+    padding: 8px 10px; line-height: 1.5384616; vertical-align: middle; border-top: 1px solid #ddd
+}
+table td, table th, table tr{transition: background-color .15s ease-in-out }
+table tbody>tr:nth-of-type(odd) {background-color: #fcfcfc; }
+table>tbody>tr:hover, table>tbody>tr.active>td, table>tbody>tr.active>th, table>tbody>tr>td.active, table>tbody>tr>th.active, table>tfoot>tr.active>td, table>tfoot>tr.active>th, table>tfoot>tr>td.active, table>tfoot>tr>th.active, table>thead>tr.active>td, table>thead>tr.active>th, table>thead>tr>td.active, table>thead>tr>th.active {
+    background-color: #f6f6f6;
+}
+footer{border-top: 2px solid #ececec;margin-top: 30px;}
+.header-logo-user {text-align: center;margin-bottom: 30px}
+.header-logo-user img{margin: 30px auto 0 auto;}
+.col_main{float:left;width:980px;padding:10px;box-sizing: border-box;background: #fff;margin-bottom: 20px;}
+.col_sub{float:left;width:210px}
+.user_cp {min-height: 350px}
+.bd:after{clear:both;content:'\0020';display:block;visibility:hidden;height:0}
+.bd{display:inline-block}* html .bd{height:1%}.bd{display:block}
+#page_user{background: #f8f8f8}
+#page_user .wrap_height{min-height: 250px}
+.users-form {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    margin: 20px auto;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    box-shadow: 0 0 20px rgba(0,0,0,.15);
+}
+.users-form h3{text-align: center;width: 100%;padding: 30px 0 !important;display: block;font-size: 26px;}
+.form {padding: 0 15px;}
+.form label,.form .label{display:block;padding:5px 0;width:100%;clear: both}
+.form label b,.form .label b{float:left;width:10em;padding:5px 0 4px;font-weight:normal;display:block}
+.form .label em,.form label em{float:left;margin-left:10px;padding:5px 0}
+.form .required b:before{content:'*';margin-right:3px;color:#f53;font-size:1.5em;line-height:0.5em;font-weight:normal}
+.form .required b .before{margin-right:3px;color:#f53;font-size:1.5em;line-height:0.5em;font-weight:normal}
+.form .required_tip{color:#999;font-size:96%;font-weight:normal;position:absolute;top:.4em;right:2em;left:auto;width:13em;text-align:right}
+.form .required_tip b{color:#f53;font-size:140%}
+.form div.submit_wrap{clear:both;padding:10px 0 10px;border-top:1px solid #d8d8d8;text-align: center;}
+.form div.submit_wrap, .form div.submit_wrap p{margin-top: 20px}
+.form div.submit_wrap p a{color: #288ad6}
+.form input[type="text"], .form input[type="password"],
+.form input[type="tel"], .form input[type="email"]
+{width: 70%;box-sizing: border-box;padding:10px;}
+.form input[name="capcha"]{text-transform: uppercase}
+/*user cp */
+
+#user_nav li {padding: 10px 0}
+#user_nav li.current a{font-weight: 700;color:#fe7600 }
+#user_nav li a:hover {color:#fe7600}
+.user_status{padding:10px;line-height:18px}
+.user_status .hello{margin-right:10px;font-size:16px}
+.user_status .hello em{padding-left:3px}
+.user_dashboard {width: 100%}
+.user_dashboard .item{display:inline;float:left;height:100px;width:24%;margin-left:1%;background-color:#eee;border:1px solid #e8e8e8;text-shadow:0 1px 1px rgba(255,255,255,0.8);border-radius:5px}
+.user_dashboard .item:first-child{margin-left:0}
+.user_dashboard .item .item_inner{display:block;height:100px;width:99%;text-decoration:none}
+.user_dashboard .item .item_inner .count{display:block;height:63px;width:99%;overflow:hidden;text-align:center;color:#333;font-size:32px;font-weight:bold;line-height:63px}
+.user_dashboard .item .item_inner .label{display:block;height:37px;width:99%;overflow:hidden;margin:0 5px;text-align:center;font-size:16px;font-weight:bold;line-height:37px;border-top:1px solid #e8e8e8}
+.user_dashboard .item .price sub{display:none}
+.user_dashboard .item .price span{font-size:26px}
+
+.has_tab_box .box{padding-top:39px;margin-top:-39px}
+.has_tab_box .box .hd{display:none}
+.has_tab_box .box .bd{padding:20px 0}
+.tab_wrapper{position:relative;height:39px;margin:0 10px;border-bottom:1px solid #e3e3e3}
+.tab_wrapper .tabs{float:left;height:32px;padding:7px 0 0}
+.tab_wrapper .extra{float:right;height:32px;padding:7px 0 0}
+.tab_wrapper .extra .pagination{padding-top:3px}
+.tabs .label{display:inline-block;float:left;padding:0 5px 0 10px;line-height:32px}
+.tabs a{display:block;float:left;height:31px;padding:0 20px;margin-right:4px;line-height:31px;color:rgba(0,0,0,0.4);font-size:14px;text-decoration:none;background-color:#fff;border:1px solid #e3e3e3;border-bottom-width:0;border-radius:5px 5px 0 0;outline:none}
+.tabs a:hover{color:#000}
+.tabs a.current{height:32px;color:rgba(0,0,0,0.8);}
+.tabs a.current:hover{color:#000}
+.tabs a em{opacity:0.5;-webkit-transition:opacity 0.5s ease-out;-moz-transition:opacity 0.5s ease-out;-o-transition:opacity 0.5s ease-out;-ms-transition:opacity 0.5s ease-out}
+.tabs a:hover em{opacity:1;-webkit-transition:opacity 1s ease-out;-moz-transition:opacity 1s ease-out;-o-transition:opacity 1s ease-out;-ms-transition:opacity 1s ease-out}
+.tabs .arrow_up, .tabs .arrow_down{display:inline-block;float:right;height:20px;width:20px;overflow:hidden;margin:6px -6px 0 4px;line-height:999em;background:url('../img/arrow.png') no-repeat 4px 2px}
+.tabs .arrow_down{background-position:-36px 2px}
+.tabs .number{display:none}

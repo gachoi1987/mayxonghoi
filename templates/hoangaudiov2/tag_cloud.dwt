@@ -1,0 +1,27 @@
+{include file='library/html_header.lbi'}
+{include file='library/page_header.lbi'}
+<div id="main"><div class="wrapper">
+	{include file='library/ur_here.lbi'}
+	{$render.before_main}
+	<!-- TemplateBeginEditable name="主栏上方" --><!-- TemplateEndEditable -->
+	<div class="tags_cloud box">
+		<div class="hd"><h3>{$lang.tag_cloud}</h3><div class="extra"></div></div>
+		<div class="bd">
+			<p class="description">{$lang.tag_cloud_desc}</p>
+			{if $tags}
+			<p class="tags">
+			{foreach from=$tags item=tag}
+			<span class="item_wrapper"><a href="{$tag.url}" class="item">{$tag.tag_words|escape:html}<em>{$tag.tag_count}</em></a>
+			{if $tag.user_id eq $smarty.session.user_id and $smarty.session.user_id gt 0}<a href="user.php?act=act_del_tag&tag_words={$tag.tag_words|escape:url}&uid={$tag.user_id}" class="drop">{$lang.drop}</a>{/if}</span>
+			{/foreach}
+			</p>
+			{else}
+			<p class="empty">{$lang.tags_cloud_empty}<p>
+			{/if}
+		</div>
+	</div>
+	<!-- TemplateBeginEditable name="主栏下方" --><!-- TemplateEndEditable -->
+	{$render.after_main}
+</div></div>
+{include file='library/page_footer.lbi'}
+{include file='library/html_footer.lbi'}

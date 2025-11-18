@@ -1,0 +1,17 @@
+{$render.before_header}
+<header class="clearfix">
+    <div class="navigation">
+        <div class="wrapper">
+            <nav id="header_nav">
+              <p><a class="logo" href="{$hu}"><img src="{$option.static_path}img/big-logo-bkcare-nav.png" alt="Máy xông hơi spa"></a></p>
+              {siy:nav type='middle'}
+              <div class="htop-r">
+                  <span><strong>{$service_phone}</strong> <p>Tổng đài tư vấn dịch vụ</p> </span>
+                  <span><strong>08:00 - 16:30</strong> <p>Thời gian làm việc </p> </span>
+               </div>
+            </nav>
+        </div>
+    </div>
+
+</header>
+{$render.after_header}

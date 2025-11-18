@@ -1,0 +1,16 @@
+<ul class="categories">
+    {foreach from=get_categories_tree() item='cat' name='categories'}
+    <li>
+        <a href="{$cat.url}">{$cat.name} {if $cat.cat_id}<i class="arrow arrow-right"></i>{/if}</a>
+        {if $cat.cat_id}
+        <ul class="sub_cat">
+            {foreach from=$cat.cat_id item='child' name='child_cat'}
+            <li>
+                <a href="{$child.url}"{if $child.cat_id} class="has_sub"{/if}>{$child.name}</a>
+            </li>
+            {/foreach}
+        </ul>
+        {/if}
+    </li>
+    {/foreach}
+</ul>

@@ -1,0 +1,61 @@
+<div class="bar-top">
+    <a href="./" class="buymore">Mua thêm sản phẩm khác</a>
+    <div class="yourcart">Giỏ hàng của bạn</div>
+</div>
+<div class="wrap_cart">
+    {if $goods_list}
+    <form action="{$base_path}gio-hang" method="post">
+    <ul class="listorder">
+        {foreach from=$goods_list item=goods name=goods_list}
+        <li>
+            <div class="colimg">
+                <a href="{siy:goods_info id=$goods.goods_id type='url'}">
+                <img width="55" src="{$option.cdn1_path}{$goods.goods_thumb}"></a>
+                <a href="javascript:cartDrop({$goods.rec_id});" class="drop"><span>x</span></a>
+            </div>
+            <div class="colinfo">
+                <strong>{$goods.goods_price}</strong>
+                {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'}
+                <a href="{siy:goods_info id=$goods.goods_id type='url'}" class="name" target="_blank">{$goods.goods_name}</a>
+                <span class="extra_info">
+                    {if $goods.goods_attr}{$goods.goods_attr}{/if}
+                    {if $goods.is_shipping}<em class="carriage_free">{$lang.carriage_free}</em>{/if}
+                    {if $goods.parent_id gt 0}<em class="accessories">{$lang.accessories}</em>{/if}
+                    {if $goods.is_gift gt 0}<em class="largess">{$lang.largess}</em>{/if}
+                </span>
+                {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'}
+                    <span class="name package_name">{$goods.goods_name}</span>
+                    <span class="package_product_list">{foreach from=$goods.package_goods_list item=package_goods_list name=package_goods_list}<em>{$package_goods_list.goods_name}</em>{/foreach}</span>
+                {else}
+                    {$goods.goods_name}
+                {/if}
+                <div class="choosenumber">
+                    {if $goods.goods_id gt 0 && $goods.is_gift eq 0 && $goods.parent_id eq 0}
+                    <input type="number" min="1" max="10" step="1" name="goods_number[{$goods.rec_id}]" value="{$goods.goods_number}" title="{$lang.goods_number_tip}"/>
+                    {else}
+                    {$goods.goods_number}
+                    {/if}
+                </div>
+
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+    <div class="area_total">
+        <input name="submit" type="submit" value="{$lang.update_cart}" class="button btn-grey">
+        <input type="hidden" name="step" value="update_cart">
+        <div class="total"><strong>{if $discount gt 0}{$your_discount}<br>{/if}{$shopping_money}</strong></div>
+    </div>
+    </form>
+     <div class="customer-info">
+        {foreach from=$consignee_list item=consignee key=sn name=consignee_list}
+        <form action="{$base_path}gio-hang" method="post" name="theForm" onsubmit="return checkConsignee(this)" class="form address_form">
+            {include file='library/consignee.lbi'}
+        </form>
+        {/foreach}
+    </div>
+    {else}
+    <p class="empty_small">{$lang.cart_empty}</p>
+    {/if}
+</div>
+<p class="provision">Bằng cách đặt hàng, bạn đồng ý với Điều khoản sử dụng của {$shop_name}</p>

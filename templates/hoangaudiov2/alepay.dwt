@@ -1,0 +1,124 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,alepay/alepay.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section>
+    <div class="tg_wrap">
+        <h1>Thanh toán trả góp online lãi suất 0% bằng thẻ tín dụng Visa/Master/JCB</h1>
+
+        <form action="{$base_path}thanh-toan" class="tf_form" method="post">
+            <div class="group_input">
+              <div class="input">
+                  <label>Tên SP dịch vụ (*)</label>
+                  <input type="text" name="goodsName"  value="{$goodsName}">
+              </div>
+               <div class="input">
+                  <label>Giá trả góp (*)</label>
+                  <input type="text" min="0" class="input-element" name="amount" id="amount" value="{$finalPrice}" placeholder="Giá > 3 triệu">
+              </div>
+          </div>
+          <div class="group_input">
+              <div class="input">
+                  <label>Họ và Tên KH (*)</label>
+                  <input type="text" name="buyerName" placeholder="Vd: Nguyễn Văn A">
+              </div>
+               <div class="input">
+                  <label>Số điện thoại (*)</label>
+                  <input type="tel" name="buyerPhone" placeholder="Số điện thoại">
+              </div>
+          </div>
+          <div class="group_input">
+              <div class="input">
+                  <label>Email (*)</label>
+                  <input type="email" name="buyerEmail" placeholder="Email">
+              </div>
+              <div class="input">
+                  <label>Tỉnh/ thành phố (*)</label>
+                  <select name="buyerCity">
+                      <option value="0">Chọn Tỉnh/ thành phố</option>
+                      {foreach from=$region_list item=city name=regionlist}
+                      <option value="{$city.region_name}">{$city.region_name}</option>
+                      {/foreach}
+                  </select>
+              </div>
+          </div>
+          <div class="group_input tg_address clearfix">
+             <div class="input">
+              <label>Địa chỉ nơi ở hiện tại (*)</label>
+                <input type="text" name="buyerAddress" placeholder="Địa chỉ">
+            </div>
+          </div>
+          <div class="actions clearfix">
+                <input type="hidden" name="action" value="_payment">
+               <button type="submit" name="sendInstallment">Thanh toán trả góp</button>
+
+          </div>
+            <p style="color: red;margin-top: 10px">Lưu ý: Để chắc chắn vui lòng liên hệ kiểm tra tình trạng CÒN HÀNG trước khi thực hiện thanh toán trả góp.<br>
+            Khách hàng chịu phí sử dụng thẻ thanh toán quốc tế.</p>
+        </form>
+        <div class="tg_info" style="margin-top: 40px">
+            <div class="type_cart clearfix">
+                <p>Áp dụng cho tất sản phẩm dịch vụ giá trị từ 3 triệu VNĐ trở lên như điện thoại, máy tính bảng, phụ kiện, đồ chơi công nghệ.</p>
+                <p><img src="{$option.static_path}alepay/VISA.png" alt=""><img src="{$option.static_path}alepay/MASTER.png" alt=""><img src="{$option.static_path}alepay/JCB.png" alt=""></p>
+            </div>
+            <div class="tg_banks clearfix">
+               <h3>Ngân hàng hỗ trợ trả góp Online</h3>
+                <p>
+                    <span><img src="{$option.static_path}alepay/ANZ.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/CTB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/EXB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/HSBC.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/ICB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/MSB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/NAB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/SC.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/SCB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/SEB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/SHINHAN.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/STB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/TCB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/TPB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/VIB.png" alt=""></span>
+                    <span><img src="{$option.static_path}alepay/VPB.png" alt=""></span>
+                </p>
+            </div>
+            <div class="tg_steps clearfix">
+                <h3>Các bước thanh toán trả góp online</h3>
+                <ul>
+                    <li>
+                        <img src="{$option.static_path}alepay/icon5.png" alt="">
+                        <p><strong>Bước 1:</strong></p>
+                        <p>Người mua chọn sản phẩm trên các website đủ điều kiện trả góp lãi suất 0%.</p>
+                    </li>
+                    <li>
+                        <img src="{$option.static_path}alepay/icon6.png" alt="">
+                        <p><strong>Bước 2:</strong></p>
+                        <p>Khách hàng hoặc nhân viên shop sử dụng thẻ tín dụng của Ngân hàng hỗ trợ để thanh toán ngay trên website như form trên </p>
+                    </li>
+                     <li>
+                        <img src="{$option.static_path}alepay/icon7.png" alt="">
+                        <p><strong>Bước 3:</strong></p>
+                        <p>Giao dịch thành công, tổng đài viên sẽ liên hệ khách hàng để xác nhận chuyển đổi giao dịch sang trả góp, khách hàng đồng ý và nhận sản phẩm</p>
+                    </li>
+                    <li>
+                        <img src="{$option.static_path}alepay/icon8.png" alt="">
+                        <p><strong>Bước 4:</strong></p>
+                        <p>Hàng tháng khách hàng có trách nhiệm thanh toán tiền trả góp cho Ngân hàng phát hành thẻ theo chu kỳ đã chọn</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{include file='library/page_footer.lbi'}
+<script type="text/javascript" src="{$option.static_path}js/cleave.js"></script>
+<script type="text/javascript">
+   var cleave = new Cleave('.input-element', {
+        numeral: true,
+        numeralThousandsGroupStyle: 'thousand'
+    });
+</script>
+</body>
+</html>
+

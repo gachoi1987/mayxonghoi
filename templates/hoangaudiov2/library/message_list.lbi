@@ -1,0 +1,78 @@
+<form action="lien-he" method="post" onSubmit="return submitMsgBoard(this)" class="message-form">
+    <div class="text">
+        Mọi ý kiến đóng góp, liên hệ, khiếu nại khác vui lòng điền đầy đủ thông tin và gửi đến chúng tôi. Bộ phận hỗ trợ khách hàng sẽ phản hồi sớm nhất khi nhận được thông tin.
+    </div>
+    <input type="text" name="user_name" placeholder="{$lang.username} (Bắt buộc, 8 ký tự)" minlength="8" required>
+    <input type="tel" name="user_tel" value=""  required placeholder="Số điện thoại (Bắt buộc)">
+    <input type="email" name="user_email" placeholder="{$lang.email} (Tùy chọn)" required>
+    <div class="radio_wrap label">
+        <label><input type="radio" name="msg_type" value="0" checked="checked">{$lang.message_type[0]}</label>
+        <label><input type="radio" name="msg_type" value="1">{$lang.message_type[1]}</label>
+        <label><input type="radio" name="msg_type" value="2">{$lang.message_type[2]}</label>
+        <label><input type="radio" name="msg_type" value="4">{$lang.message_type[4]}</label>
+        <label><input type="radio" name="msg_type" value="3">{$lang.message_type[3]}</label>
+    </div>
+    <input type="text" name="msg_title" placeholder="{$lang.message_title} (Bắt buộc)" minlength="20" required>
+    <textarea name="msg_content" rows="3" cols="20" minlength="60" required placeholder="Nội dung vui lòng viết tiếng việt có dấu và ít nhất 60 ký tự."></textarea>
+    {if $enabled_mes_captcha}
+        <input placeholder="{$lang.comment_captcha}" class="incaptcha" minlength="4" maxlength="4" type="text" name="captcha" required><img src="{$option.static_path}ajax/captcha.php?{$rand}" alt="{$lang.comment_captcha}" class="captcha tip" title="{$lang.captcha_tip}" onClick="this.src='{$option.static_path}ajax/captcha.php?'+Math.random()">
+    {/if}
+    <div class="submit_wrap">
+        <input type="submit" class="button" value="{$lang.post_message}">
+        <input type="hidden" name="act" value="act_add_message">
+        <input type="hidden" name="id" value="{$id}">
+    </div>
+</form>
+<script type="text/javascript">
+{foreach from=$lang.message_board_js item=item key=key}
+var {$key} = '{$item}';
+{/foreach}
+{literal}
+function submitMsgBoard(frm)
+{
+    var msg = new Object;
+    msg.user_name   = frm.elements['user_name'].value;
+    msg.user_email  = frm.elements['user_email'].value;
+    msg.msg_title   = frm.elements['msg_title'].value;
+    msg.msg_content = frm.elements['msg_content'].value;
+    msg.captcha     = frm.elements['captcha'] ? frm.elements['captcha'].value : '';
+    var msg_err = '';
+    if (msg.user_email.length > 0)
+    {
+        if (!isValidEmail(msg.user_email))
+        {
+            msg_err += msg_error_email + '\n';
+        }
+    }
+    else
+    {
+        msg_err += msg_empty_email + '\n';
+    }
+    if (msg.msg_title.length == 0)
+    {
+        msg_err += msg_title_empty + '\n';
+    }
+    if (frm.elements['captcha'] && msg.captcha.length==0)
+    {
+        msg_err += msg_captcha_empty + '\n'
+    }
+    if (msg.msg_content.length == 0)
+    {
+        msg_err += msg_content_empty + '\n'
+    }
+    if (msg.msg_title.length > 200)
+    {
+        msg_err += msg_title_limit + '\n';
+    }
+    if (msg_err.length > 0)
+    {
+        alert(msg_err);
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+{/literal}
+</script>

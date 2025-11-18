@@ -1,0 +1,312 @@
+footer{border-top: 2px solid #ececec;margin-top: 30px;}
+body{background: #f4f4f4}
+
+
+/* goods_list */
+.cate {
+    border-left: 1px solid #ececec;
+    border-top: 1px solid #ececec;
+    display: block;
+    margin: 5px auto 15px;
+    overflow: hidden;
+    width: 100%;
+    background: #fff
+}
+.cate li {
+    border-bottom: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+    cursor: pointer;
+    float: left;
+    height: 290px;
+    overflow: hidden;
+    position: relative;
+    width: 16.584%;
+
+}
+.cate li a {
+    display: block;
+    overflow: hidden;
+    padding: 0 10px 8px;
+}
+.cate li h3 {
+    clear: both;
+    color: #444;
+    display: block;
+    font-size: 14px;
+    line-height: 1.3em;
+    max-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.cate li strong {
+    color: #f60;
+    display: inline-block;
+    font-size: 14px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.cate li strong span {
+    color: #333;
+    display: inline;
+    font-size: 14px;
+}
+.cate li strong span.normal {
+    font-weight: normal;
+}
+.cate li img {
+    display: block;
+    height: 150px;
+    margin: 17px auto;
+    transition: all 200ms ease 0s;
+    width: 150px;
+}
+.cate li .promotion {
+    display: block;
+    max-height: 36px;
+    overflow: hidden;
+}
+.cate li span, .cate li .promotion p  {
+    color: #666;
+    display: block;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cate li .promotion p::before {
+    color: #999;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.cate li p {
+    color: #c1000c;
+    display: block;
+    font-size: 12px;
+    height: 18px;
+    overflow: hidden;
+    width: 100%;
+}
+.cate li label {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    float: right;
+    font-size: 11px;
+    font-weight: 600;
+    height: 18px;
+    margin: 1px 0 0 5px;
+    padding: 0 5px 0 8px;
+    position: relative;
+    vertical-align: middle;
+}
+.cate li label.installment {
+    background: #ff6a00 none repeat scroll 0 0;
+}
+.cate li label.installment::before {
+    border-bottom: 9px solid transparent;
+    border-right: 7px solid #ff6a00;
+    border-top: 9px solid transparent;
+    content: "";
+    height: 0;
+    left: -6px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.cate li label.installment::after {
+    color: #fff;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    position: absolute;
+    right: 85%;
+    top: 1px;
+    vertical-align: middle;
+}
+.cate li label.new {
+    background: #288ad6 none repeat scroll 0 0;
+}
+.cate li label.new::before {
+    border-bottom: 9px solid transparent;
+    border-right: 7px solid #288ad6;
+    border-top: 9px solid transparent;
+    content: "";
+    height: 0;
+    left: -6px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.cate li label.new::after {
+    color: #fff;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    position: absolute;
+    right: 85%;
+    top: 1px;
+    vertical-align: middle;
+}
+.cate li label.shockprice {
+    background: #3fb846 none repeat scroll 0 0;
+}
+.cate li label.shockprice::before {
+    border-bottom: 9px solid transparent;
+    border-right: 7px solid #3fb846;
+    border-top: 9px solid transparent;
+    content: "";
+    height: 0;
+    left: -6px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.cate li label.shockprice::after {
+    color: #fff;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    position: absolute;
+    right: 85%;
+    top: 1px;
+    vertical-align: middle;
+}
+.cate li label.compr {
+    bottom: 10px;
+    color: #288ad6;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    pointer-events: all;
+    position: absolute;
+    right: 10px;
+    z-index: 9;
+}
+.cate li .compr:hover {
+    color: #333;
+    text-decoration: underline;
+}
+.cate li.feature {
+    width: 33.25%;
+}
+.cate li.feature a {
+    padding: 0;
+}
+.cate li.feature img {
+    display: block;
+    float: none;
+    height: 185px;
+    margin: -5px auto 5px;
+    width: 400px;
+}
+.cate li.feature label {
+    margin-right: 10px;
+}
+.cate li.feature h3 {
+    height: auto;
+    padding: 0 10px;
+}
+.cate li.feature strong {
+    padding: 0 10px;
+}
+.cate li.feature .promotion {
+    height: auto;
+    margin: 0 10px;
+    max-height: none;
+    padding: 0 0 5px;
+}
+.cate li .feature .promotion span {
+    display: block;
+    line-height: 18px;
+    padding: 2px 0;
+}
+.cate li .bginfo {
+    background: #fff none repeat scroll 0 0;
+    bottom: 0;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    height: 95%;
+    left: 0;
+    line-height: 16px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 2% 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 1s;
+    z-index: 9;
+}
+.cate li:hover .bginfo {
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+.cate li .bginfo h3 {
+    color: #288ad6;
+    padding: 0 10px;
+}
+.cate li .bginfo strong {
+    color: #d0021b;
+    display: inline-block;
+    float: none;
+    line-height: 20px;
+    padding-left: 10px;
+}
+.cate li .bginfo strong span {
+    color: #333;
+    display: inline;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+.cate li .bginfo strong span.normal {
+    color: #333;
+    display: inline;
+    font-weight: normal;
+}
+.cate li .bginfo p {
+    color: #666;
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 2px 10px;
+    text-decoration: none;
+}
+.cate li .bginfo .name {
+    clear: both;
+    color: #288ad6;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3em;
+    max-height: 36px;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.cate li .bginfo .promotion {
+    border-bottom: 1px solid #eee;
+    padding: 0 0 5px;
+}
+.cate li .bginfo .promotion span {
+    padding: 0;
+}
+.cate li .bginfo .promotion span::before {
+    color: #999;
+    content: "•";
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.cate.normal li .promotion {
+    padding-top: 4px;
+}

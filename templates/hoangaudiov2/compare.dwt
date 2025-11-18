@@ -1,0 +1,73 @@
+{include file='library/html_header.lbi'}
+{insert_css files="css/style.css,css/compare.css"}
+</head>
+<body id="page_{$pname}" class="animated fadeIn">
+{include file='library/page_header.lbi'}
+<section>
+    <h1 class="compare-title">
+    So sánh
+    {foreach from=$goods_list item=goods name=goods_list}
+        <strong>
+        {if $smarty.foreach.goods_list.last}
+        {$goods.goods_name|truncate:30}
+        {else}
+        {$goods.goods_name|truncate:30} và
+        {/if}
+        </strong>
+     {/foreach}
+    </h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>&nbsp;</th>
+                        {foreach from=$goods_list item=goods name=goods_list}
+                        <td class="goods {if $smarty.foreach.goods_list.index %2==0}odd{else}even{/if}{if $smarty.foreach.goods_list.last} last{/if} center">
+                             {if $smarty.foreach.goods_list.total gt 2}
+                             <span class="remove"><a href="sosanh?{$goods.ids}" onclick="return compareRemove({$goods.goods_id});"><span>x</span></a></span>
+                             {/if}
+                            <a href="{$goods.url}">
+                            <img src="{$option.cdn1_path}{$goods.goods_thumb}" alt="{$goods.goods_name}"/>
+                            <h3>{$goods.goods_name}</h3>
+                            <strong>{$goods.shop_price}</strong>
+                            </a>
+                        </td>
+                        {/foreach}
+                    </tr>
+
+                    <tr>
+                        <th>{$lang.brand}{$lang.colon}</th>
+                        {foreach from=$goods_list item=goods name=goods_list}
+                        <td class="{if $smarty.foreach.goods_list.index %2==0}odd{else}even{/if}{if $smarty.foreach.goods_list.last} last{/if}">{$goods.brand_name}</td>
+                        {/foreach}
+                    </tr>
+                    <tr>
+                        <th>{$lang.goods_weight}</th>
+                        {foreach from=$goods_list item=goods name=goods_list}
+                        <td class="{if $smarty.foreach.goods_list.index %2==0}odd{else}even{/if}{if $smarty.foreach.goods_list.last} last{/if}">{$goods.goods_weight}</td>
+                        {/foreach}
+                    </tr>
+                    {foreach key=key from=$attribute item=val}
+                    <tr>
+                        <th>{$val}{$lang.colon}</th>
+                        {foreach from=$goods_list item=goods name=goods_list}
+                        <td class="{if $smarty.foreach.goods_list.index %2==0}odd{else}even{/if}{if $smarty.foreach.goods_list.last} last{/if}">
+                        {foreach from=$goods.properties item=property key=k}
+                        {if $k eq $key}{$property.value}{/if}
+                        {/foreach}
+                        </td>
+                        {/foreach}
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <th>&nbsp;</th>
+                        {foreach from=$goods_list item=goods name=goods_list}
+                        <td class="{if $smarty.foreach.goods_list.index %2==0}odd{else}even{/if}{if $smarty.foreach.goods_list.last} last{/if} center"><a href="javascript:buy({$goods.goods_id})" class="button brighter_button"><span>{$lang.btn_buy}</span></a></td>
+                        {/foreach}
+                    </tr>
+                </tbody>
+            </table>
+</section>
+{include file='library/page_footer.lbi'}
+{insert_js name='compare.Desktop.min.js' no_minify='js/jquery.min.1.8.3.js,js/plugins.js,js/lang.vi_vn.js,owl-carousel/owl.carousel.min.js' minify='js/global.js,js/init.js' }
+</body>
+</html>
